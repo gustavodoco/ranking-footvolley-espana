@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liga Nacional de Footvolley España 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            flex: 1;
+            min-width: 120px;
+            padding: 15px 20px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .tab:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .tab.active {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .view-btn {
+            padding: 10px 20px;
+            background: #f5f5f5;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .view-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        th.sortable {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        th.sortable:hover {
+            background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
+        }
+
+        th.sortable::after {
+            content: ' ⇅';
+            opacity: 0.5;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        tr:hover {
+            background: #f8f9ff;
+        }
+
+        .position {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #667eea;
+        }
+
+        .position-1 { color: #FFD700; }
+        .position-2 { color: #C0C0C0; }
+        .position-3 { color: #CD7F32; }
+
+        .points {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .club-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+        }
+
+        .club-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .club-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .club-stats {
+            display: flex;
+            gap: 20px;
+            color: #666;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .etapa-header {
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 8px 5px;
+            }
+
+            .etapa-header {
+                display: none;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏐 Liga Nacional de Footvolley</h1>
+            <p>Ranking 2025 - España</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab active" data-category="oro">ORO</button>
+            <button class="tab" data-category="plata">PLATA</button>
+            <button class="tab" data-category="bronce">BRONCE</button>
+            <button class="tab" data-category="femenino">FEMENINO</button>
+        </div>
+
+        <div class="content-card">
+            <div class="view-toggle">
+                <button class="view-btn active" data-view="players">Jugadores</button>
+                <button class="view-btn" data-view="clubs">Clubes</button>
+            </div>
+
+            <div class="filters" id="player-filters">
+                <div class="filter-group">
+                    <label>Buscar jugador</label>
+                    <input type="text" id="search-player" placeholder="Nombre del jugador...">
+                </div>
+                <div class="filter-group">
+                    <label>Filtrar por club</label>
+                    <select id="filter-club">
+                        <option value="">Todos los clubes</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="players-view">
+                <table id="ranking-table">
+                    <thead>
+                        <tr>
+                            <th>Pos</th>
+                            <th class="sortable" data-sort="name">Jugador</th>
+                            <th class="sortable" data-sort="club">Club</th>
+                            <th class="sortable" data-sort="points_2024">2024</th>
+                            <th class="sortable etapa-header" data-sort="etapa_1">Etapa 1<br><small>Ibiza</small></th>
+                            <th class="sortable etapa-header" data-sort="etapa_2">Etapa 2<br><small>Alicante</small></th>
+                            <th class="sortable etapa-header" data-sort="etapa_3">Etapa 3<br><small>Donosti</small></th>
+                            <th class="sortable etapa-header" data-sort="etapa_4">Etapa 4<br><small>Vigo</small></th>
+                            <th class="sortable etapa-header" data-sort="etapa_5">Etapa 5<br><small>Barcelona</small></th>
+                            <th class="sortable" data-sort="total">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ranking-body">
+                    </tbody>
+                </table>
+                <div id="no-results" class="no-results hidden">
+                    No se encontraron resultados
+                </div>
+            </div>
+
+            <div id="clubs-view" class="hidden">
+                <div id="clubs-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let rankingData = {};
+        let currentCategory = 'oro';
+        let currentView = 'players';
+        let currentSort = { field: 'total', ascending: false };
+
+        // Cargar datos
+        fetch('ranking_data.json')
+            .then(response => response.json())
+            .then(data => {
+                rankingData = data;
+                updateView();
+            });
+
+        // Tabs
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentCategory = tab.dataset.category;
+                updateView();
+            });
+        });
+
+        // View toggle
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentView = btn.dataset.view;
+                updateView();
+            });
+        });
+
+        // Filtros
+        document.getElementById('search-player').addEventListener('input', updatePlayersView);
+        document.getElementById('filter-club').addEventListener('change', updatePlayersView);
+
+        // Sorting
+        document.querySelectorAll('th.sortable').forEach(th => {
+            th.addEventListener('click', () => {
+                const field = th.dataset.sort;
+                if (currentSort.field === field) {
+                    currentSort.ascending = !currentSort.ascending;
+                } else {
+                    currentSort.field = field;
+                    currentSort.ascending = false;
+                }
+                updatePlayersView();
+            });
+        });
+
+        function updateView() {
+            if (currentView === 'players') {
+                document.getElementById('players-view').classList.remove('hidden');
+                document.getElementById('clubs-view').classList.add('hidden');
+                document.getElementById('player-filters').style.display = 'flex';
+                updateClubFilter();
+                updatePlayersView();
+            } else {
+                document.getElementById('players-view').classList.add('hidden');
+                document.getElementById('clubs-view').classList.remove('hidden');
+                document.getElementById('player-filters').style.display = 'none';
+                updateClubsView();
+            }
+        }
+
+        function updateClubFilter() {
+            const select = document.getElementById('filter-club');
+            const clubs = [...new Set(rankingData[currentCategory].map(p => p.club))].sort();
+            
+            select.innerHTML = '<option value="">Todos los clubes</option>';
+            clubs.forEach(club => {
+                if (club) {
+                    const option = document.createElement('option');
+                    option.value = club;
+                    option.textContent = club;
+                    select.appendChild(option);
+                }
+            });
+        }
+
+        function updatePlayersView() {
+            const tbody = document.getElementById('ranking-body');
+            const searchTerm = document.getElementById('search-player').value.toLowerCase();
+            const clubFilter = document.getElementById('filter-club').value;
+
+            let players = [...rankingData[currentCategory]];
+
+            // Filtrar
+            players = players.filter(p => {
+                const matchesSearch = p.name.toLowerCase().includes(searchTerm);
+                const matchesClub = !clubFilter || p.club === clubFilter;
+                return matchesSearch && matchesClub;
+            });
+
+            // Ordenar
+            players.sort((a, b) => {
+                let aVal = a[currentSort.field];
+                let bVal = b[currentSort.field];
+                
+                if (typeof aVal === 'string') {
+                    aVal = aVal.toLowerCase();
+                    bVal = bVal.toLowerCase();
+                }
+                
+                if (currentSort.ascending) {
+                    return aVal > bVal ? 1 : -1;
+                } else {
+                    return aVal < bVal ? 1 : -1;
+                }
+            });
+
+            tbody.innerHTML = '';
+            const noResults = document.getElementById('no-results');
+
+            if (players.length === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+                players.forEach((player, index) => {
+                    const row = document.createElement('tr');
+                    const posClass = index < 3 ? `position-${index + 1}` : '';
+                    
+                    row.innerHTML = `
+                        <td class="position ${posClass}">${index + 1}</td>
+                        <td><strong>${player.name}</strong></td>
+                        <td>${player.club || '-'}</td>
+                        <td>${player.points_2024 || 0}</td>
+                        <td>${player.etapa_1 || 0}</td>
+                        <td>${player.etapa_2 || 0}</td>
+                        <td>${player.etapa_3 || 0}</td>
+                        <td>${player.etapa_4 || 0}</td>
+                        <td>${player.etapa_5 || 0}</td>
+                        <td class="points">${player.total}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+        }
+
+        function updateClubsView() {
+            const clubsList = document.getElementById('clubs-list');
+            const clubs = rankingData.club_rankings[currentCategory];
+
+            clubsList.innerHTML = '';
+            clubs.forEach((club, index) => {
+                const posClass = index < 3 ? `position-${index + 1}` : '';
+                const card = document.createElement('div');
+                card.className = 'club-card';
+                card.innerHTML = `
+                    <div class="club-name">
+                        <span class="position ${posClass}">#${club.position}</span> ${club.name}
+                    </div>
+                    <div class="club-stats">
+                        <div class="stat">
+                            <span class="stat-label">Puntos totales</span>
+                            <span class="stat-value">${club.points}</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Jugadores</span>
+                            <span class="stat-value">${club.players}</span>
+                        </div>
+                    </div>
+                `;
+                clubsList.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
