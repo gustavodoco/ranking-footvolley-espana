@@ -3,7 +3,7 @@
     {
       "name": "Bruno Perone",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 7720,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -15,7 +15,7 @@
     {
       "name": "Carlos Delgado",
       "club": "FTV Alicante",
-      "points_2024": 0,
+      "points_2025": 7200,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -27,7 +27,7 @@
     {
       "name": "Daine Morris",
       "club": "CD Serfay",
-      "points_2024": 0,
+      "points_2025": 7140,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -39,7 +39,7 @@
     {
       "name": "Facu Silva",
       "club": "CD Serfay",
-      "points_2024": 0,
+      "points_2025": 7120,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -47,83 +47,83 @@
       "etapa_5": 0,
       "total": 0,
       "position": 4
-    },
-    {
-      "name": "Klemens Hofmann Wellenhof",
-      "club": "AFB",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 5
     },
     {
       "name": "Michael Elias",
       "club": "CD Serfay",
-      "points_2024": 0,
+      "points_2025": 6380,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 6
+      "position": 5
     },
     {
       "name": "Miquel Marin",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 6040,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 7
+      "position": 6
     },
     {
       "name": "Pablo Carcelen",
       "club": "FTV Alicante",
-      "points_2024": 0,
+      "points_2025": 5960,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 8
+      "position": 7
     },
     {
       "name": "Fernando Amalfitano",
       "club": "FTV Alicante",
-      "points_2024": 0,
+      "points_2025": 5520,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 9
+      "position": 8
     },
     {
       "name": "Jonathan Puig",
       "club": "FTV Alicante",
-      "points_2024": 0,
+      "points_2025": 5520,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 10
+      "position": 9
     },
     {
       "name": "Mario Compte",
       "club": "CD Serfay",
-      "points_2024": 0,
+      "points_2025": 5200,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 10
+    },
+    {
+      "name": "Joel Cortés",
+      "club": "CD Serfay",
+      "points_2025": 4880,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -131,1117 +131,431 @@
       "etapa_5": 0,
       "total": 0,
       "position": 11
-    },
-    {
-      "name": "Jakob Hofmann Wellenhof",
-      "club": "AFB",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 12
-    },
-    {
-      "name": "Joel Cortés",
-      "club": "Valencia",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 13
-    },
-    {
-      "name": "Sergi Talavera",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 14
     },
     {
       "name": "Gustavo Folhas",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 4400,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 15
+      "position": 12
     },
     {
       "name": "Mario Segura",
       "club": "Valencia",
-      "points_2024": 0,
+      "points_2025": 4080,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 16
+      "position": 13
     },
     {
       "name": "Jonathan Rodrigues",
       "club": "AFB",
-      "points_2024": 0,
+      "points_2025": 3520,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 17
+      "position": 14
     },
     {
       "name": "Kaue Rivera",
       "club": "FTV Alicante",
-      "points_2024": 0,
+      "points_2025": 3200,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 18
+      "position": 15
     },
     {
       "name": "Yan Claro",
       "club": "AFB",
-      "points_2024": 0,
+      "points_2025": 2320,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 19
+      "position": 16
     },
     {
       "name": "Julen Dalmagro",
       "club": "FTV Alicante",
-      "points_2024": 0,
+      "points_2025": 2280,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 20
-    },
-    {
-      "name": "Iñaki Moraza",
-      "club": "Donosti",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 21
+      "position": 17
     },
     {
       "name": "Flavio de Barros",
       "club": "AFB",
-      "points_2024": 0,
+      "points_2025": 1840,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 22
+      "position": 18
+    },
+    {
+      "name": "Iñaki Moraza",
+      "club": "Donosti",
+      "points_2025": 1840,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 19
     },
     {
       "name": "Robert Arteaga",
       "club": "FTV Alicante",
-      "points_2024": 0,
+      "points_2025": 1600,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 23
-    },
-    {
-      "name": "Jaime Lara",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 24
+      "position": 20
     },
     {
       "name": "Igor de la Fuente",
       "club": "Donosti",
-      "points_2024": 0,
+      "points_2025": 1400,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 25
+      "position": 21
     },
     {
       "name": "Roberto Rebull",
       "club": "Valencia",
-      "points_2024": 0,
+      "points_2025": 1080,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 26
-    },
-    {
-      "name": "Nesthor Velazquez",
-      "club": "Donosti",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 27
-    },
-    {
-      "name": "Nicolás Esteban Meucci",
-      "club": "CD Serfay",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 28
+      "position": 22
     },
     {
       "name": "Emmanuel Simón",
       "club": "FTV Alicante",
-      "points_2024": 0,
+      "points_2025": 880,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 29
+      "position": 23
+    },
+    {
+      "name": "Nesthor Velazquez",
+      "club": "Donosti",
+      "points_2025": 880,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 24
+    },
+    {
+      "name": "Nicolás Esteban Meucci",
+      "club": "CD Serfay",
+      "points_2025": 880,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 25
     },
     {
       "name": "Frank Cortés",
       "club": "FTV Alicante",
-      "points_2024": 0,
+      "points_2025": 680,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 30
-    },
-    {
-      "name": "Hernán Lopez",
-      "club": "AD Ibiza",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 31
+      "position": 26
     },
     {
       "name": "Falk Siegel",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 640,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 32
+      "position": 27
+    },
+    {
+      "name": "Hernán Lopez",
+      "club": "AD Ibiza",
+      "points_2025": 640,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 28
     },
     {
       "name": "Lorenzo Messina",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 640,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 33
+      "position": 29
     },
     {
       "name": "Sergio Fabián Silva",
       "club": "CD Serfay",
-      "points_2024": 0,
+      "points_2025": 640,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 34
-    },
-    {
-      "name": "Diego Ferreira",
-      "club": "Vigo",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 35
-    },
-    {
-      "name": "Adolfo Pérez",
-      "club": "Vigo",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 36
-    },
-    {
-      "name": "Daniel Martinez",
-      "club": "FTV Alicante",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 37
-    },
-    {
-      "name": "Néstor Guanes",
-      "club": "AD Ibiza",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 38
-    },
-    {
-      "name": "Eduardo Baquero",
-      "club": "Valencia",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 39
+      "position": 30
     },
     {
       "name": "Aitor Ancin",
       "club": "Donosti",
-      "points_2024": 0,
+      "points_2025": 440,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 40
-    },
-    {
-      "name": "Benedikt Hofmann Wellenhof",
-      "club": "CD Serfay",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 41
+      "position": 31
     },
     {
       "name": "Augusto de Faria",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 440,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 42
+      "position": 32
     },
     {
-      "name": "Gustavo Doco",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Eduardo Baquero",
+      "club": "Valencia",
+      "points_2025": 440,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 43
+      "position": 33
     },
     {
       "name": "Ayrton Palomares",
       "club": "Valencia",
-      "points_2024": 0,
+      "points_2025": 240,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 44
+      "position": 34
     },
     {
       "name": "Nestor Tomé Agudelo",
       "club": "CD Serfay",
-      "points_2024": 0,
+      "points_2025": 240,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 45
-    },
-    {
-      "name": "Miguel Angel Barcelo",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 46
+      "position": 35
     },
     {
       "name": "Alejandro Balcazar",
       "club": "AD Ibiza",
-      "points_2024": 0,
+      "points_2025": 120,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 47
+      "position": 36
     },
     {
       "name": "Alejandro Faurlin",
       "club": "Madrid FTV Club",
-      "points_2024": 0,
+      "points_2025": 120,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 48
-    },
-    {
-      "name": "Diego Alberto Sosa",
-      "club": "Madrid FTV Club",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 49
-    },
-    {
-      "name": "Ricardo Jorge",
-      "club": "Valencia",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 50
+      "position": 37
     },
     {
       "name": "Cristian Leal",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 120,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 51
+      "position": 38
     },
     {
       "name": "Kiko Besa",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 120,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 52
+      "position": 39
     },
     {
-      "name": "Albert Pagola",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Miguel Angel Barcelo",
+      "club": "Mallorca FTV",
+      "points_2025": 120,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 53
+      "position": 40
+    },
+    {
+      "name": "Ricardo Jorge",
+      "club": "Valencia",
+      "points_2025": 120,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 41
+    },
+    {
+      "name": "Alexander Peitler",
+      "club": "CD Serfay",
+      "points_2025": 0,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 42
     },
     {
       "name": "David Romero",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 54
+      "position": 43
     },
     {
-      "name": "Leonardo Oliveira",
-      "club": "Madrid FTV Club",
-      "points_2024": 0,
+      "name": "Enzo Riedmann",
+      "club": "AFB",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 55
+      "position": 44
     },
     {
-      "name": "Maximiliano Sosa Ganio",
-      "club": "Praia-Arit",
-      "points_2024": 0,
+      "name": "Guilherme Santos",
+      "club": "Vigo",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 56
+      "position": 45
     },
     {
-      "name": "Miguel Castro",
-      "club": "Madrid FTV Club",
-      "points_2024": 0,
+      "name": "Jacob Domke",
+      "club": "Donosti",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
       "etapa_4": 0,
       "etapa_5": 0,
       "total": 0,
-      "position": 57
-    }
-  ],
-  "plata": [
-    {
-      "name": "Alexander Peitler",
-      "club": "CD Serfay",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 1
-    },
-    {
-      "name": "Stephan Lutz",
-      "club": "CD Serfay",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 2
-    },
-    {
-      "name": "Juanmi Hdez.",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 3
-    },
-    {
-      "name": "Pedro Frau",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 4
+      "position": 46
     },
     {
       "name": "Jorge Martins",
       "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 5
-    },
-    {
-      "name": "Marcelo Lara",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 6
-    },
-    {
-      "name": "Guillem Torres",
-      "club": "Valencia",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 7
-    },
-    {
-      "name": "Antonio Martín",
-      "club": "Valencia",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 8
-    },
-    {
-      "name": "Imanol Gereka",
-      "club": "Donosti",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 9
-    },
-    {
-      "name": "Xabi Urbistondo",
-      "club": "Donosti",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 10
-    },
-    {
-      "name": "Marco de Mello",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 11
-    },
-    {
-      "name": "Bartosz Wybraniec",
-      "club": "AFB",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 12
-    },
-    {
-      "name": "Juan Cebada",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 13
-    },
-    {
-      "name": "Jonathan Cancino",
-      "club": "Madrid FTV Club",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 14
-    },
-    {
-      "name": "Carlos Martínez",
-      "club": "Valencia",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 15
-    },
-    {
-      "name": "Lucas Faustini",
-      "club": "AFB",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 16
-    },
-    {
-      "name": "Fran Bogarín",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 17
-    },
-    {
-      "name": "Andrea Storto",
-      "club": "AFB",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 18
-    },
-    {
-      "name": "Victor Gil Arruti",
-      "club": "Donosti",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 19
-    },
-    {
-      "name": "Maxi Cebada",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 20
-    },
-    {
-      "name": "Andrés Guillén",
-      "club": "FTV Alicante",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 21
-    },
-    {
-      "name": "Germán Spinelli",
-      "club": "FTV Alicante",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 22
-    },
-    {
-      "name": "Óscar Gómez",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 23
-    },
-    {
-      "name": "Facundo Gonzalez",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 24
-    },
-    {
-      "name": "Carlos Lago",
-      "club": "Vigo",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 25
-    },
-    {
-      "name": "Valerio Petrini",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 26
-    },
-    {
-      "name": "Guillermo Montolivo",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 27
-    },
-    {
-      "name": "Joxe Indo",
-      "club": "Donosti",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 28
-    },
-    {
-      "name": "Felipe Manzanaro",
-      "club": "FTV Alicante",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 29
-    },
-    {
-      "name": "Ivan Grom",
-      "club": "CD Serfay",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 30
-    },
-    {
-      "name": "Emilio Clemente",
-      "club": "FTV Alicante",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 31
-    },
-    {
-      "name": "Gui Nascimento",
-      "club": "Valencia",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 32
-    },
-    {
-      "name": "Dino Manasseri",
-      "club": "AD Ibiza",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 33
-    },
-    {
-      "name": "Oskaras Pokanevic",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 34
-    },
-    {
-      "name": "Marcelo Nery",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 35
-    },
-    {
-      "name": "Leonardo Brandariz",
-      "club": "Vigo",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 36
-    },
-    {
-      "name": "Matteo Schiavone",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 37
-    },
-    {
-      "name": "Juanjo Aritmendi",
-      "club": "Praia-Arit",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 38
-    },
-    {
-      "name": "Luis Sieira",
-      "club": "Valencia",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 39
-    },
-    {
-      "name": "Juan Luis del Rey",
-      "club": "FTV Alicante",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 40
-    },
-    {
-      "name": "Alexandro Cortes",
-      "club": "Los Cristianos",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 41
-    },
-    {
-      "name": "Enrique Sánchez",
-      "club": "CD Serfay",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 42
-    },
-    {
-      "name": "Bruno Santos",
-      "club": "AFB",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 43
-    },
-    {
-      "name": "Joao Cardoso",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 44
-    },
-    {
-      "name": "Germán Martínez",
-      "club": "Vigo",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 45
-    },
-    {
-      "name": "Manuel Gago",
-      "club": "AD Ibiza",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 46
-    },
-    {
-      "name": "Gherard Zuber",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1251,9 +565,9 @@
       "position": 47
     },
     {
-      "name": "Miguel Angel Benassar",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Juanmi Hdez.",
+      "club": "Mallorca FTV",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1263,9 +577,9 @@
       "position": 48
     },
     {
-      "name": "Nicolás Robledo",
-      "club": "Madrid FTV Club",
-      "points_2024": 0,
+      "name": "Luiz Gonzaga",
+      "club": "Vigo",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1275,9 +589,9 @@
       "position": 49
     },
     {
-      "name": "Adán Fabian",
+      "name": "Líder Rojas",
       "club": "Madrid FTV Club",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1287,9 +601,9 @@
       "position": 50
     },
     {
-      "name": "Javi Gil Puig",
-      "club": "Valencia",
-      "points_2024": 0,
+      "name": "Matías Broglitti",
+      "club": "Los Cristianos",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1299,9 +613,9 @@
       "position": 51
     },
     {
-      "name": "Huascar Joe Perez",
-      "club": "Vigo",
-      "points_2024": 0,
+      "name": "Maximiliano Sosa Ganio",
+      "club": "Praia-Arit",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1311,9 +625,9 @@
       "position": 52
     },
     {
-      "name": "Alberto Quintas",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Miguel Castro",
+      "club": "Madrid FTV Club",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1323,9 +637,9 @@
       "position": 53
     },
     {
-      "name": "Joy Wu",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Stephan Lutz",
+      "club": "CD Serfay",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1335,9 +649,9 @@
       "position": 54
     },
     {
-      "name": "Lenny Quintas",
+      "name": "Yan Afonso",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1345,253 +659,13 @@
       "etapa_5": 0,
       "total": 0,
       "position": 55
-    },
-    {
-      "name": "Angel Villalba",
-      "club": "Vigo",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 56
-    },
-    {
-      "name": "Óscar Moure",
-      "club": "Vigo",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 57
-    },
-    {
-      "name": "Andrey Gumeiro",
-      "club": "AD Ibiza",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 58
-    },
-    {
-      "name": "Fernando Barrio",
-      "club": "AD Ibiza",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 59
-    },
-    {
-      "name": "Fernando Dalago",
-      "club": "FTV Alicante",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 60
-    },
-    {
-      "name": "Oleh Usychenko",
-      "club": "CD Serfay",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 61
-    },
-    {
-      "name": "Andrew Luke",
-      "club": "FTV Alicante",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 62
-    },
-    {
-      "name": "Rafa Dantas",
-      "club": "Madrid FTV Club",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 63
-    },
-    {
-      "name": "Sebastian Danilo Sanchez",
-      "club": "Madrid FTV Club",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 64
-    },
-    {
-      "name": "Francisco Javi Souto",
-      "club": "CD Serfay",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 65
-    },
-    {
-      "name": "Jon Villena",
-      "club": "Donosti",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 66
-    },
-    {
-      "name": "Sascha Dietzler",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 67
-    },
-    {
-      "name": "Enric Ferrer",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 68
-    },
-    {
-      "name": "Xavi Ferrer",
-      "club": "Los Cristianos",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 69
-    },
-    {
-      "name": "Chema Espuig",
-      "club": "Valencia",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 70
-    },
-    {
-      "name": "Marcelo Pescio",
-      "club": "CD Serfay",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 71
-    },
-    {
-      "name": "Óscar Fumero",
-      "club": "Los Cristianos",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 72
-    },
-    {
-      "name": "Óscar Martínez",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 73
-    },
-    {
-      "name": "Timea Kapusi",
-      "club": "AFB",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 74
-    },
-    {
-      "name": "Tomás Delgado",
-      "club": "Praia-Arit",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 75
     }
   ],
-  "bronce": [
+  "plata": [
     {
-      "name": "Hudson Torres",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Guillem Torres",
+      "club": "Valencia",
+      "points_2025": 4200,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1601,9 +675,9 @@
       "position": 1
     },
     {
-      "name": "Jaume Llompart",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Antonio Martín",
+      "club": "Valencia",
+      "points_2025": 4160,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1613,9 +687,9 @@
       "position": 2
     },
     {
-      "name": "Omar Jover",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Imanol Gereka",
+      "club": "Donosti",
+      "points_2025": 3880,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1625,9 +699,9 @@
       "position": 3
     },
     {
-      "name": "Jon Sarasua",
+      "name": "Xabi Urbistondo",
       "club": "Donosti",
-      "points_2024": 0,
+      "points_2025": 3880,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1637,9 +711,9 @@
       "position": 4
     },
     {
-      "name": "Unai Oñate",
-      "club": "Donosti",
-      "points_2024": 0,
+      "name": "Marco de Mello",
+      "club": "BCN Footvolley",
+      "points_2025": 3720,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1649,9 +723,9 @@
       "position": 5
     },
     {
-      "name": "Francesco Ranalli",
-      "club": "CD Serfay",
-      "points_2024": 0,
+      "name": "Bartosz Wybraniec",
+      "club": "AFB",
+      "points_2025": 2880,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1661,9 +735,9 @@
       "position": 6
     },
     {
-      "name": "Ricardo Gasparoni",
-      "club": "CD Serfay",
-      "points_2024": 0,
+      "name": "Jonathan Cancino",
+      "club": "Madrid FTV Club",
+      "points_2025": 2680,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1673,9 +747,9 @@
       "position": 7
     },
     {
-      "name": "Giorgi Kvernadze",
-      "club": "CD Serfay",
-      "points_2024": 0,
+      "name": "Carlos Martínez",
+      "club": "Valencia",
+      "points_2025": 2080,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1685,9 +759,9 @@
       "position": 8
     },
     {
-      "name": "Lucas Mendes",
+      "name": "Lucas Faustini",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 2040,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1697,9 +771,9 @@
       "position": 9
     },
     {
-      "name": "Dani Torres",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Fran Bogarín",
+      "club": "Mallorca FTV",
+      "points_2025": 1960,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1709,9 +783,9 @@
       "position": 10
     },
     {
-      "name": "Yosy Silva",
-      "club": "CD Serfay",
-      "points_2024": 0,
+      "name": "Andrea Storto",
+      "club": "AFB",
+      "points_2025": 1880,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1721,9 +795,9 @@
       "position": 11
     },
     {
-      "name": "Albert Domingo",
-      "club": "AFB",
-      "points_2024": 0,
+      "name": "Andrés Guillén",
+      "club": "FTV Alicante",
+      "points_2025": 1640,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1733,9 +807,9 @@
       "position": 12
     },
     {
-      "name": "Bruno Bueno",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Germán Spinelli",
+      "club": "FTV Alicante",
+      "points_2025": 1640,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1745,9 +819,9 @@
       "position": 13
     },
     {
-      "name": "Bruno Ortín",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Óscar Gómez",
+      "club": "Mallorca FTV",
+      "points_2025": 1520,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1757,9 +831,9 @@
       "position": 14
     },
     {
-      "name": "Juan Monzón",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Carlos Lago",
+      "club": "Vigo",
+      "points_2025": 1440,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1769,9 +843,9 @@
       "position": 15
     },
     {
-      "name": "Andrew Lasso",
-      "club": "AFB",
-      "points_2024": 0,
+      "name": "Valerio Petrini",
+      "club": "BCN Footvolley",
+      "points_2025": 1440,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1781,9 +855,9 @@
       "position": 16
     },
     {
-      "name": "Juan Chozas",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Felipe Manzanaro",
+      "club": "FTV Alicante",
+      "points_2025": 1320,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1793,9 +867,9 @@
       "position": 17
     },
     {
-      "name": "Manuel García",
-      "club": "Praia-Arit",
-      "points_2024": 0,
+      "name": "Ivan Grom",
+      "club": "CD Serfay",
+      "points_2025": 1320,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1805,9 +879,9 @@
       "position": 18
     },
     {
-      "name": "Albert Fernandez",
-      "club": "AFB",
-      "points_2024": 0,
+      "name": "Joxe Indo",
+      "club": "Donosti",
+      "points_2025": 1320,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1817,9 +891,9 @@
       "position": 19
     },
     {
-      "name": "Daniel Sepulveda",
-      "club": "Donosti",
-      "points_2024": 0,
+      "name": "Emilio Clemente",
+      "club": "FTV Alicante",
+      "points_2025": 1200,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1829,9 +903,9 @@
       "position": 20
     },
     {
-      "name": "Isay Donate",
-      "club": "Los Cristianos",
-      "points_2024": 0,
+      "name": "Dino Manasseri",
+      "club": "AD Ibiza",
+      "points_2025": 840,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1841,9 +915,9 @@
       "position": 21
     },
     {
-      "name": "Raphael Veyrier",
+      "name": "Marcelo Nery",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 760,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1853,9 +927,9 @@
       "position": 22
     },
     {
-      "name": "Iván Sanfiel",
-      "club": "Los Cristianos",
-      "points_2024": 0,
+      "name": "Juanjo Aritmendi",
+      "club": "Praia-Arit",
+      "points_2025": 640,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1865,9 +939,9 @@
       "position": 23
     },
     {
-      "name": "Juan Redondo Laboa",
-      "club": "Donosti",
-      "points_2024": 0,
+      "name": "Leonardo Brandariz",
+      "club": "Vigo",
+      "points_2025": 640,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1877,9 +951,9 @@
       "position": 24
     },
     {
-      "name": "Miguel Izquierdo",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Luis Sieira",
+      "club": "Valencia",
+      "points_2025": 640,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1889,9 +963,9 @@
       "position": 25
     },
     {
-      "name": "Salvador Sauleda",
+      "name": "Matteo Schiavone",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 640,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1901,9 +975,9 @@
       "position": 26
     },
     {
-      "name": "Lukas Labarta",
-      "club": "CD Serfay",
-      "points_2024": 0,
+      "name": "Alexandro Cortes",
+      "club": "Los Cristianos",
+      "points_2025": 520,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1913,9 +987,9 @@
       "position": 27
     },
     {
-      "name": "Alberto Coya",
-      "club": "Vigo",
-      "points_2024": 0,
+      "name": "Bruno Santos",
+      "club": "AFB",
+      "points_2025": 440,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1925,9 +999,9 @@
       "position": 28
     },
     {
-      "name": "G. Monterreal",
+      "name": "Joao Cardoso",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 440,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1937,9 +1011,9 @@
       "position": 29
     },
     {
-      "name": "Xabier Lizarrondo",
-      "club": "Donosti",
-      "points_2024": 0,
+      "name": "Germán Martínez",
+      "club": "Vigo",
+      "points_2025": 320,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1949,9 +1023,9 @@
       "position": 30
     },
     {
-      "name": "Francisco Gracia",
-      "club": "Valencia",
-      "points_2024": 0,
+      "name": "Gherard Zuber",
+      "club": "BCN Footvolley",
+      "points_2025": 320,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1961,9 +1035,9 @@
       "position": 31
     },
     {
-      "name": "Jorge Alonso",
-      "club": "Valencia",
-      "points_2024": 0,
+      "name": "Miguel Angel Benassar",
+      "club": "BCN Footvolley",
+      "points_2025": 320,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1973,9 +1047,9 @@
       "position": 32
     },
     {
-      "name": "Daniel Souza",
-      "club": "Vigo",
-      "points_2024": 0,
+      "name": "Alberto Quintas",
+      "club": "Mallorca FTV",
+      "points_2025": 240,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1985,9 +1059,9 @@
       "position": 33
     },
     {
-      "name": "Maximiliano Bertocchi",
-      "club": "FTV Alicante",
-      "points_2024": 0,
+      "name": "Huascar Joe Perez",
+      "club": "Vigo",
+      "points_2025": 240,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -1997,9 +1071,9 @@
       "position": 34
     },
     {
-      "name": "Davide Ferri",
-      "club": "AFB",
-      "points_2024": 0,
+      "name": "Lenny Quintas",
+      "club": "Mallorca FTV",
+      "points_2025": 240,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2009,9 +1083,9 @@
       "position": 35
     },
     {
-      "name": "Caytto Alves",
-      "club": "Valencia",
-      "points_2024": 0,
+      "name": "Andrew Luke",
+      "club": "FTV Alicante",
+      "points_2025": 120,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2021,9 +1095,9 @@
       "position": 36
     },
     {
-      "name": "Bruno Brandariz",
-      "club": "Vigo",
-      "points_2024": 0,
+      "name": "Andrey Gumeiro",
+      "club": "AD Ibiza",
+      "points_2025": 120,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2033,9 +1107,9 @@
       "position": 37
     },
     {
-      "name": "Jan Krejcick",
+      "name": "Enric Ferrer",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 120,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2045,9 +1119,9 @@
       "position": 38
     },
     {
-      "name": "Michael Leontiades",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Fernando Dalago",
+      "club": "FTV Alicante",
+      "points_2025": 120,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2057,9 +1131,9 @@
       "position": 39
     },
     {
-      "name": "Imanol Yarza",
-      "club": "Donosti",
-      "points_2024": 0,
+      "name": "Fernando Lopez",
+      "club": "AD Ibiza",
+      "points_2025": 120,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2069,9 +1143,9 @@
       "position": 40
     },
     {
-      "name": "Martin Graffigna",
+      "name": "Francisco Javi Souto",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 120,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2081,9 +1155,9 @@
       "position": 41
     },
     {
-      "name": "Adrían Rodríguez",
-      "club": "Vigo",
-      "points_2024": 0,
+      "name": "Rafa Dantas",
+      "club": "Madrid FTV Club",
+      "points_2025": 120,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2093,9 +1167,9 @@
       "position": 42
     },
     {
-      "name": "André Sakis",
+      "name": "Alejandro Jara",
       "club": "Valencia",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2105,9 +1179,9 @@
       "position": 43
     },
     {
-      "name": "Mario Alonso",
-      "club": "Vigo",
-      "points_2024": 0,
+      "name": "Alejandro Nuñez",
+      "club": "FTV Alicante",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2117,9 +1191,9 @@
       "position": 44
     },
     {
-      "name": "Vinicius Silva",
+      "name": "Alex Aranguren",
       "club": "Valencia",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2129,9 +1203,9 @@
       "position": 45
     },
     {
-      "name": "Francisco Sepulveda",
-      "club": "Donosti",
-      "points_2024": 0,
+      "name": "Carlos Cora",
+      "club": "BCN Footvolley",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2141,9 +1215,9 @@
       "position": 46
     },
     {
-      "name": "Jaime Viedma",
-      "club": "Donosti",
-      "points_2024": 0,
+      "name": "Chema Espuig",
+      "club": "Valencia",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2153,9 +1227,9 @@
       "position": 47
     },
     {
-      "name": "Johnny Schiptors",
-      "club": "Los Cristianos",
-      "points_2024": 0,
+      "name": "Cristiano Goes",
+      "club": "Mallorca FTV",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2165,9 +1239,9 @@
       "position": 48
     },
     {
-      "name": "Oscar Chulia",
-      "club": "Valencia",
-      "points_2024": 0,
+      "name": "David Areco",
+      "club": "AD Ibiza",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2177,9 +1251,9 @@
       "position": 49
     },
     {
-      "name": "Renato Babata",
-      "club": "Valencia",
-      "points_2024": 0,
+      "name": "Esteban Meucci",
+      "club": "CD Serfay",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2189,9 +1263,9 @@
       "position": 50
     },
     {
-      "name": "Adrián Díaz",
-      "club": "Los Cristianos",
-      "points_2024": 0,
+      "name": "Ezequiel Dondiz",
+      "club": "BCN Footvolley",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2201,9 +1275,9 @@
       "position": 51
     },
     {
-      "name": "Aléx Pérez",
+      "name": "Francesco Ranalli",
       "club": "CD Serfay",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2213,9 +1287,9 @@
       "position": 52
     },
     {
-      "name": "Alvaro Cervera",
-      "club": "FTV Alicante",
-      "points_2024": 0,
+      "name": "Giorgi Kvernadze",
+      "club": "CD Serfay",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2225,9 +1299,9 @@
       "position": 53
     },
     {
-      "name": "Ariel Nuñez",
+      "name": "Hugo Manuel",
       "club": "Valencia",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2237,9 +1311,9 @@
       "position": 54
     },
     {
-      "name": "David Sanchez",
-      "club": "Valencia",
-      "points_2024": 0,
+      "name": "Hugo Nuñez",
+      "club": "BCN Footvolley",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2249,9 +1323,9 @@
       "position": 55
     },
     {
-      "name": "Francisco Javier Larrañaga",
-      "club": "Vigo",
-      "points_2024": 0,
+      "name": "Iather Magalhães",
+      "club": "Mallorca FTV",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2261,9 +1335,9 @@
       "position": 56
     },
     {
-      "name": "Jesús Fortes",
-      "club": "CD Serfay",
-      "points_2024": 0,
+      "name": "Joao Marcos Fagundes",
+      "club": "AD Ibiza",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2273,9 +1347,9 @@
       "position": 57
     },
     {
-      "name": "José Ángel Blanco",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Jon Sarasua",
+      "club": "Donosti",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2285,9 +1359,9 @@
       "position": 58
     },
     {
-      "name": "Jose D. Herrera",
-      "club": "CD Serfay",
-      "points_2024": 0,
+      "name": "Kaique Rivera",
+      "club": "FTV Alicante",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2297,9 +1371,9 @@
       "position": 59
     },
     {
-      "name": "Jose Manuel Goberna",
-      "club": "Vigo",
-      "points_2024": 0,
+      "name": "Louis Sernin",
+      "club": "Mallorca FTV",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2309,9 +1383,9 @@
       "position": 60
     },
     {
-      "name": "Juan Rogel",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Lucas Sosa",
+      "club": "Praia-Arit",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2321,9 +1395,9 @@
       "position": 61
     },
     {
-      "name": "Luis Sierra",
-      "club": "Los Cristianos",
-      "points_2024": 0,
+      "name": "Michael Gary",
+      "club": "FTV Alicante",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2333,9 +1407,9 @@
       "position": 62
     },
     {
-      "name": "Mykhaylo Olefirenko",
-      "club": "AFB",
-      "points_2024": 0,
+      "name": "Néstor Guanes",
+      "club": "AD Ibiza",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2345,9 +1419,9 @@
       "position": 63
     },
     {
-      "name": "Noah Schaul",
-      "club": "AFB",
-      "points_2024": 0,
+      "name": "Riccardo Gasparoni",
+      "club": "CD Serfay",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2357,9 +1431,9 @@
       "position": 64
     },
     {
-      "name": "Santiago Ballesteros",
-      "club": "Vigo",
-      "points_2024": 0,
+      "name": "Tomás Delgado",
+      "club": "Praia-Arit",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2369,9 +1443,9 @@
       "position": 65
     },
     {
-      "name": "Sergio Comín",
-      "club": "Los Cristianos",
-      "points_2024": 0,
+      "name": "Unai Oñate",
+      "club": "Donosti",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2381,9 +1455,9 @@
       "position": 66
     },
     {
-      "name": "Carlos Crespo",
-      "club": "Vigo",
-      "points_2024": 0,
+      "name": "Willian Guinosa",
+      "club": "BCN Footvolley",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2393,9 +1467,9 @@
       "position": 67
     },
     {
-      "name": "Gonzalo Canos",
-      "club": "Valencia",
-      "points_2024": 0,
+      "name": "Óscar Fumero",
+      "club": "Los Cristianos",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2405,9 +1479,839 @@
       "position": 68
     },
     {
+      "name": "Óscar Martínez",
+      "club": "BCN Footvolley",
+      "points_2025": 0,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 69
+    }
+  ],
+  "bronce": [
+    {
+      "name": "Dani Torres",
+      "club": "Mallorca FTV",
+      "points_2025": 4800,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 1
+    },
+    {
+      "name": "Yosy Silva",
+      "club": "CD Serfay",
+      "points_2025": 4640,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 2
+    },
+    {
+      "name": "Albert Domingo",
+      "club": "AFB",
+      "points_2025": 4040,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 3
+    },
+    {
+      "name": "Bruno Bueno",
+      "club": "BCN Footvolley",
+      "points_2025": 3680,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 4
+    },
+    {
+      "name": "Bruno Ortín",
+      "club": "Mallorca FTV",
+      "points_2025": 3680,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 5
+    },
+    {
+      "name": "Andrew Lasso",
+      "club": "AFB",
+      "points_2025": 2560,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 6
+    },
+    {
+      "name": "Manuel García",
+      "club": "Praia-Arit",
+      "points_2025": 2000,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 7
+    },
+    {
+      "name": "Albert Fernandez",
+      "club": "AFB",
+      "points_2025": 1960,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 8
+    },
+    {
+      "name": "Daniel Sepulveda",
+      "club": "Donosti",
+      "points_2025": 1840,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 9
+    },
+    {
+      "name": "Isay Donate",
+      "club": "Los Cristianos",
+      "points_2025": 1840,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 10
+    },
+    {
+      "name": "Raphael Veyrier",
+      "club": "Mallorca FTV",
+      "points_2025": 1840,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 11
+    },
+    {
+      "name": "Iván Sanfiel",
+      "club": "Los Cristianos",
+      "points_2025": 1680,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 12
+    },
+    {
+      "name": "Juan Redondo Laboa",
+      "club": "Donosti",
+      "points_2025": 1520,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 13
+    },
+    {
+      "name": "Miguel Izquierdo",
+      "club": "BCN Footvolley",
+      "points_2025": 1280,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 14
+    },
+    {
+      "name": "Salvador Sauleda",
+      "club": "BCN Footvolley",
+      "points_2025": 1280,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 15
+    },
+    {
+      "name": "Lukas Labarta",
+      "club": "CD Serfay",
+      "points_2025": 1200,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 16
+    },
+    {
+      "name": "Alberto Coya",
+      "club": "Vigo",
+      "points_2025": 1080,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 17
+    },
+    {
+      "name": "Gerard Monterreal",
+      "club": "BCN Footvolley",
+      "points_2025": 1080,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 18
+    },
+    {
+      "name": "Xabier Lizarrondo",
+      "club": "Donosti",
+      "points_2025": 1080,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 19
+    },
+    {
+      "name": "Francisco Gracia",
+      "club": "Valencia",
+      "points_2025": 1000,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 20
+    },
+    {
+      "name": "Jorge Alonso",
+      "club": "Valencia",
+      "points_2025": 1000,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 21
+    },
+    {
+      "name": "Maxi Bertocchi",
+      "club": "FTV Alicante",
+      "points_2025": 880,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 22
+    },
+    {
+      "name": "Davide Ferri",
+      "club": "AFB",
+      "points_2025": 840,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 23
+    },
+    {
+      "name": "Bruno Castro",
+      "club": "Vigo",
+      "points_2025": 760,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 24
+    },
+    {
+      "name": "Jan Krejcick",
+      "club": "BCN Footvolley",
+      "points_2025": 760,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 25
+    },
+    {
+      "name": "Michael Leontiades",
+      "club": "BCN Footvolley",
+      "points_2025": 760,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 26
+    },
+    {
+      "name": "Imanol Yarza",
+      "club": "Donosti",
+      "points_2025": 640,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 27
+    },
+    {
+      "name": "Adrián Rodríguez",
+      "club": "Vigo",
+      "points_2025": 560,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 28
+    },
+    {
+      "name": "Mario Alonso",
+      "club": "Vigo",
+      "points_2025": 560,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 29
+    },
+    {
+      "name": "Vinicius Silva",
+      "club": "Valencia",
+      "points_2025": 560,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 30
+    },
+    {
+      "name": "Francisco Sepulveda",
+      "club": "Donosti",
+      "points_2025": 440,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 31
+    },
+    {
+      "name": "Jaime Viedma",
+      "club": "Donosti",
+      "points_2025": 440,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 32
+    },
+    {
+      "name": "Yoni Shiports",
+      "club": "Los Cristianos",
+      "points_2025": 440,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 33
+    },
+    {
+      "name": "Oscar Chulia",
+      "club": "Valencia",
+      "points_2025": 360,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 34
+    },
+    {
+      "name": "Renato Babata",
+      "club": "Valencia",
+      "points_2025": 360,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 35
+    },
+    {
+      "name": "Adrián Díaz",
+      "club": "Los Cristianos",
+      "points_2025": 320,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 36
+    },
+    {
+      "name": "Alvaro Cervera",
+      "club": "FTV Alicante",
+      "points_2025": 320,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 37
+    },
+    {
+      "name": "Jesús Fortes",
+      "club": "CD Serfay",
+      "points_2025": 320,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 38
+    },
+    {
+      "name": "Luis Sierra",
+      "club": "Los Cristianos",
+      "points_2025": 320,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 39
+    },
+    {
+      "name": "Sergio Comín",
+      "club": "Los Cristianos",
+      "points_2025": 320,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 40
+    },
+    {
+      "name": "Gonzalo Canos",
+      "club": "Valencia",
+      "points_2025": 240,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 41
+    },
+    {
       "name": "Juan Manuel Miras",
       "club": "FTV Alicante",
-      "points_2024": 0,
+      "points_2025": 240,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 42
+    },
+    {
+      "name": "Salvador Ramón",
+      "club": "FTV Alicante",
+      "points_2025": 240,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 43
+    },
+    {
+      "name": "Aitor Villanueva",
+      "club": "Donosti",
+      "points_2025": 120,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 44
+    },
+    {
+      "name": "Alberto Lopez",
+      "club": "Vigo",
+      "points_2025": 120,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 45
+    },
+    {
+      "name": "Antonio Jara",
+      "club": "Valencia",
+      "points_2025": 120,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 46
+    },
+    {
+      "name": "Carlos Pedros",
+      "club": "FTV Alicante",
+      "points_2025": 120,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 47
+    },
+    {
+      "name": "Ekain Eizaguirre",
+      "club": "Donosti",
+      "points_2025": 120,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 48
+    },
+    {
+      "name": "Ekaitz Aguirre",
+      "club": "Donosti",
+      "points_2025": 120,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 49
+    },
+    {
+      "name": "Fabiane Araujo",
+      "club": "Donosti",
+      "points_2025": 120,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 50
+    },
+    {
+      "name": "Gustavo Henrique",
+      "club": "BCN Footvolley",
+      "points_2025": 120,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 51
+    },
+    {
+      "name": "Luis Carlos Soneira",
+      "club": "BCN Footvolley",
+      "points_2025": 120,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 52
+    },
+    {
+      "name": "Matthias Killmann",
+      "club": "CD Serfay",
+      "points_2025": 120,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 53
+    },
+    {
+      "name": "Victor Monreal",
+      "club": "CD Serfay",
+      "points_2025": 120,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 54
+    },
+    {
+      "name": "Xabier Echeverria",
+      "club": "Donosti",
+      "points_2025": 120,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 55
+    },
+    {
+      "name": "Alberto Salazar",
+      "club": "Los Cristianos",
+      "points_2025": 0,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 56
+    },
+    {
+      "name": "Alejandro Martini",
+      "club": "Valencia",
+      "points_2025": 0,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 57
+    },
+    {
+      "name": "Alejandro Soto",
+      "club": "AD Ibiza",
+      "points_2025": 0,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 58
+    },
+    {
+      "name": "Andreu Talón",
+      "club": "Valencia",
+      "points_2025": 0,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 59
+    },
+    {
+      "name": "Ariel Gustavo",
+      "club": "CD Serfay",
+      "points_2025": 0,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 60
+    },
+    {
+      "name": "Braian Cantero",
+      "club": "Madrid FTV Club",
+      "points_2025": 0,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 61
+    },
+    {
+      "name": "Daniel Criado",
+      "club": "BCN Footvolley",
+      "points_2025": 0,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 62
+    },
+    {
+      "name": "Daniela Calache",
+      "club": "Donosti",
+      "points_2025": 0,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 63
+    },
+    {
+      "name": "Davide Rizzo",
+      "club": "BCN Footvolley",
+      "points_2025": 0,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 64
+    },
+    {
+      "name": "Diego Nicolás",
+      "club": "Vigo",
+      "points_2025": 0,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 65
+    },
+    {
+      "name": "Enrique Sanchez",
+      "club": "BCN Footvolley",
+      "points_2025": 0,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 66
+    },
+    {
+      "name": "Eric Sebastian",
+      "club": "Mallorca FTV",
+      "points_2025": 0,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 67
+    },
+    {
+      "name": "Florencia Garaduzzi",
+      "club": "CD Serfay",
+      "points_2025": 0,
+      "etapa_1": 0,
+      "etapa_2": 0,
+      "etapa_3": 0,
+      "etapa_4": 0,
+      "etapa_5": 0,
+      "total": 0,
+      "position": 68
+    },
+    {
+      "name": "Fran Guerola",
+      "club": "Valencia",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2417,9 +2321,9 @@
       "position": 69
     },
     {
-      "name": "Salvador Ramón",
-      "club": "FTV Alicante",
-      "points_2024": 0,
+      "name": "Francesco Sintucci",
+      "club": "BCN Footvolley",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2429,9 +2333,9 @@
       "position": 70
     },
     {
-      "name": "Aitor Villanueva",
-      "club": "Donosti",
-      "points_2024": 0,
+      "name": "Francisco Martínez",
+      "club": "FTV Alicante",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2441,9 +2345,9 @@
       "position": 71
     },
     {
-      "name": "Aiur Etxarri",
-      "club": "Donosti",
-      "points_2024": 0,
+      "name": "Gabriel Quiroga",
+      "club": "AD Ibiza",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2453,9 +2357,9 @@
       "position": 72
     },
     {
-      "name": "Alberto Arrongo",
-      "club": "Donosti",
-      "points_2024": 0,
+      "name": "Guillermo Altesor",
+      "club": "CD Serfay",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2465,9 +2369,9 @@
       "position": 73
     },
     {
-      "name": "Alberto López Pazos",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Gustavo Galeano",
+      "club": "Donosti",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2477,9 +2381,9 @@
       "position": 74
     },
     {
-      "name": "Antonio Jara",
-      "club": "Valencia",
-      "points_2024": 0,
+      "name": "Gutiery Martins",
+      "club": "BCN Footvolley",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2489,9 +2393,9 @@
       "position": 75
     },
     {
-      "name": "Carlos Pedros",
-      "club": "FTV Alicante",
-      "points_2024": 0,
+      "name": "Hyago da Silva",
+      "club": "Mallorca FTV",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2501,9 +2405,9 @@
       "position": 76
     },
     {
-      "name": "Dani Palomeque",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Héctor Solanes",
+      "club": "CD Serfay",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2513,9 +2417,9 @@
       "position": 77
     },
     {
-      "name": "David Campos",
+      "name": "Héctor Tobías",
       "club": "Vigo",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2525,9 +2429,9 @@
       "position": 78
     },
     {
-      "name": "Ekain Eizaguirre",
-      "club": "Donosti",
-      "points_2024": 0,
+      "name": "Ian Moura",
+      "club": "Mallorca FTV",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2537,9 +2441,9 @@
       "position": 79
     },
     {
-      "name": "Ekaitz Aguirre",
-      "club": "Donosti",
-      "points_2024": 0,
+      "name": "Ivan Alayon",
+      "club": "Los Cristianos",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2549,9 +2453,9 @@
       "position": 80
     },
     {
-      "name": "Eneko Susperregi",
-      "club": "Donosti",
-      "points_2024": 0,
+      "name": "Jon Zurinaga",
+      "club": "BCN Footvolley",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2561,9 +2465,9 @@
       "position": 81
     },
     {
-      "name": "Fabiane Araujo",
-      "club": "Donosti",
-      "points_2024": 0,
+      "name": "José Hermigua",
+      "club": "Los Cristianos",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2573,9 +2477,9 @@
       "position": 82
     },
     {
-      "name": "Gustavo Henrique",
-      "club": "CD Serfay",
-      "points_2024": 0,
+      "name": "José María",
+      "club": "FTV Alicante",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2585,9 +2489,9 @@
       "position": 83
     },
     {
-      "name": "Iason Chatziioannou",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Juan Castelló",
+      "club": "FTV Alicante",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2597,9 +2501,9 @@
       "position": 84
     },
     {
-      "name": "Ibai Ansa",
-      "club": "Donosti",
-      "points_2024": 0,
+      "name": "Keyla Faria",
+      "club": "CD Serfay",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2609,9 +2513,9 @@
       "position": 85
     },
     {
-      "name": "José Vicente Domínguez",
-      "club": "Vigo",
-      "points_2024": 0,
+      "name": "Kylian Meire",
+      "club": "CD Serfay",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2621,9 +2525,9 @@
       "position": 86
     },
     {
-      "name": "Layla Salim",
-      "club": "AFB",
-      "points_2024": 0,
+      "name": "Lapo Ciuffi",
+      "club": "Valencia",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2633,9 +2537,9 @@
       "position": 87
     },
     {
-      "name": "Lena Polzl",
-      "club": "CD Serfay",
-      "points_2024": 0,
+      "name": "Lorenzo Scarano",
+      "club": "BCN Footvolley",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2645,9 +2549,9 @@
       "position": 88
     },
     {
-      "name": "Luis Carlos Soneira",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Luis Cantero",
+      "club": "Madrid FTV Club",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2657,9 +2561,9 @@
       "position": 89
     },
     {
-      "name": "Luiz Pezzi",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
+      "name": "Manuel Gago",
+      "club": "AD Ibiza",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2669,9 +2573,9 @@
       "position": 90
     },
     {
-      "name": "Mario Pérez",
-      "club": "Vigo",
-      "points_2024": 0,
+      "name": "Martí Roura",
+      "club": "BCN Footvolley",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2681,9 +2585,9 @@
       "position": 91
     },
     {
-      "name": "Mathias Killmann",
+      "name": "Miquelle de Toma",
       "club": "CD Serfay",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2693,9 +2597,9 @@
       "position": 92
     },
     {
-      "name": "Miquel Jara",
+      "name": "Patricio Cursi",
       "club": "Valencia",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2705,9 +2609,9 @@
       "position": 93
     },
     {
-      "name": "Rocio Germillac",
-      "club": "CD Serfay",
-      "points_2024": 0,
+      "name": "Rafael Soliño",
+      "club": "Vigo",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2717,9 +2621,9 @@
       "position": 94
     },
     {
-      "name": "Victor Monreal",
-      "club": "CD Serfay",
-      "points_2024": 0,
+      "name": "Roberto Marshal",
+      "club": "Los Cristianos",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2729,9 +2633,9 @@
       "position": 95
     },
     {
-      "name": "Xabier Echeverria",
-      "club": "Donosti",
-      "points_2024": 0,
+      "name": "Sara Garcia",
+      "club": "CD Serfay",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2741,9 +2645,9 @@
       "position": 96
     },
     {
-      "name": "Alberto Salazar",
-      "club": "Los Cristianos",
-      "points_2024": 0,
+      "name": "Sergey Kotrikadze",
+      "club": "Mallorca FTV",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2753,9 +2657,9 @@
       "position": 97
     },
     {
-      "name": "Alexandra Guerrini",
-      "club": "AFB",
-      "points_2024": 0,
+      "name": "Sergio Kirienko",
+      "club": "FTV Alicante",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2765,9 +2669,9 @@
       "position": 98
     },
     {
-      "name": "Baian Eduardo Cantero",
-      "club": "Madrid FTV Club",
-      "points_2024": 0,
+      "name": "Sergio Santos",
+      "club": "AD Ibiza",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2777,9 +2681,9 @@
       "position": 99
     },
     {
-      "name": "Benjamin Molowny",
-      "club": "Praia-Arit",
-      "points_2024": 0,
+      "name": "Valentin Bugallo",
+      "club": "BCN Footvolley",
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2787,169 +2691,13 @@
       "etapa_5": 0,
       "total": 0,
       "position": 100
-    },
-    {
-      "name": "Brenda Molina",
-      "club": "CD Serfay",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 101
-    },
-    {
-      "name": "Florencia Garaduzzi",
-      "club": "CD Serfay",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 102
-    },
-    {
-      "name": "Fran Guerola",
-      "club": "Valencia",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 103
-    },
-    {
-      "name": "Josue Ramos",
-      "club": "Praia-Arit",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 104
-    },
-    {
-      "name": "Julia Jesús",
-      "club": "Madrid FTV Club",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 105
-    },
-    {
-      "name": "Marcelo Conto",
-      "club": "Valencia",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 106
-    },
-    {
-      "name": "Michela Deriu",
-      "club": "AFB",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 107
-    },
-    {
-      "name": "Mirko Nicolucci",
-      "club": "CD Serfay",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 108
-    },
-    {
-      "name": "Nicolas Tibia",
-      "club": "FTV Alicante",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 109
-    },
-    {
-      "name": "Rafael Soliño",
-      "club": "Vigo",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 110
-    },
-    {
-      "name": "Sara García",
-      "club": "CD Serfay",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 111
-    },
-    {
-      "name": "Sebastian Peredo",
-      "club": "AFB",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 112
-    },
-    {
-      "name": "Sergio Porteros",
-      "club": "BCN Footvolley",
-      "points_2024": 0,
-      "etapa_1": 0,
-      "etapa_2": 0,
-      "etapa_3": 0,
-      "etapa_4": 0,
-      "etapa_5": 0,
-      "total": 0,
-      "position": 113
     }
   ],
   "femenino": [
     {
       "name": "YOSY SILVA",
       "club": "CD Serfay",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2961,7 +2709,7 @@
     {
       "name": "FLOR GERARDUZZI",
       "club": "CD Serfay",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2973,7 +2721,7 @@
     {
       "name": "JOY WU",
       "club": "BCN Footvolley",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2985,7 +2733,7 @@
     {
       "name": "FABIANA COSTA",
       "club": "AFB",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -2997,7 +2745,7 @@
     {
       "name": "MICHELA DERIU",
       "club": "AFB",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -3009,7 +2757,7 @@
     {
       "name": "ALESSANDRA GUERRINI",
       "club": "AFB",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -3021,7 +2769,7 @@
     {
       "name": "LENA POLZL",
       "club": "CD Serfay",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -3033,7 +2781,7 @@
     {
       "name": "FABIANE ARAUJO",
       "club": "Donosti",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -3045,7 +2793,7 @@
     {
       "name": "DARLIN HAYWORTH",
       "club": "AFB",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -3057,7 +2805,7 @@
     {
       "name": "RENSKE WIJMA",
       "club": "AFB",
-      "points_2024": 0,
+      "points_2025": 0,
       "etapa_1": 0,
       "etapa_2": 0,
       "etapa_3": 0,
@@ -3070,57 +2818,57 @@
   "club_rankings": {
     "oro": [
       {
-        "name": "FTV Alicante",
+        "name": "AD Ibiza",
         "points": 0,
-        "players": 10,
+        "players": 2,
         "position": 1
       },
       {
-        "name": "CD Serfay",
+        "name": "AFB",
         "points": 0,
-        "players": 8,
+        "players": 4,
         "position": 2
       },
       {
         "name": "BCN Footvolley",
         "points": 0,
-        "players": 14,
+        "players": 11,
         "position": 3
       },
       {
-        "name": "AFB",
+        "name": "CD Serfay",
         "points": 0,
-        "players": 5,
+        "players": 10,
         "position": 4
-      },
-      {
-        "name": "Valencia",
-        "points": 0,
-        "players": 6,
-        "position": 5
       },
       {
         "name": "Donosti",
         "points": 0,
-        "players": 4,
+        "players": 5,
+        "position": 5
+      },
+      {
+        "name": "FTV Alicante",
+        "points": 0,
+        "players": 9,
         "position": 6
       },
       {
-        "name": "AD Ibiza",
+        "name": "Los Cristianos",
         "points": 0,
-        "players": 3,
+        "players": 1,
         "position": 7
-      },
-      {
-        "name": "Vigo",
-        "points": 0,
-        "players": 2,
-        "position": 8
       },
       {
         "name": "Madrid FTV Club",
         "points": 0,
-        "players": 4,
+        "players": 3,
+        "position": 8
+      },
+      {
+        "name": "Mallorca FTV",
+        "points": 0,
+        "players": 2,
         "position": 9
       },
       {
@@ -3128,35 +2876,47 @@
         "points": 0,
         "players": 1,
         "position": 10
+      },
+      {
+        "name": "Valencia",
+        "points": 0,
+        "players": 5,
+        "position": 11
+      },
+      {
+        "name": "Vigo",
+        "points": 0,
+        "players": 2,
+        "position": 12
       }
     ],
     "plata": [
       {
-        "name": "BCN Footvolley",
+        "name": "AD Ibiza",
         "points": 0,
-        "players": 24,
+        "players": 6,
         "position": 1
       },
       {
-        "name": "CD Serfay",
+        "name": "AFB",
         "points": 0,
-        "players": 7,
+        "players": 3,
         "position": 2
       },
       {
-        "name": "Valencia",
+        "name": "BCN Footvolley",
         "points": 0,
-        "players": 7,
+        "players": 15,
         "position": 3
       },
       {
-        "name": "Donosti",
+        "name": "CD Serfay",
         "points": 0,
         "players": 5,
         "position": 4
       },
       {
-        "name": "AFB",
+        "name": "Donosti",
         "points": 0,
         "players": 5,
         "position": 5
@@ -3164,100 +2924,118 @@
       {
         "name": "FTV Alicante",
         "points": 0,
-        "players": 7,
+        "players": 9,
         "position": 6
+      },
+      {
+        "name": "Los Cristianos",
+        "points": 0,
+        "players": 2,
+        "position": 7
       },
       {
         "name": "Madrid FTV Club",
         "points": 0,
-        "players": 5,
-        "position": 7
-      },
-      {
-        "name": "Vigo",
-        "points": 0,
-        "players": 6,
+        "players": 2,
         "position": 8
       },
       {
-        "name": "AD Ibiza",
+        "name": "Mallorca FTV",
         "points": 0,
-        "players": 4,
+        "players": 7,
         "position": 9
       },
       {
         "name": "Praia-Arit",
         "points": 0,
-        "players": 2,
+        "players": 3,
         "position": 10
       },
       {
-        "name": "Los Cristianos",
+        "name": "Valencia",
         "points": 0,
-        "players": 3,
+        "players": 8,
         "position": 11
+      },
+      {
+        "name": "Vigo",
+        "points": 0,
+        "players": 4,
+        "position": 12
       }
     ],
     "bronce": [
       {
-        "name": "BCN Footvolley",
+        "name": "AD Ibiza",
         "points": 0,
-        "players": 24,
+        "players": 4,
         "position": 1
       },
       {
-        "name": "CD Serfay",
+        "name": "AFB",
         "points": 0,
-        "players": 17,
+        "players": 4,
         "position": 2
       },
       {
-        "name": "Donosti",
+        "name": "BCN Footvolley",
         "points": 0,
         "players": 17,
         "position": 3
       },
       {
-        "name": "AFB",
+        "name": "CD Serfay",
         "points": 0,
-        "players": 10,
+        "players": 13,
         "position": 4
       },
       {
-        "name": "Valencia",
+        "name": "Donosti",
         "points": 0,
-        "players": 14,
+        "players": 13,
         "position": 5
       },
       {
-        "name": "Vigo",
+        "name": "FTV Alicante",
         "points": 0,
-        "players": 13,
+        "players": 9,
         "position": 6
       },
       {
         "name": "Los Cristianos",
         "points": 0,
-        "players": 7,
+        "players": 10,
         "position": 7
-      },
-      {
-        "name": "Praia-Arit",
-        "points": 0,
-        "players": 3,
-        "position": 8
-      },
-      {
-        "name": "FTV Alicante",
-        "points": 0,
-        "players": 6,
-        "position": 9
       },
       {
         "name": "Madrid FTV Club",
         "points": 0,
         "players": 2,
+        "position": 8
+      },
+      {
+        "name": "Mallorca FTV",
+        "points": 0,
+        "players": 7,
+        "position": 9
+      },
+      {
+        "name": "Praia-Arit",
+        "points": 0,
+        "players": 1,
         "position": 10
+      },
+      {
+        "name": "Valencia",
+        "points": 0,
+        "players": 12,
+        "position": 11
+      },
+      {
+        "name": "Vigo",
+        "points": 0,
+        "players": 8,
+        "position": 12
       }
     ],
     "femenino": [
@@ -3268,15 +3046,15 @@
         "position": 1
       },
       {
-        "name": "CD Serfay",
-        "points": 0,
-        "players": 3,
-        "position": 2
-      },
-      {
         "name": "BCN Footvolley",
         "points": 0,
         "players": 1,
+        "position": 2
+      },
+      {
+        "name": "CD Serfay",
+        "points": 0,
+        "players": 3,
         "position": 3
       },
       {
