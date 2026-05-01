@@ -40,6 +40,42 @@
             opacity: 0.9;
         }
 
+        .etapas-bar {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .etapa-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s;
+            backdrop-filter: blur(10px);
+        }
+
+        .etapa-link:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-1px);
+        }
+
+        .etapa-link .dot {
+            width: 7px;
+            height: 7px;
+            background: #f8c32a;
+            border-radius: 50%;
+        }
+
         .tabs {
             display: flex;
             gap: 10px;
@@ -277,6 +313,12 @@
         <header>
             <h1>🏐 Liga Nacional de Footvolley</h1>
             <p>Ranking 2025 - España</p>
+            <div class="etapas-bar">
+                <a href="etapa_ibiza.html" class="etapa-link">
+                    <span class="dot"></span>
+                    Etapa 1 · Ibiza 2026
+                </a>
+            </div>
         </header>
 
         <div class="tabs">

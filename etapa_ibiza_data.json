@@ -1,0 +1,159 @@
+{
+  "_info": "Etapa 1 Ibiza 2026 - 3 categorias, 3 grupos, 5 duplas por grupo. Preencher após sorteio.",
+  "oro": {
+    "grupos": [
+      {
+        "nome": "Grupo A",
+        "equipes": ["Dupla A1", "Dupla A2", "Dupla A3", "Dupla A4", "Dupla A5"],
+        "partidas": [
+          { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 2, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 0, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 2, "p_local": null, "p_visit": null }
+        ]
+      },
+      {
+        "nome": "Grupo B",
+        "equipes": ["Dupla B1", "Dupla B2", "Dupla B3", "Dupla B4", "Dupla B5"],
+        "partidas": [
+          { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 2, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 0, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 2, "p_local": null, "p_visit": null }
+        ]
+      },
+      {
+        "nome": "Grupo C",
+        "equipes": ["Dupla C1", "Dupla C2", "Dupla C3", "Dupla C4", "Dupla C5"],
+        "partidas": [
+          { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 2, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 0, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 2, "p_local": null, "p_visit": null }
+        ]
+      }
+    ]
+  },
+  "plata": {
+    "grupos": [
+      {
+        "nome": "Grupo A",
+        "equipes": ["Dupla A1", "Dupla A2", "Dupla A3", "Dupla A4", "Dupla A5"],
+        "partidas": [
+          { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 2, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 0, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 2, "p_local": null, "p_visit": null }
+        ]
+      },
+      {
+        "nome": "Grupo B",
+        "equipes": ["Dupla B1", "Dupla B2", "Dupla B3", "Dupla B4", "Dupla B5"],
+        "partidas": [
+          { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 2, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 0, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 2, "p_local": null, "p_visit": null }
+        ]
+      },
+      {
+        "nome": "Grupo C",
+        "equipes": ["Dupla C1", "Dupla C2", "Dupla C3", "Dupla C4", "Dupla C5"],
+        "partidas": [
+          { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 2, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 0, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 2, "p_local": null, "p_visit": null }
+        ]
+      }
+    ]
+  },
+  "bronce": {
+    "grupos": [
+      {
+        "nome": "Grupo A",
+        "equipes": ["Dupla A1", "Dupla A2", "Dupla A3", "Dupla A4", "Dupla A5"],
+        "partidas": [
+          { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 2, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 0, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 2, "p_local": null, "p_visit": null }
+        ]
+      },
+      {
+        "nome": "Grupo B",
+        "equipes": ["Dupla B1", "Dupla B2", "Dupla B3", "Dupla B4", "Dupla B5"],
+        "partidas": [
+          { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 2, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 0, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 2, "p_local": null, "p_visit": null }
+        ]
+      },
+      {
+        "nome": "Grupo C",
+        "equipes": ["Dupla C1", "Dupla C2", "Dupla C3", "Dupla C4", "Dupla C5"],
+        "partidas": [
+          { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 2, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 0, "visit": 3, "p_local": null, "p_visit": null },
+          { "local": 1, "visit": 4, "p_local": null, "p_visit": null },
+          { "local": 2, "visit": 0, "p_local": null, "p_visit": null },
+          { "local": 3, "visit": 1, "p_local": null, "p_visit": null },
+          { "local": 4, "visit": 2, "p_local": null, "p_visit": null }
+        ]
+      }
+    ]
+  }
+}
