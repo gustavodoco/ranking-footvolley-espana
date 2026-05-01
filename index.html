@@ -76,6 +76,26 @@
             border-radius: 50%;
         }
 
+        .logo-wrap {
+            margin-bottom: 12px;
+        }
+
+        .site-logo {
+            height: 70px;
+            filter: brightness(0) invert(1);
+            opacity: 0.95;
+        }
+
+        .history-link {
+            display: inline-block;
+            margin-top: 6px;
+            color: rgba(255,255,255,0.5);
+            font-size: 12px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .history-link:hover { color: rgba(255,255,255,0.8); }
+
         .tabs {
             display: flex;
             gap: 10px;
@@ -311,14 +331,18 @@
 <body>
     <div class="container">
         <header>
-            <h1>🏐 Liga Nacional de Footvolley</h1>
-            <p>Ranking 2025 - España</p>
+            <div class="logo-wrap">
+                <img src="logo.png" alt="Footvolley España" class="site-logo" onerror="this.style.display='none'">
+            </div>
+            <h1>Liga Nacional de Footvolley</h1>
+            <p>Ranking 2026 - España</p>
             <div class="etapas-bar">
                 <a href="etapa_ibiza.html" class="etapa-link">
                     <span class="dot"></span>
                     Etapa 1 · Ibiza 2026
                 </a>
             </div>
+            <span class="history-link" onclick="document.getElementById('tab-2025').click()">📁 Ver ranking histórico 2025</span>
         </header>
 
         <div class="tabs">
@@ -326,6 +350,7 @@
             <button class="tab" data-category="plata">PLATA</button>
             <button class="tab" data-category="bronce">BRONCE</button>
             <button class="tab" data-category="femenino">FEMENINO</button>
+            <button class="tab" id="tab-2025" data-category="historia" style="background:rgba(255,255,255,0.1); font-size:0.85rem; opacity:0.7;">📁 2025</button>
         </div>
 
         <div class="content-card">
@@ -374,6 +399,14 @@
             <div id="clubs-view" class="hidden">
                 <div id="clubs-list"></div>
             </div>
+            <div id="historia-view" style="display:none; padding: 20px 0;">
+                <div style="background:#f8f9ff; border-radius:10px; padding:16px; margin-bottom:20px; border-left:4px solid #667eea;">
+                    <strong>📁 Ranking Histórico 2025</strong><br>
+                    <span style="font-size:13px; color:#666;">Temporada encerrada. Dados somente para consulta.</span>
+                </div>
+                <div id="historia-tabs" style="display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap;"></div>
+                <div id="historia-content"></div>
+            </div>
         </div>
     </div>
 
@@ -382,8 +415,9 @@
         let currentCategory = 'oro';
         let currentView = 'players';
         let currentSort = { field: 'total', ascending: false };
+        let rankingData2025 = {};
 
-        // Cargar datos
+        // Cargar datos 2026 (nuevo) y 2025 (histórico)
         fetch('ranking_data.json')
             .then(response => response.json())
             .then(data => {
@@ -391,13 +425,27 @@
                 updateView();
             });
 
+        fetch('ranking_data_2025.json')
+            .then(response => response.json())
+            .then(data => { rankingData2025 = data; })
+            .catch(() => { rankingData2025 = {}; });
+
         // Tabs
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
                 currentCategory = tab.dataset.category;
-                updateView();
+                if (currentCategory === 'historia') {
+                    showHistoria();
+                } else {
+                    document.getElementById('players-view').classList.remove('hidden');
+                    document.getElementById('clubs-view').classList.remove('hidden');
+                    document.getElementById('historia-view') && (document.getElementById('historia-view').style.display = 'none');
+                    document.querySelector('.view-toggle').style.display = 'flex';
+                    document.getElementById('player-filters').style.display = 'flex';
+                    updateView();
+                }
             });
         });
 
@@ -544,6 +592,60 @@
                 `;
                 clubsList.appendChild(card);
             });
+        }
+
+        let historiaCat = 'oro';
+
+        function showHistoria() {
+            document.getElementById('players-view').classList.add('hidden');
+            document.getElementById('clubs-view').classList.add('hidden');
+            document.querySelector('.view-toggle').style.display = 'none';
+            document.getElementById('player-filters').style.display = 'none';
+            document.getElementById('historia-view').style.display = 'block';
+
+            const cats = ['oro','plata','bronce','femenino'];
+            const tabsEl = document.getElementById('historia-tabs');
+            tabsEl.innerHTML = cats.map(c => `
+                <button onclick="renderHistoria('${c}', this)"
+                    style="padding:8px 18px; border-radius:20px; border:2px solid #667eea;
+                    background:${c===historiaCat?'#667eea':'white'}; color:${c===historiaCat?'white':'#667eea'};
+                    font-weight:600; cursor:pointer; font-size:13px;">
+                    ${c.toUpperCase()}
+                </button>`).join('');
+            renderHistoria(historiaCat, tabsEl.children[0]);
+        }
+
+        function renderHistoria(cat, btn) {
+            historiaCat = cat;
+            document.querySelectorAll('#historia-tabs button').forEach(b => {
+                b.style.background = 'white'; b.style.color = '#667eea';
+            });
+            if (btn) { btn.style.background = '#667eea'; btn.style.color = 'white'; }
+
+            const data = rankingData2025[cat];
+            const el = document.getElementById('historia-content');
+            if (!data || data.length === 0) {
+                el.innerHTML = '<p style="color:#999; text-align:center; padding:30px;">Dados do arquivo ranking_data_2025.json não encontrados.</p>';
+                return;
+            }
+            const rows = data.map((p, i) => {
+                const posClass = i < 3 ? `position-${i+1}` : '';
+                return `<tr>
+                    <td class="position ${posClass}">${i+1}</td>
+                    <td><strong>${p.name}</strong></td>
+                    <td>${p.club || '-'}</td>
+                    <td class="points">${p.total}</td>
+                </tr>`;
+            }).join('');
+            el.innerHTML = `<table style="width:100%;border-collapse:collapse;">
+                <thead><tr>
+                    <th style="background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:12px;text-align:left;">Pos</th>
+                    <th style="background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:12px;text-align:left;">Jugador</th>
+                    <th style="background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:12px;text-align:left;">Club</th>
+                    <th style="background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:12px;text-align:left;">Total 2025</th>
+                </tr></thead>
+                <tbody>${rows}</tbody>
+            </table>`;
         }
     </script>
 </body>

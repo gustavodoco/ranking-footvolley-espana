@@ -409,6 +409,9 @@
 
     <div class="page-header">
         <a href="index.html" class="back-link">← Volver al ranking</a>
+        <div class="logo-wrap">
+            <img src="logo.png" alt="Footvolley España" style="height:60px; filter:brightness(0) invert(1); opacity:0.9; margin-bottom:8px;" onerror="this.style.display='none'">
+        </div>
         <div><span class="etapa-badge">Etapa 1 · 2026</span></div>
         <h1 class="page-title">🏝 Ibiza</h1>
         <p class="page-sub">Liga Nacional de Footvolley España</p>
@@ -416,6 +419,7 @@
             <span class="live-dot"></span>
             Atualización automática desde Google Sheets
         </div>
+        <!-- Admin: clique 5x no título para abrir configurações -->
     </div>
 
     <div class="update-bar">
@@ -423,7 +427,7 @@
         <button class="refresh-btn" onclick="loadAllData()">↻ Atualizar</button>
     </div>
 
-    <button class="toggle-config" onclick="toggleConfig()">⚙ Configurar URLs do Google Sheets</button>
+    <button class="toggle-config" onclick="toggleConfig()" style="display:none;" id="admin-btn">⚙ Configurar URLs do Google Sheets</button>
 
     <div class="config-panel" id="config-panel" style="display:none;">
         <div class="config-title">URLs do Google Sheets (CSV publicado)</div>
@@ -440,10 +444,6 @@
             <input class="config-input" id="url-bronce" placeholder="https://docs.google.com/spreadsheets/d/.../pub?...&output=csv">
         </div>
         <div class="config-row">
-            <span class="config-label">Femenino</span>
-            <input class="config-input" id="url-femenino" placeholder="https://docs.google.com/spreadsheets/d/.../pub?...&output=csv">
-        </div>
-        <div class="config-row">
             <button class="config-save" onclick="saveUrls()">Salvar URLs</button>
         </div>
         <div class="config-hint">
@@ -456,7 +456,6 @@
         <button class="cat-tab active" onclick="showCat('oro', this)">ORO</button>
         <button class="cat-tab" onclick="showCat('plata', this)">PLATA</button>
         <button class="cat-tab" onclick="showCat('bronce', this)">BRONCE</button>
-        <button class="cat-tab" onclick="showCat('femenino', this)">FEMENINO</button>
     </div>
 
     <div class="content-card">
@@ -472,17 +471,29 @@
 
 <script>
 // ============================================================
-// CONFIGURAÇÃO
+// ACESSO ADMIN — clique 5x no título 🏝 para abrir configurações
 // ============================================================
-// Após o sorteio, coloque as URLs do Google Sheets aqui
-// OU use o painel de configuração acima no site
+let _clicks = 0, _timer;
+document.querySelector('.page-title').addEventListener('click', () => {
+    _clicks++;
+    clearTimeout(_timer);
+    _timer = setTimeout(() => { _clicks = 0; }, 2000);
+    if (_clicks >= 5) {
+        _clicks = 0;
+        const btn = document.getElementById('admin-btn');
+        btn.style.display = 'inline-block';
+        btn.scrollIntoView({ behavior: 'smooth' });
+    }
+});
+
+// ============================================================
+// CONFIGURAÇÃO
 // ============================================================
 
 const SHEET_URLS = {
-    oro:      localStorage.getItem('sheet_oro') || '',
-    plata:    localStorage.getItem('sheet_plata') || '',
-    bronce:   localStorage.getItem('sheet_bronce') || '',
-    femenino: localStorage.getItem('sheet_femenino') || ''
+    oro:    localStorage.getItem('sheet_oro') || '',
+    plata:  localStorage.getItem('sheet_plata') || '',
+    bronce: localStorage.getItem('sheet_bronce') || ''
 };
 
 let etapaData = {};
@@ -676,12 +687,11 @@ function toggleConfig() {
         document.getElementById('url-oro').value = localStorage.getItem('sheet_oro') || '';
         document.getElementById('url-plata').value = localStorage.getItem('sheet_plata') || '';
         document.getElementById('url-bronce').value = localStorage.getItem('sheet_bronce') || '';
-        document.getElementById('url-femenino').value = localStorage.getItem('sheet_femenino') || '';
     }
 }
 
 function saveUrls() {
-    ['oro','plata','bronce','femenino'].forEach(cat => {
+    ['oro','plata','bronce'].forEach(cat => {
         const val = document.getElementById(`url-${cat}`).value.trim();
         localStorage.setItem(`sheet_${cat}`, val);
         SHEET_URLS[cat] = val;

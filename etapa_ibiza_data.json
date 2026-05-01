@@ -4,7 +4,7 @@
     "grupos": [
       {
         "nome": "Grupo A",
-        "equipes": ["Gustavo / Miquel", "Mario / Mario", "Hernán / Falk", "Bocha / Frank", "Edu Baquero / Robert Rebull"],
+        "equipes": ["Dupla A1", "Dupla A2", "Dupla A3", "Dupla A4", "Dupla A5"],
         "partidas": [
           { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
           { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
@@ -20,7 +20,7 @@
       },
       {
         "nome": "Grupo B",
-        "equipes": ["Pablo / Carlos", "Kaue / Joel", "Yan / Jorge", "Líder / Faurlin", "Flavio / Enzo"],
+        "equipes": ["Dupla B1", "Dupla B2", "Dupla B3", "Dupla B4", "Dupla B5"],
         "partidas": [
           { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
           { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
@@ -36,7 +36,7 @@
       },
       {
         "nome": "Grupo C",
-        "equipes": ["Daine / Michael", "Amalfitano / Robert", "Mathias / Alejandro", "Julen / Emma", "Ayrton / Jonatahan"],
+        "equipes": ["Dupla C1", "Dupla C2", "Dupla C3", "Dupla C4", "Dupla C5"],
         "partidas": [
           { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
           { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
@@ -56,7 +56,7 @@
     "grupos": [
       {
         "nome": "Grupo A",
-        "equipes": ["Germán / Andrés", "Giorgi / Ivan", "João / Enric", "Nestor / David", "Tomás / Iather"],
+        "equipes": ["Dupla A1", "Dupla A2", "Dupla A3", "Dupla A4", "Dupla A5"],
         "partidas": [
           { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
           { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
@@ -72,7 +72,7 @@
       },
       {
         "nome": "Grupo B",
-        "equipes": ["Bartosz / Andrea", "Fernando / Felipe", "Kaique / Michael", "Ricca / Francesco", "Rafael / Andrew"],
+        "equipes": ["Dupla B1", "Dupla B2", "Dupla B3", "Dupla B4", "Dupla B5"],
         "partidas": [
           { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
           { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
@@ -88,7 +88,7 @@
       },
       {
         "nome": "Grupo C",
-        "equipes": ["Dino / Jonathan", "Bruno / Luis", "Willian / Matteo", "Fernando / Andrey", "Dupla C5"],
+        "equipes": ["Dupla C1", "Dupla C2", "Dupla C3", "Dupla C4", "Dupla C5"],
         "partidas": [
           { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
           { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
@@ -108,7 +108,7 @@
     "grupos": [
       {
         "nome": "Grupo A",
-        "equipes": ["Albert / Bruno", "Francisco / Jorge", "Patrizio / Oscar", "Maxi / Juan", "Lorenzo / Francesco"],
+        "equipes": ["Dupla A1", "Dupla A2", "Dupla A3", "Dupla A4", "Dupla A5"],
         "partidas": [
           { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
           { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
@@ -124,7 +124,7 @@
       },
       {
         "nome": "Grupo B",
-        "equipes": ["Bruno / Dani", "Gerard / Miguel", "Daniel / Martí", "Gutiery / Gustavo", "Sergio / Manuel"],
+        "equipes": ["Dupla B1", "Dupla B2", "Dupla B3", "Dupla B4", "Dupla B5"],
         "partidas": [
           { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
           { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
@@ -140,7 +140,7 @@
       },
       {
         "nome": "Grupo C",
-        "equipes": ["Albert / Andrew", "Jan / Bruno", "Gabriel / Alejandro", "Davide / Salvador", "Alejandro / Vinicius"],
+        "equipes": ["Dupla C1", "Dupla C2", "Dupla C3", "Dupla C4", "Dupla C5"],
         "partidas": [
           { "local": 0, "visit": 1, "p_local": null, "p_visit": null },
           { "local": 2, "visit": 3, "p_local": null, "p_visit": null },
