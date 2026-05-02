@@ -487,36 +487,101 @@ document.querySelector('.page-title').addEventListener('click', () => {
 });
 
 // ============================================================
-// CONFIGURAÇÃO
+// URLs HARDCODADAS — funcionam em qualquer dispositivo
 // ============================================================
-
+const BASE = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSicHfPwOcjrbc1XcBPPHw1ZJztTcxX6TKhmPgJofkVvYAVX9z_i2-frcJk9DBCsDlMf6a6XN--qSjy/pub';
 const SHEET_URLS = {
-    oro:    localStorage.getItem('sheet_oro') || '',
-    plata:  localStorage.getItem('sheet_plata') || '',
-    bronce: localStorage.getItem('sheet_bronce') || ''
+    oro:    BASE + '?gid=1600859591&single=true&output=csv',
+    plata:  BASE + '?gid=881075658&single=true&output=csv',
+    bronce: BASE + '?gid=881075658&single=true&output=csv'
+};
+
+// ============================================================
+// DADOS EMBUTIDOS — fallback imediato, sem depender de rede
+// ============================================================
+const FALLBACK_DATA = {
+    bronce: {
+        grupos: [
+            {
+                nome: 'Grupo A',
+                equipes: ['Albert / Bruno','Lorenzo / Francesco','Francisco / Jorge','Maxi / Juan','Patrizio / Oscar'],
+                partidas: [
+                    {local:0,visit:1,p_local:null,p_visit:null},
+                    {local:2,visit:3,p_local:null,p_visit:null},
+                    {local:4,visit:1,p_local:null,p_visit:null},
+                    {local:0,visit:3,p_local:null,p_visit:null},
+                    {local:2,visit:4,p_local:12,p_visit:18},
+                    {local:0,visit:4,p_local:null,p_visit:null},
+                    {local:2,visit:1,p_local:null,p_visit:null},
+                    {local:4,visit:3,p_local:null,p_visit:null},
+                    {local:3,visit:1,p_local:13,p_visit:18},
+                    {local:0,visit:2,p_local:null,p_visit:null}
+                ]
+            },
+            {
+                nome: 'Grupo B',
+                equipes: ['Bruno / Dani','Sergio / Manuel','Gerard / Miguel','Gutiery / Gustavo','Daniel / Martí'],
+                partidas: [
+                    {local:0,visit:1,p_local:null,p_visit:null},
+                    {local:2,visit:3,p_local:null,p_visit:null},
+                    {local:4,visit:1,p_local:null,p_visit:null},
+                    {local:0,visit:3,p_local:null,p_visit:null},
+                    {local:2,visit:4,p_local:18,p_visit:11},
+                    {local:0,visit:4,p_local:null,p_visit:null},
+                    {local:2,visit:1,p_local:null,p_visit:null},
+                    {local:4,visit:3,p_local:null,p_visit:null},
+                    {local:3,visit:1,p_local:6,p_visit:18},
+                    {local:0,visit:2,p_local:null,p_visit:null}
+                ]
+            },
+            {
+                nome: 'Grupo C',
+                equipes: ['Albert / Andrew','Alejandro / Vinicius','Jan / Bruno','Davide / Salvador','Gabriel / Alejandro'],
+                partidas: [
+                    {local:0,visit:1,p_local:null,p_visit:null},
+                    {local:2,visit:3,p_local:null,p_visit:null},
+                    {local:4,visit:1,p_local:null,p_visit:null},
+                    {local:0,visit:3,p_local:null,p_visit:null},
+                    {local:2,visit:4,p_local:18,p_visit:3},
+                    {local:0,visit:4,p_local:null,p_visit:null},
+                    {local:2,visit:1,p_local:null,p_visit:null},
+                    {local:4,visit:3,p_local:null,p_visit:null},
+                    {local:3,visit:1,p_local:18,p_visit:10},
+                    {local:0,visit:2,p_local:null,p_visit:null}
+                ]
+            }
+        ]
+    },
+    oro:   { grupos: [] },
+    plata: { grupos: [] }
 };
 
 let etapaData = {};
 let currentCat = 'oro';
 
 // ============================================================
-// CARREGAMENTO DE DADOS
+// CARREGAMENTO — tenta Sheets, usa fallback se falhar
 // ============================================================
-
 async function loadAllData() {
     document.getElementById('last-update').textContent = 'Atualizando...';
 
+    // Carrega fallback imediatamente para mostrar algo
+    Object.keys(FALLBACK_DATA).forEach(cat => {
+        if (!etapaData[cat] || !etapaData[cat].grupos || etapaData[cat].grupos.length === 0) {
+            etapaData[cat] = FALLBACK_DATA[cat];
+        }
+    });
+    renderCat(currentCat);
+
+    // Tenta buscar dados frescos do Sheets em paralelo
     const promises = Object.entries(SHEET_URLS).map(async ([cat, url]) => {
-        if (url) {
-            try {
-                const data = await loadFromSheets(url);
+        try {
+            const data = await loadFromSheets(url);
+            if (data && data.grupos && data.grupos.length > 0) {
                 etapaData[cat] = data;
-            } catch (e) {
-                console.warn(`Sheets ${cat} falhou, carregando fallback`, e);
-                etapaData[cat] = await loadFallback(cat);
             }
-        } else {
-            etapaData[cat] = await loadFallback(cat);
+        } catch (e) {
+            console.warn(`Sheets ${cat} indisponível, usando fallback embutido`);
         }
     });
 
@@ -530,8 +595,8 @@ async function loadAllData() {
 }
 
 async function loadFromSheets(csvUrl) {
-    // Busca o CSV e converte para estrutura de dados
     const resp = await fetch(csvUrl);
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
     const text = await resp.text();
     return parseCSV(text);
 }
@@ -539,7 +604,6 @@ async function loadFromSheets(csvUrl) {
 function parseCSV(text) {
     const lines = text.trim().split('\n').map(l => l.split(',').map(c => c.trim().replace(/"/g, '')));
     const headers = lines[0];
-
     const grupos = {};
 
     for (let i = 1; i < lines.length; i++) {
@@ -548,14 +612,11 @@ function parseCSV(text) {
         if (!row.grupo || !row.local) continue;
 
         if (!grupos[row.grupo]) grupos[row.grupo] = { nome: row.grupo, partidas: [], equipes: [] };
-
         const g = grupos[row.grupo];
         const localIdx = getOrAdd(g.equipes, row.local);
         const visitIdx = getOrAdd(g.equipes, row.visitante);
-
         const pLocal = row.pontos_local !== '' ? parseInt(row.pontos_local) : null;
         const pVisit = row.pontos_visit !== '' ? parseInt(row.pontos_visit) : null;
-
         g.partidas.push({ local: localIdx, visit: visitIdx, p_local: pLocal, p_visit: pVisit });
     }
 
@@ -566,16 +627,6 @@ function getOrAdd(arr, val) {
     let idx = arr.indexOf(val);
     if (idx === -1) { arr.push(val); idx = arr.length - 1; }
     return idx;
-}
-
-async function loadFallback(cat) {
-    try {
-        const resp = await fetch('etapa_ibiza_data.json');
-        const json = await resp.json();
-        return json[cat] || { grupos: [] };
-    } catch (e) {
-        return { grupos: [] };
-    }
 }
 
 // ============================================================
@@ -684,18 +735,16 @@ function toggleConfig() {
     const panel = document.getElementById('config-panel');
     panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
     if (panel.style.display === 'block') {
-        document.getElementById('url-oro').value = localStorage.getItem('sheet_oro') || '';
-        document.getElementById('url-plata').value = localStorage.getItem('sheet_plata') || '';
-        document.getElementById('url-bronce').value = localStorage.getItem('sheet_bronce') || '';
+        document.getElementById('url-oro').value = SHEET_URLS.oro;
+        document.getElementById('url-plata').value = SHEET_URLS.plata;
+        document.getElementById('url-bronce').value = SHEET_URLS.bronce;
     }
 }
 
 function saveUrls() {
-    ['oro','plata','bronce'].forEach(cat => {
-        const val = document.getElementById(`url-${cat}`).value.trim();
-        localStorage.setItem(`sheet_${cat}`, val);
-        SHEET_URLS[cat] = val;
-    });
+    SHEET_URLS.oro    = document.getElementById('url-oro').value.trim() || SHEET_URLS.oro;
+    SHEET_URLS.plata  = document.getElementById('url-plata').value.trim() || SHEET_URLS.plata;
+    SHEET_URLS.bronce = document.getElementById('url-bronce').value.trim() || SHEET_URLS.bronce;
     document.getElementById('config-panel').style.display = 'none';
     loadAllData();
 }
