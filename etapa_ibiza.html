@@ -500,6 +500,8 @@ const SHEET_URLS = {
 // DADOS EMBUTIDOS — fallback imediato, sem depender de rede
 // ============================================================
 const FALLBACK_DATA = {
+    oro:   { grupos: [] },
+    plata: { grupos: [] },
     bronce: {
         grupos: [
             {
@@ -551,9 +553,7 @@ const FALLBACK_DATA = {
                 ]
             }
         ]
-    },
-    oro:   { grupos: [] },
-    plata: { grupos: [] }
+    }
 };
 
 let etapaData = {};
