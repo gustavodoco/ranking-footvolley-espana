@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etapa 2 Alboraya 2026 – Liga Nacional Footvolley España</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0d2137 0%, #1a3a5c 60%, #0d2137 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* HEADER */
+        .page-header { text-align: center; margin-bottom: 24px; }
+        .back-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: rgba(255,255,255,0.6); text-decoration: none;
+            font-size: 13px; margin-bottom: 16px; transition: color 0.2s;
+        }
+        .back-link:hover { color: #f8c32a; }
+        .etapa-badge {
+            display: inline-block; background: #f8c32a; color: #0d2137;
+            font-size: 11px; font-weight: 700; letter-spacing: 2px;
+            padding: 4px 14px; border-radius: 20px; margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .page-title { font-size: 2rem; font-weight: 700; }
+        .page-sub { color: rgba(255,255,255,0.6); font-size: 14px; }
+        .live-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(226,75,74,0.2); border: 1px solid rgba(226,75,74,0.5);
+            color: #f09595; font-size: 12px; padding: 4px 12px;
+            border-radius: 20px; margin-top: 10px;
+        }
+        .live-dot {
+            width: 6px; height: 6px; background: #e24b4a;
+            border-radius: 50%; animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        /* UPDATE BANNER */
+        .update-bar {
+            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px; padding: 10px 16px; font-size: 12px;
+            color: rgba(255,255,255,0.6); margin-bottom: 20px;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 8px;
+        }
+        .refresh-btn {
+            background: rgba(248,195,42,0.15); border: 1px solid rgba(248,195,42,0.3);
+            color: #f8c32a; font-size: 12px; padding: 5px 12px;
+            border-radius: 6px; cursor: pointer; transition: background 0.2s;
+        }
+        .refresh-btn:hover { background: rgba(248,195,42,0.25); }
+
+        /* CATEGORY TABS */
+        .cat-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+        .cat-tab {
+            padding: 10px 22px; background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15); border-radius: 30px;
+            color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 600;
+            cursor: pointer; transition: all 0.2s; letter-spacing: 0.5px;
+        }
+        .cat-tab:hover { background: rgba(255,255,255,0.15); }
+        .cat-tab.active { background: #f8c32a; border-color: #f8c32a; color: #0d2137; }
+
+        /* CONTENT CARD */
+        .content-card {
+            background: rgba(255,255,255,0.06); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;
+            padding: 24px; margin-bottom: 16px;
+        }
+
+        /* GROUPS GRID */
+        .groups-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        /* GROUP CARD */
+        .group-card {
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 14px; overflow: hidden;
+        }
+        .group-header {
+            background: #f8c32a; color: #0d2137; padding: 12px 18px;
+            font-weight: 700; font-size: 13px; letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .group-body { padding: 14px 18px; }
+
+        /* MATCHES */
+        .section-label {
+            font-size: 10px; letter-spacing: 1.5px; color: rgba(255,255,255,0.4);
+            text-transform: uppercase; margin-bottom: 8px;
+        }
+        .match-row {
+            display: flex; align-items: center; gap: 6px; padding: 7px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 12px;
+        }
+        .match-row:last-of-type { border-bottom: none; }
+        .team-name {
+            flex: 1; color: rgba(255,255,255,0.9); font-weight: 500;
+            line-height: 1.3; min-width: 0; white-space: nowrap;
+            overflow: hidden; text-overflow: ellipsis;
+        }
+        .team-name.right { text-align: right; }
+        .vs { color: rgba(255,255,255,0.3); font-size: 10px; min-width: 12px; text-align: center; }
+        .score-wrap { display: flex; gap: 3px; }
+        .score-box {
+            width: 26px; height: 24px; background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15); border-radius: 5px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.7);
+        }
+        .score-box.winner { background: #1d9e75; border-color: #1d9e75; color: white; }
+
+        /* STANDINGS TABLE */
+        .standings-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 12px; }
+        .standings-table thead tr { background: rgba(255,255,255,0.08); }
+        .standings-table th {
+            padding: 8px 10px; text-align: center; color: rgba(255,255,255,0.5);
+            font-weight: 500; font-size: 11px; letter-spacing: 0.5px;
+        }
+        .standings-table th:first-child { text-align: left; border-radius: 6px 0 0 6px; }
+        .standings-table th:last-child { border-radius: 0 6px 6px 0; }
+        .standings-table td {
+            padding: 8px 10px; text-align: center; color: rgba(255,255,255,0.8);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .standings-table td:first-child { text-align: left; }
+        .standings-table tr:last-child td { border-bottom: none; }
+        .rank-badge {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 20px; height: 20px; border-radius: 50%; font-size: 11px;
+            font-weight: 700; margin-right: 6px;
+        }
+        .rank-1 { background: #f8c32a; color: #0d2137; }
+        .rank-2 { background: rgba(255,255,255,0.2); color: white; }
+        .rank-3 { background: #cd7f32; color: white; }
+        .rank-other { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+        .qual-indicator {
+            display: inline-block; width: 4px; height: 4px;
+            border-radius: 50%; margin-left: 4px; vertical-align: middle;
+        }
+        .qual { background: #1d9e75; }
+        .qual-3 { background: #f8c32a; }
+        .no-qual { background: rgba(255,255,255,0.2); }
+
+        /* PHASE BRACKETS */
+        .phase-section { margin-top: 28px; }
+        .phase-title {
+            font-size: 14px; font-weight: 600; color: #f8c32a;
+            letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase;
+        }
+        .phase-note {
+            font-size: 11px; color: rgba(255,255,255,0.4);
+            margin-bottom: 12px; line-height: 1.5;
+        }
+        .bracket-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 10px;
+        }
+        .bracket-match {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px; overflow: hidden;
+        }
+        .bracket-match.final-match { border-color: #f8c32a; }
+        .bracket-label {
+            background: rgba(255,255,255,0.08); padding: 6px 12px;
+            font-size: 10px; letter-spacing: 1px; color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+        }
+        .final-match .bracket-label { background: rgba(248,195,42,0.2); color: #f8c32a; }
+        .bracket-team {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 9px 12px; font-size: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .bracket-team:last-child { border-bottom: none; }
+        .bracket-team.winner { color: #f8c32a; font-weight: 600; }
+        .bracket-team-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .bracket-score { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.9); margin-left: 8px; }
+
+        /* LOADING */
+        .loading { text-align: center; padding: 40px; color: rgba(255,255,255,0.4); }
+        .spinner {
+            display: inline-block; width: 24px; height: 24px;
+            border: 2px solid rgba(255,255,255,0.1); border-top-color: #f8c32a;
+            border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 10px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* CONFIG PANEL */
+        .config-panel {
+            background: rgba(248,195,42,0.08); border: 1px solid rgba(248,195,42,0.2);
+            border-radius: 12px; padding: 16px 20px; margin-bottom: 20px;
+        }
+        .config-title { font-size: 13px; font-weight: 600; color: #f8c32a; margin-bottom: 12px; }
+        .config-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+        .config-label { font-size: 12px; color: rgba(255,255,255,0.6); min-width: 80px; }
+        .config-input {
+            flex: 1; min-width: 200px; background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 6px;
+            color: white; font-size: 12px; padding: 6px 10px;
+        }
+        .config-input::placeholder { color: rgba(255,255,255,0.3); }
+        .config-save {
+            background: #f8c32a; color: #0d2137; border: none; border-radius: 6px;
+            padding: 6px 14px; font-size: 12px; font-weight: 700; cursor: pointer;
+        }
+        .config-hint { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 8px; line-height: 1.5; }
+        .toggle-config {
+            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.7); font-size: 12px; padding: 6px 14px;
+            border-radius: 6px; cursor: pointer; margin-bottom: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .page-title { font-size: 1.4rem; }
+            .groups-grid { grid-template-columns: 1fr; }
+            body { padding: 12px; }
+            .content-card { padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header">
+        <a href="index.html" class="back-link">← Volver al ranking</a>
+        <div class="logo-wrap">
+            <img src="logo.png" alt="Footvolley España" style="height:60px; filter:brightness(0) invert(1); opacity:0.9; margin-bottom:8px;" onerror="this.style.display='none'">
+        </div>
+        <div><span class="etapa-badge">Etapa 2 · 2026</span></div>
+        <h1 class="page-title">🏖 Alboraya</h1>
+        <p class="page-sub">Liga Nacional de Footvolley España</p>
+        <div class="live-badge">
+            <span class="live-dot"></span>
+            Actualización automática desde Google Sheets
+        </div>
+        <!-- Admin: clique 5x no título para abrir configurações -->
+    </div>
+
+    <div class="update-bar">
+        <span id="last-update">Cargando datos...</span>
+        <button class="refresh-btn" onclick="loadAllData()">↻ Actualizar</button>
+    </div>
+
+    <button class="toggle-config" onclick="toggleConfig()" style="display:none;" id="admin-btn">⚙ Configurar URLs do Google Sheets</button>
+
+    <div class="config-panel" id="config-panel" style="display:none;">
+        <div class="config-title">URLs do Google Sheets (CSV publicado)</div>
+        <div class="config-row">
+            <span class="config-label">Oro</span>
+            <input class="config-input" id="url-oro" placeholder="https://docs.google.com/spreadsheets/d/.../pub?...&output=csv">
+        </div>
+        <div class="config-row">
+            <span class="config-label">Plata</span>
+            <input class="config-input" id="url-plata" placeholder="https://docs.google.com/spreadsheets/d/.../pub?...&output=csv">
+        </div>
+        <div class="config-row">
+            <span class="config-label">Bronce</span>
+            <input class="config-input" id="url-bronce" placeholder="https://docs.google.com/spreadsheets/d/.../pub?...&output=csv">
+        </div>
+        <div class="config-row">
+            <button class="config-save" onclick="saveUrls()">Salvar URLs</button>
+        </div>
+        <div class="config-hint">
+            Como obter a URL: Arquivo → Compartilhar → Publicar na web → selecione a aba → CSV → Publicar → copiar link.<br>
+            Enquanto não configurado, os dados vêm do arquivo local <code>etapa_alboraya_data.json</code>.
+        </div>
+    </div>
+
+    <div class="cat-tabs">
+        <button class="cat-tab active" onclick="showCat('oro', this)">ORO</button>
+        <button class="cat-tab" onclick="showCat('plata', this)">PLATA</button>
+        <button class="cat-tab" onclick="showCat('bronce', this)">BRONCE</button>
+    </div>
+
+    <div class="content-card">
+        <div id="cat-content">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Cargando datos de la etapa...</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+// ============================================================
+// ACESSO ADMIN — clique 5x no título 🏖 para abrir configurações
+// ============================================================
+let _clicks = 0, _timer;
+document.querySelector('.page-title').addEventListener('click', () => {
+    _clicks++;
+    clearTimeout(_timer);
+    _timer = setTimeout(() => { _clicks = 0; }, 2000);
+    if (_clicks >= 5) {
+        _clicks = 0;
+        const btn = document.getElementById('admin-btn');
+        btn.style.display = 'inline-block';
+        btn.scrollIntoView({ behavior: 'smooth' });
+    }
+});
+
+// ============================================================
+// URLs do Google Sheets — preencher quando publicar a planilha
+// Deixe '' para usar somente o arquivo local etapa_alboraya_data.json
+// ============================================================
+const SHEET_URLS = {
+    oro:    '',
+    plata:  '',
+    bronce: ''
+};
+
+let etapaData = {};
+let currentCat = 'oro';
+
+// ============================================================
+// FORMATO DOS PLAYOFFS POR CATEGORIA
+// ============================================================
+const FORMATO = {
+    oro: 'Pasan 1º y 2º de cada grupo a cuartos (domingo). Los 3 terceros juegan un triangular el sábado — clasifican 2 parejas.',
+    plata: 'Pasan los 1º directos a cuartos (domingo). Los 2º y 3º juegan octavos el sábado.',
+    bronce: 'Pasan 1º, 2º y los 4 mejores terceros a octavos (sábado). Partidos a 1 set de 21 puntos.'
+};
+
+// ============================================================
+// CARREGAMENTO
+// ============================================================
+async function loadAllData() {
+    document.getElementById('last-update').textContent = 'Actualizando...';
+
+    // Carrega arquivo local
+    try {
+        const resp = await fetch('etapa_alboraya_data.json');
+        if (resp.ok) {
+            const local = await resp.json();
+            ['oro','plata','bronce'].forEach(c => { if (local[c]) etapaData[c] = local[c]; });
+        }
+    } catch (e) {
+        console.warn('Arquivo local indisponível');
+    }
+    renderCat(currentCat);
+
+    // Tenta Sheets se configurado
+    const promises = Object.entries(SHEET_URLS).map(async ([cat, url]) => {
+        if (!url) return;
+        try {
+            const data = await loadFromSheets(url);
+            if (data && data.grupos && data.grupos.length > 0) {
+                etapaData[cat] = Object.assign({}, etapaData[cat], data);
+            }
+        } catch (e) {
+            console.warn(`Sheets ${cat} indisponível, usando arquivo local`);
+        }
+    });
+    await Promise.allSettled(promises);
+
+    const now = new Date();
+    document.getElementById('last-update').textContent =
+        `Última actualización: ${now.toLocaleTimeString('es-ES')}`;
+    renderCat(currentCat);
+}
+
+async function loadFromSheets(csvUrl) {
+    const resp = await fetch(csvUrl);
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const text = await resp.text();
+    return parseCSV(text);
+}
+
+function parseCSV(text) {
+    const lines = text.trim().split('\n').map(l => l.split(',').map(c => c.trim().replace(/"/g, '')));
+    const headers = lines[0];
+    const grupos = {};
+    for (let i = 1; i < lines.length; i++) {
+        const row = {};
+        headers.forEach((h, idx) => { row[h] = lines[i][idx] || ''; });
+        if (!row.grupo || !row.local) continue;
+        if (!grupos[row.grupo]) grupos[row.grupo] = { nome: row.grupo, partidas: [], equipes: [] };
+        const g = grupos[row.grupo];
+        const localIdx = getOrAdd(g.equipes, row.local);
+        const visitIdx = getOrAdd(g.equipes, row.visitante);
+        const pLocal = row.pontos_local !== '' ? parseInt(row.pontos_local) : null;
+        const pVisit = row.pontos_visit !== '' ? parseInt(row.pontos_visit) : null;
+        g.partidas.push({ local: localIdx, visit: visitIdx, p_local: pLocal, p_visit: pVisit });
+    }
+    return { grupos: Object.values(grupos) };
+}
+
+function getOrAdd(arr, val) {
+    let idx = arr.indexOf(val);
+    if (idx === -1) { arr.push(val); idx = arr.length - 1; }
+    return idx;
+}
+
+// ============================================================
+// CLASSIFICAÇÃO DOS GRUPOS
+// ============================================================
+function calcStandings(grupo) {
+    const stats = grupo.equipes.map(e => ({ nome: e, v: 0, p_plus: 0, p_minus: 0 }));
+    grupo.partidas.forEach(p => {
+        if (p.p_local !== null && p.p_visit !== null) {
+            stats[p.local].p_plus += p.p_local;
+            stats[p.local].p_minus += p.p_visit;
+            stats[p.visit].p_plus += p.p_visit;
+            stats[p.visit].p_minus += p.p_local;
+            if (p.p_local > p.p_visit) stats[p.local].v++;
+            else if (p.p_visit > p.p_local) stats[p.visit].v++;
+        }
+    });
+    return stats.sort((a, b) =>
+        b.v - a.v ||
+        (b.p_plus - b.p_minus) - (a.p_plus - a.p_minus) ||
+        b.p_plus - a.p_plus
+    );
+}
+
+function renderGrupo(g, cat) {
+    const standings = calcStandings(g);
+    const matchesHtml = g.partidas.map(p => {
+        const hasResult = p.p_local !== null && p.p_visit !== null;
+        const localWin = hasResult && p.p_local > p.p_visit;
+        const visitWin = hasResult && p.p_visit > p.p_local;
+        return `
+        <div class="match-row">
+            <span class="team-name">${g.equipes[p.local]}</span>
+            <span class="vs">×</span>
+            <span class="team-name right">${g.equipes[p.visit]}</span>
+            <div class="score-wrap">
+                <div class="score-box ${localWin ? 'winner' : ''}">${p.p_local !== null ? p.p_local : '–'}</div>
+                <div class="score-box ${visitWin ? 'winner' : ''}">${p.p_visit !== null ? p.p_visit : '–'}</div>
+            </div>
+        </div>`;
+    }).join('');
+
+    const standingsHtml = standings.map((s, i) => {
+        const coef = s.p_plus - s.p_minus;
+        let rankClass = 'rank-other';
+        if (i === 0) rankClass = 'rank-1';
+        else if (i === 1) rankClass = 'rank-2';
+        else if (i === 2) rankClass = 'rank-3';
+        // Quem classifica direto: oro 1º+2º, plata 1º, bronce 1º+2º
+        let qual = '<span class="qual-indicator no-qual"></span>';
+        if (cat === 'oro') {
+            if (i < 2) qual = '<span class="qual-indicator qual" title="Clasifica a cuartos"></span>';
+            else if (i === 2) qual = '<span class="qual-indicator qual-3" title="Va al triangular"></span>';
+        } else if (cat === 'plata') {
+            if (i === 0) qual = '<span class="qual-indicator qual" title="Clasifica a cuartos"></span>';
+            else if (i === 1 || i === 2) qual = '<span class="qual-indicator qual-3" title="Va a octavos"></span>';
+        } else if (cat === 'bronce') {
+            if (i < 2) qual = '<span class="qual-indicator qual" title="Clasifica a octavos"></span>';
+            else if (i === 2) qual = '<span class="qual-indicator qual-3" title="Posible mejor tercero"></span>';
+        }
+        return `
+        <tr>
+            <td><span class="rank-badge ${rankClass}">${i+1}</span>${s.nome}${qual}</td>
+            <td>${s.v}</td>
+            <td>${s.p_plus}</td>
+            <td>${s.p_minus}</td>
+            <td>${coef >= 0 ? '+' : ''}${coef}</td>
+        </tr>`;
+    }).join('');
+
+    return `
+    <div class="group-card">
+        <div class="group-header">${g.nome}</div>
+        <div class="group-body">
+            <div class="section-label">Partidas</div>
+            ${matchesHtml}
+            <div class="section-label" style="margin-top:14px;">Clasificación</div>
+            <table class="standings-table">
+                <thead><tr>
+                    <th>Pareja</th><th>V</th><th>P+</th><th>P−</th><th>Coef</th>
+                </tr></thead>
+                <tbody>${standingsHtml}</tbody>
+            </table>
+        </div>
+    </div>`;
+}
+
+// ============================================================
+// RENDER DE PLAYOFFS
+// ============================================================
+function renderBracketMatch(m, isFinal) {
+    const hasResult = m.p_a !== null && m.p_b !== null && m.p_a !== undefined && m.p_b !== undefined;
+    const aWin = hasResult && m.p_a > m.p_b;
+    const bWin = hasResult && m.p_b > m.p_a;
+    return `
+    <div class="bracket-match ${isFinal ? 'final-match' : ''}">
+        <div class="bracket-label">${m.label}</div>
+        <div class="bracket-team ${aWin ? 'winner' : ''}">
+            <span class="bracket-team-name">${m.a}</span>
+            <span class="bracket-score">${m.p_a != null ? m.p_a : '–'}</span>
+        </div>
+        <div class="bracket-team ${bWin ? 'winner' : ''}">
+            <span class="bracket-team-name">${m.b}</span>
+            <span class="bracket-score">${m.p_b != null ? m.p_b : '–'}</span>
+        </div>
+    </div>`;
+}
+
+function renderTriangular(tri) {
+    if (!tri) return '';
+    const eq = tri.equipes;
+    const matchesHtml = tri.partidas.map((p, i) => {
+        const hasResult = p.p_local !== null && p.p_visit !== null;
+        const lw = hasResult && p.p_local > p.p_visit;
+        const vw = hasResult && p.p_visit > p.p_local;
+        return `
+        <div class="match-row">
+            <span class="team-name">${eq[p.local]}</span>
+            <span class="vs">×</span>
+            <span class="team-name right">${eq[p.visit]}</span>
+            <div class="score-wrap">
+                <div class="score-box ${lw ? 'winner' : ''}">${p.p_local != null ? p.p_local : '–'}</div>
+                <div class="score-box ${vw ? 'winner' : ''}">${p.p_visit != null ? p.p_visit : '–'}</div>
+            </div>
+        </div>`;
+    }).join('');
+    return `
+    <div class="group-card" style="max-width:360px;">
+        <div class="group-header">Triangular · 3os clasificados</div>
+        <div class="group-body">
+            <div class="section-label">Partidas</div>
+            ${matchesHtml}
+            <div class="phase-note" style="margin-top:10px;margin-bottom:0;">Clasifican las 2 mejores parejas a cuartos de final.</div>
+        </div>
+    </div>`;
+}
+
+function renderPlayoffs(po, cat) {
+    if (!po) return '';
+    let html = '';
+
+    html += `<div class="phase-note">${FORMATO[cat]}</div>`;
+
+    if (po.triangular) {
+        html += `<div class="phase-section">
+            <div class="phase-title">Triangular (Sábado)</div>
+            ${renderTriangular(po.triangular)}
+        </div>`;
+    }
+    if (po.octavos && po.octavos.length) {
+        html += `<div class="phase-section">
+            <div class="phase-title">Octavos de Final</div>
+            <div class="bracket-grid">${po.octavos.map(m => renderBracketMatch(m, false)).join('')}</div>
+        </div>`;
+    }
+    if (po.cuartos && po.cuartos.length) {
+        html += `<div class="phase-section">
+            <div class="phase-title">Cuartos de Final</div>
+            <div class="bracket-grid">${po.cuartos.map(m => renderBracketMatch(m, false)).join('')}</div>
+        </div>`;
+    }
+    if (po.semifinais && po.semifinais.length) {
+        html += `<div class="phase-section">
+            <div class="phase-title">Semifinales</div>
+            <div class="bracket-grid">${po.semifinais.map(m => renderBracketMatch(m, false)).join('')}</div>
+        </div>`;
+    }
+    if (po.tercer || po.final) {
+        let finals = '';
+        if (po.tercer) finals += renderBracketMatch(po.tercer, false);
+        if (po.final) finals += renderBracketMatch(po.final, true);
+        html += `<div class="phase-section">
+            <div class="phase-title">Finales</div>
+            <div class="bracket-grid">${finals}</div>
+        </div>`;
+    }
+    return html;
+}
+
+// ============================================================
+// RENDER GERAL
+// ============================================================
+function showCat(cat, btn) {
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    currentCat = cat;
+    renderCat(cat);
+}
+
+function renderCat(cat) {
+    const el = document.getElementById('cat-content');
+    const data = etapaData[cat];
+
+    if (!data || !data.grupos || data.grupos.length === 0) {
+        el.innerHTML = `
+        <div class="loading">
+            <p style="font-size:14px; color:rgba(255,255,255,0.5);">
+                Datos de ${cat.toUpperCase()} no disponibles.<br>
+                <span style="font-size:12px;">Configure a URL del Google Sheets o aguarde el sorteo.</span>
+            </p>
+        </div>`;
+        return;
+    }
+
+    const gruposHtml = data.grupos.map(g => renderGrupo(g, cat)).join('');
+    const playoffsHtml = renderPlayoffs(data.playoffs, cat);
+
+    el.innerHTML = `
+        <div class="phase-title">Fase de Grupos</div>
+        <div class="groups-grid">${gruposHtml}</div>
+        ${playoffsHtml}
+    `;
+}
+
+// ============================================================
+// CONFIGURAÇÃO DE URLs
+// ============================================================
+function toggleConfig() {
+    const panel = document.getElementById('config-panel');
+    panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+    if (panel.style.display === 'block') {
+        document.getElementById('url-oro').value = SHEET_URLS.oro;
+        document.getElementById('url-plata').value = SHEET_URLS.plata;
+        document.getElementById('url-bronce').value = SHEET_URLS.bronce;
+    }
+}
+
+function saveUrls() {
+    SHEET_URLS.oro    = document.getElementById('url-oro').value.trim();
+    SHEET_URLS.plata  = document.getElementById('url-plata').value.trim();
+    SHEET_URLS.bronce = document.getElementById('url-bronce').value.trim();
+    document.getElementById('config-panel').style.display = 'none';
+    loadAllData();
+}
+
+// ============================================================
+// INIT
+// ============================================================
+loadAllData();
+setInterval(loadAllData, 120000);
+</script>
+</body>
+</html>

@@ -1,0 +1,1003 @@
+{
+  "_info": "Etapa 2 Alboraya 2026. Preencher equipes e resultados apos sorteio.",
+  "oro": {
+    "grupos": [
+      {
+        "nome": "Grupo A",
+        "equipes": [
+          "Dupla A1",
+          "Dupla A2",
+          "Dupla A3",
+          "Dupla A4",
+          "Dupla A5"
+        ],
+        "partidas": [
+          {
+            "local": 1,
+            "visit": 4,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 2,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 4,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 1,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 4,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 4,
+            "p_local": null,
+            "p_visit": null
+          }
+        ]
+      },
+      {
+        "nome": "Grupo B",
+        "equipes": [
+          "Dupla B1",
+          "Dupla B2",
+          "Dupla B3",
+          "Dupla B4",
+          "Dupla B5"
+        ],
+        "partidas": [
+          {
+            "local": 1,
+            "visit": 4,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 2,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 4,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 1,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 4,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 4,
+            "p_local": null,
+            "p_visit": null
+          }
+        ]
+      },
+      {
+        "nome": "Grupo C",
+        "equipes": [
+          "Dupla C1",
+          "Dupla C2",
+          "Dupla C3",
+          "Dupla C4"
+        ],
+        "partidas": [
+          {
+            "local": 0,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 1,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 2,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          }
+        ]
+      }
+    ],
+    "playoffs": {
+      "triangular": {
+        "equipes": [
+          "3º Grupo A",
+          "3º Grupo B",
+          "3º Grupo C"
+        ],
+        "partidas": [
+          {
+            "local": 0,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 2,
+            "visit": 0,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 1,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          }
+        ]
+      },
+      "cuartos": [
+        {
+          "label": "Cuartos 1",
+          "a": "1º A",
+          "b": "2º C",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Cuartos 2",
+          "a": "1º B",
+          "b": "2º A",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Cuartos 3",
+          "a": "1º C",
+          "b": "2º B",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Cuartos 4",
+          "a": "1º Triangular",
+          "b": "2º Triangular",
+          "p_a": null,
+          "p_b": null
+        }
+      ],
+      "semifinais": [
+        {
+          "label": "Semifinal 1",
+          "a": "Ganador C1",
+          "b": "Ganador C4",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Semifinal 2",
+          "a": "Ganador C2",
+          "b": "Ganador C3",
+          "p_a": null,
+          "p_b": null
+        }
+      ],
+      "tercer": {
+        "label": "3º y 4º puesto",
+        "a": "Perdedor SF1",
+        "b": "Perdedor SF2",
+        "p_a": null,
+        "p_b": null
+      },
+      "final": {
+        "label": "Final",
+        "a": "Ganador SF1",
+        "b": "Ganador SF2",
+        "p_a": null,
+        "p_b": null
+      }
+    }
+  },
+  "plata": {
+    "grupos": [
+      {
+        "nome": "Grupo A",
+        "equipes": [
+          "Dupla A1",
+          "Dupla A2",
+          "Dupla A3",
+          "Dupla A4"
+        ],
+        "partidas": [
+          {
+            "local": 0,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 1,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 2,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          }
+        ]
+      },
+      {
+        "nome": "Grupo B",
+        "equipes": [
+          "Dupla B1",
+          "Dupla B2",
+          "Dupla B3",
+          "Dupla B4"
+        ],
+        "partidas": [
+          {
+            "local": 0,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 1,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 2,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          }
+        ]
+      },
+      {
+        "nome": "Grupo C",
+        "equipes": [
+          "Dupla C1",
+          "Dupla C2",
+          "Dupla C3",
+          "Dupla C4"
+        ],
+        "partidas": [
+          {
+            "local": 0,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 1,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 2,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          }
+        ]
+      },
+      {
+        "nome": "Grupo D",
+        "equipes": [
+          "Dupla D1",
+          "Dupla D2",
+          "Dupla D3",
+          "Dupla D4",
+          "Dupla D5"
+        ],
+        "partidas": [
+          {
+            "local": 1,
+            "visit": 4,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 2,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 4,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 1,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 4,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 4,
+            "p_local": null,
+            "p_visit": null
+          }
+        ]
+      }
+    ],
+    "playoffs": {
+      "octavos": [
+        {
+          "label": "Octavos 1",
+          "a": "2º A",
+          "b": "3º D",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Octavos 2",
+          "a": "2º B",
+          "b": "3º C",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Octavos 3",
+          "a": "2º C",
+          "b": "3º B",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Octavos 4",
+          "a": "2º D",
+          "b": "3º A",
+          "p_a": null,
+          "p_b": null
+        }
+      ],
+      "cuartos": [
+        {
+          "label": "Cuartos 1",
+          "a": "1º A",
+          "b": "Ganador O1",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Cuartos 2",
+          "a": "1º B",
+          "b": "Ganador O2",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Cuartos 3",
+          "a": "1º C",
+          "b": "Ganador O3",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Cuartos 4",
+          "a": "1º D",
+          "b": "Ganador O4",
+          "p_a": null,
+          "p_b": null
+        }
+      ],
+      "semifinais": [
+        {
+          "label": "Semifinal 1",
+          "a": "Ganador C1",
+          "b": "Ganador C4",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Semifinal 2",
+          "a": "Ganador C2",
+          "b": "Ganador C3",
+          "p_a": null,
+          "p_b": null
+        }
+      ],
+      "tercer": {
+        "label": "3º y 4º puesto",
+        "a": "Perdedor SF1",
+        "b": "Perdedor SF2",
+        "p_a": null,
+        "p_b": null
+      },
+      "final": {
+        "label": "Final",
+        "a": "Ganador SF1",
+        "b": "Ganador SF2",
+        "p_a": null,
+        "p_b": null
+      }
+    }
+  },
+  "bronce": {
+    "grupos": [
+      {
+        "nome": "Grupo A",
+        "equipes": [
+          "Dupla A1",
+          "Dupla A2",
+          "Dupla A3",
+          "Dupla A4"
+        ],
+        "partidas": [
+          {
+            "local": 0,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 1,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 2,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          }
+        ]
+      },
+      {
+        "nome": "Grupo B",
+        "equipes": [
+          "Dupla B1",
+          "Dupla B2",
+          "Dupla B3",
+          "Dupla B4"
+        ],
+        "partidas": [
+          {
+            "local": 0,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 1,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 2,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          }
+        ]
+      },
+      {
+        "nome": "Grupo C",
+        "equipes": [
+          "Dupla C1",
+          "Dupla C2",
+          "Dupla C3",
+          "Dupla C4"
+        ],
+        "partidas": [
+          {
+            "local": 0,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 1,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 2,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          }
+        ]
+      },
+      {
+        "nome": "Grupo D",
+        "equipes": [
+          "Dupla D1",
+          "Dupla D2",
+          "Dupla D3",
+          "Dupla D4"
+        ],
+        "partidas": [
+          {
+            "local": 0,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 1,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 2,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          }
+        ]
+      },
+      {
+        "nome": "Grupo E",
+        "equipes": [
+          "Dupla E1",
+          "Dupla E2",
+          "Dupla E3",
+          "Dupla E4"
+        ],
+        "partidas": [
+          {
+            "local": 0,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 1,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 2,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          }
+        ]
+      },
+      {
+        "nome": "Grupo F",
+        "equipes": [
+          "Dupla F1",
+          "Dupla F2",
+          "Dupla F3",
+          "Dupla F4"
+        ],
+        "partidas": [
+          {
+            "local": 0,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 1,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 2,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          }
+        ]
+      }
+    ],
+    "playoffs": {
+      "_nota": "Octavos: 6 primeros + 6 segundos + 4 mejores terceros. Partidos a 1 set de 21.",
+      "octavos": [
+        {
+          "label": "Octavos 1",
+          "a": "Sembrado 1",
+          "b": "Sembrado 16",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Octavos 2",
+          "a": "Sembrado 2",
+          "b": "Sembrado 15",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Octavos 3",
+          "a": "Sembrado 3",
+          "b": "Sembrado 14",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Octavos 4",
+          "a": "Sembrado 4",
+          "b": "Sembrado 13",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Octavos 5",
+          "a": "Sembrado 5",
+          "b": "Sembrado 12",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Octavos 6",
+          "a": "Sembrado 6",
+          "b": "Sembrado 11",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Octavos 7",
+          "a": "Sembrado 7",
+          "b": "Sembrado 10",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Octavos 8",
+          "a": "Sembrado 8",
+          "b": "Sembrado 9",
+          "p_a": null,
+          "p_b": null
+        }
+      ],
+      "cuartos": [
+        {
+          "label": "Cuartos 1",
+          "a": "Ganador O1",
+          "b": "Ganador O2",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Cuartos 2",
+          "a": "Ganador O3",
+          "b": "Ganador O4",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Cuartos 3",
+          "a": "Ganador O5",
+          "b": "Ganador O6",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Cuartos 4",
+          "a": "Ganador O7",
+          "b": "Ganador O8",
+          "p_a": null,
+          "p_b": null
+        }
+      ],
+      "semifinais": [
+        {
+          "label": "Semifinal 1",
+          "a": "Ganador C1",
+          "b": "Ganador C2",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Semifinal 2",
+          "a": "Ganador C3",
+          "b": "Ganador C4",
+          "p_a": null,
+          "p_b": null
+        }
+      ],
+      "tercer": {
+        "label": "3º y 4º puesto",
+        "a": "Perdedor SF1",
+        "b": "Perdedor SF2",
+        "p_a": null,
+        "p_b": null
+      },
+      "final": {
+        "label": "Final",
+        "a": "Ganador SF1",
+        "b": "Ganador SF2",
+        "p_a": null,
+        "p_b": null
+      }
+    }
+  }
+}

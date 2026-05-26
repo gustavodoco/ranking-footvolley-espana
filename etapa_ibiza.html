@@ -314,98 +314,7 @@
             color: rgba(255,255,255,0.9);
         }
 
-        /* PLAYOFFS */
-        .playoffs-section {
-            margin-top: 28px;
-        }
-        .playoffs-title {
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #f8c32a;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .playoffs-title::before, .playoffs-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: rgba(248,195,42,0.3);
-        }
-        .playoff-phase {
-            margin-bottom: 20px;
-        }
-        .playoff-phase-label {
-            font-size: 10px;
-            letter-spacing: 2px;
-            color: rgba(255,255,255,0.35);
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-        .playoff-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 10px;
-        }
-        .playoff-match {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .playoff-match.final {
-            border-color: rgba(248,195,42,0.4);
-            background: rgba(248,195,42,0.05);
-        }
-        .playoff-match.terceiro {
-            border-color: rgba(205,127,50,0.4);
-        }
-        .playoff-match-label {
-            background: rgba(255,255,255,0.06);
-            padding: 5px 12px;
-            font-size: 10px;
-            letter-spacing: 1px;
-            color: rgba(255,255,255,0.35);
-            text-transform: uppercase;
-        }
-        .playoff-match.final .playoff-match-label {
-            background: rgba(248,195,42,0.12);
-            color: #f8c32a;
-        }
-        .playoff-team {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 12px;
-            font-size: 12px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            color: rgba(255,255,255,0.8);
-        }
-        .playoff-team:last-child { border-bottom: none; }
-        .playoff-team.winner {
-            color: #f8c32a;
-            font-weight: 700;
-        }
-        .playoff-team.tbd {
-            color: rgba(255,255,255,0.3);
-            font-style: italic;
-        }
-        .playoff-score {
-            font-size: 15px;
-            font-weight: 700;
-            min-width: 24px;
-            text-align: right;
-        }
-        .playoff-score.winner { color: #1d9e75; }
-        .triangular-note {
-            font-size: 11px;
-            color: rgba(255,255,255,0.4);
-            margin-bottom: 8px;
-            font-style: italic;
-        }
+        /* LOADING */
         .loading {
             text-align: center;
             padding: 40px;
@@ -508,20 +417,20 @@
         <p class="page-sub">Liga Nacional de Footvolley España</p>
         <div class="live-badge">
             <span class="live-dot"></span>
-            Actualización automática desde Google Sheets
+            Atualización automática desde Google Sheets
         </div>
         <!-- Admin: clique 5x no título para abrir configurações -->
     </div>
 
     <div class="update-bar">
-        <span id="last-update">Cargando datos...</span>
-        <button class="refresh-btn" onclick="loadAllData()">↻ Actualizar</button>
+        <span id="last-update">Carregando dados...</span>
+        <button class="refresh-btn" onclick="loadAllData()">↻ Atualizar</button>
     </div>
 
     <button class="toggle-config" onclick="toggleConfig()" style="display:none;" id="admin-btn">⚙ Configurar URLs do Google Sheets</button>
 
     <div class="config-panel" id="config-panel" style="display:none;">
-        <div class="config-title">URLs de Google Sheets (CSV publicado)</div>
+        <div class="config-title">URLs do Google Sheets (CSV publicado)</div>
         <div class="config-row">
             <span class="config-label">Oro</span>
             <input class="config-input" id="url-oro" placeholder="https://docs.google.com/spreadsheets/d/.../pub?...&output=csv">
@@ -535,24 +444,11 @@
             <input class="config-input" id="url-bronce" placeholder="https://docs.google.com/spreadsheets/d/.../pub?...&output=csv">
         </div>
         <div class="config-row">
-            <button class="config-save" onclick="saveUrls()">Guardar URLs</button>
-        </div>
-        <div style="font-size:12px; font-weight:600; color:rgba(255,255,255,0.6); margin: 12px 0 8px;">URLs Playoffs (pestañas separadas en la hoja)</div>
-        <div class="config-row">
-            <span class="config-label">Playoffs Oro</span>
-            <input class="config-input" id="url-playoff-oro" placeholder="URL CSV de la pestaña Playoffs_Oro">
-        </div>
-        <div class="config-row">
-            <span class="config-label">Playoffs Plata</span>
-            <input class="config-input" id="url-playoff-plata" placeholder="URL CSV de la pestaña Playoffs_Plata">
-        </div>
-        <div class="config-row">
-            <span class="config-label">Playoffs Bronce</span>
-            <input class="config-input" id="url-playoff-bronce" placeholder="URL CSV de la pestaña Playoffs_Bronce">
+            <button class="config-save" onclick="saveUrls()">Salvar URLs</button>
         </div>
         <div class="config-hint">
-            Cómo obtener la URL: Archivo → Compartir → Publicar en la web → selecciona la pestaña → CSV → Publicar → copiar enlace.<br>
-            Mientras no esté configurado, los datos vienen del archivo local <code>etapa_ibiza_data.json</code>.
+            Como obter a URL: Arquivo → Compartilhar → Publicar na web → selecione a aba → CSV → Publicar → copiar link.<br>
+            Enquanto não configurado, os dados vêm do arquivo local <code>etapa_ibiza_data.json</code>.
         </div>
     </div>
 
@@ -595,79 +491,17 @@ document.querySelector('.page-title').addEventListener('click', () => {
 // ============================================================
 const BASE = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSicHfPwOcjrbc1XcBPPHw1ZJztTcxX6TKhmPgJofkVvYAVX9z_i2-frcJk9DBCsDlMf6a6XN--qSjy/pub';
 const SHEET_URLS = {
-    oro:    'https://docs.google.com/spreadsheets/d/e/2PACX-1vSicHfPwOcjrbc1XcBPPHw1ZJztTcxX6TKhmPgJofkVvYAVX9z_i2-frcJk9DBCsDlMf6a6XN--qSjy/pub?gid=1600859591&single=true&output=csv',
-    plata:  'https://docs.google.com/spreadsheets/d/e/2PACX-1vSicHfPwOcjrbc1XcBPPHw1ZJztTcxX6TKhmPgJofkVvYAVX9z_i2-frcJk9DBCsDlMf6a6XN--qSjy/pub?gid=881075658&single=true&output=csv',
-    bronce: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSicHfPwOcjrbc1XcBPPHw1ZJztTcxX6TKhmPgJofkVvYAVX9z_i2-frcJk9DBCsDlMf6a6XN--qSjy/pub?gid=1989947320&single=true&output=csv'
+    oro:    BASE + '?gid=1600859591&single=true&output=csv',
+    plata:  BASE + '?gid=881075658&single=true&output=csv',
+    bronce: BASE + '?gid=1989947320&single=true&output=csv'
 };
-// URLs das abas de playoffs (preencher igual às de grupos)
-const PLAYOFF_URLS = {
-    oro:    'https://docs.google.com/spreadsheets/d/e/2PACX-1vSicHfPwOcjrbc1XcBPPHw1ZJztTcxX6TKhmPgJofkVvYAVX9z_i2-frcJk9DBCsDlMf6a6XN--qSjy/pub?gid=59125534&single=true&output=csv',
-    plata:  'https://docs.google.com/spreadsheets/d/e/2PACX-1vSicHfPwOcjrbc1XcBPPHw1ZJztTcxX6TKhmPgJofkVvYAVX9z_i2-frcJk9DBCsDlMf6a6XN--qSjy/pub?gid=1707438111&single=true&output=csv',
-    bronce: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSicHfPwOcjrbc1XcBPPHw1ZJztTcxX6TKhmPgJofkVvYAVX9z_i2-frcJk9DBCsDlMf6a6XN--qSjy/pub?gid=778158290&single=true&output=csv'
-};
-
-// Dados fallback de playoffs (vazio até tu preencheres na planilha)
-const FALLBACK_PLAYOFFS = {
-    oro:    [],
-    plata:  [],
-    bronce: []
-};
-
-let playoffData = { oro: [], plata: [], bronce: [] };
 
 // ============================================================
 // DADOS EMBUTIDOS — fallback imediato, sem depender de rede
 // ============================================================
 const FALLBACK_DATA = {
     oro:   { grupos: [] },
-    plata: {
-        grupos: [
-            {
-                nome: 'Grupo A',
-                equipes: ['Germán / Andrés','Tomás / Iather','Giorgi / Ivan','Nestor / David','João / Enric'],
-                partidas: [
-                    {local:0,visit:1,p_local:null,p_visit:null},
-                    {local:2,visit:3,p_local:null,p_visit:null},
-                    {local:4,visit:1,p_local:null,p_visit:null},
-                    {local:0,visit:3,p_local:null,p_visit:null},
-                    {local:2,visit:4,p_local:null,p_visit:null},
-                    {local:0,visit:4,p_local:null,p_visit:null},
-                    {local:2,visit:1,p_local:null,p_visit:null},
-                    {local:4,visit:3,p_local:null,p_visit:null},
-                    {local:3,visit:1,p_local:null,p_visit:null},
-                    {local:0,visit:2,p_local:null,p_visit:null}
-                ]
-            },
-            {
-                nome: 'Grupo B',
-                equipes: ['Bartosz / Andrea','Rafael / Andrew','Fernando / Felipe','Ricca / Francesco','Kaique / Michael'],
-                partidas: [
-                    {local:0,visit:1,p_local:null,p_visit:null},
-                    {local:2,visit:3,p_local:null,p_visit:null},
-                    {local:4,visit:1,p_local:null,p_visit:null},
-                    {local:0,visit:3,p_local:null,p_visit:null},
-                    {local:2,visit:4,p_local:null,p_visit:null},
-                    {local:0,visit:4,p_local:null,p_visit:null},
-                    {local:2,visit:1,p_local:null,p_visit:null},
-                    {local:4,visit:3,p_local:null,p_visit:null},
-                    {local:3,visit:1,p_local:null,p_visit:null},
-                    {local:0,visit:2,p_local:null,p_visit:null}
-                ]
-            },
-            {
-                nome: 'Grupo C',
-                equipes: ['Dino / Jonathan','Fernando / Andrey','Bruno / Luis','Willian / Matteo'],
-                partidas: [
-                    {local:0,visit:1,p_local:null,p_visit:null},
-                    {local:2,visit:3,p_local:null,p_visit:null},
-                    {local:0,visit:3,p_local:null,p_visit:null},
-                    {local:2,visit:1,p_local:null,p_visit:null},
-                    {local:1,visit:3,p_local:null,p_visit:null},
-                    {local:0,visit:2,p_local:null,p_visit:null}
-                ]
-            }
-        ]
-    },
+    plata: { grupos: [] },
     bronce: {
         grupos: [
             {
@@ -741,34 +575,21 @@ async function loadAllData() {
 
     // Tenta buscar dados frescos do Sheets em paralelo
     const promises = Object.entries(SHEET_URLS).map(async ([cat, url]) => {
-        if (!url) return; // sem URL → usa só fallback
         try {
             const data = await loadFromSheets(url);
             if (data && data.grupos && data.grupos.length > 0) {
                 etapaData[cat] = data;
             }
         } catch (e) {
-            console.warn(`Sheets ${cat} no disponible, usando datos integrados`);
+            console.warn(`Sheets ${cat} indisponível, usando fallback embutido`);
         }
     });
 
     await Promise.allSettled(promises);
 
-    // Carregar playoffs
-    const playoffPromises = Object.entries(PLAYOFF_URLS).map(async ([cat, url]) => {
-        if (!url) { playoffData[cat] = FALLBACK_PLAYOFFS[cat]; return; }
-        try {
-            const data = await loadPlayoffsFromSheets(url);
-            playoffData[cat] = data;
-        } catch (e) {
-            playoffData[cat] = FALLBACK_PLAYOFFS[cat];
-        }
-    });
-    await Promise.allSettled(playoffPromises);
-
     const now = new Date();
     document.getElementById('last-update').textContent =
-        `Última actualización: ${now.toLocaleTimeString('es-ES')}`;
+        `Última atualização: ${now.toLocaleTimeString('pt-BR')}`;
 
     renderCat(currentCat);
 }
@@ -806,32 +627,6 @@ function getOrAdd(arr, val) {
     let idx = arr.indexOf(val);
     if (idx === -1) { arr.push(val); idx = arr.length - 1; }
     return idx;
-}
-
-async function loadPlayoffsFromSheets(csvUrl) {
-    const resp = await fetch(csvUrl);
-    if (!resp.ok) throw new Error('HTTP ' + resp.status);
-    const text = await resp.text();
-    return parseCSVPlayoffs(text);
-}
-
-function parseCSVPlayoffs(text) {
-    const lines = text.trim().split('\n').map(l => l.split(',').map(c => c.trim().replace(/"/g, '')));
-    const headers = lines[0];
-    const partidas = [];
-    for (let i = 1; i < lines.length; i++) {
-        const row = {};
-        headers.forEach((h, idx) => { row[h] = lines[i][idx] || ''; });
-        if (!row.fase || !row.local) continue;
-        partidas.push({
-            fase: row.fase,
-            local: row.local,
-            visit: row.visitante,
-            p_local: row.pontos_local !== '' ? parseInt(row.pontos_local) : null,
-            p_visit: row.pontos_visit !== '' ? parseInt(row.pontos_visit) : null
-        });
-    }
-    return partidas;
 }
 
 // ============================================================
@@ -893,12 +688,12 @@ function renderGrupo(g) {
     <div class="group-card">
         <div class="group-header">${g.nome}</div>
         <div class="group-body">
-            <div class="section-label">Partidos</div>
+            <div class="section-label">Partidas</div>
             ${matchesHtml}
             <div class="section-label" style="margin-top:14px;">Clasificación</div>
             <table class="standings-table">
                 <thead><tr>
-                    <th>Equipo</th><th>V</th><th>P+</th><th>P−</th><th>Coef</th>
+                    <th>Equipe</th><th>V</th><th>P+</th><th>P−</th><th>Coef</th>
                 </tr></thead>
                 <tbody>${standingsHtml}</tbody>
             </table>
@@ -913,69 +708,6 @@ function showCat(cat, btn) {
     renderCat(cat);
 }
 
-function renderPlayoffs(partidas) {
-    if (!partidas || partidas.length === 0) return '';
-
-    const faseOrder = ['Triangular','QF1','QF2','QF3','QF4','SF1','SF2','3lugar','Final'];
-    const faseLabels = {
-        'Triangular': 'Triangular — Repesca',
-        'QF1': 'Cuartos de Final',
-        'QF2': 'Cuartos de Final',
-        'QF3': 'Cuartos de Final',
-        'QF4': 'Cuartos de Final',
-        'SF1': 'Semifinales',
-        'SF2': 'Semifinales',
-        '3lugar': 'Disputa 3er Puesto',
-        'Final': 'Final'
-    };
-
-    // Agrupar por fase visual
-    const phaseGroups = [
-        { label: '🔁 Triangular — Repesca', fases: ['Triangular'], cls: '' },
-        { label: '⚔️ Cuartos de Final', fases: ['QF1','QF2','QF3','QF4'], cls: '' },
-        { label: '🏆 Semifinales', fases: ['SF1','SF2'], cls: '' },
-        { label: '🥉 Disputa 3er Puesto', fases: ['3lugar'], cls: 'terceiro' },
-        { label: '🥇 Final', fases: ['Final'], cls: 'final' },
-    ];
-
-    let html = `<div class="playoffs-section">
-        <div class="playoffs-title">Playoffs</div>`;
-
-    phaseGroups.forEach(pg => {
-        const matches = partidas.filter(p => pg.fases.includes(p.fase));
-        if (matches.length === 0) return;
-
-        html += `<div class="playoff-phase">
-            <div class="playoff-phase-label">${pg.label}</div>
-            <div class="playoff-grid">`;
-
-        matches.forEach(m => {
-            const hasResult = m.p_local !== null && m.p_visit !== null;
-            const localWin = hasResult && m.p_local > m.p_visit;
-            const visitWin = hasResult && m.p_visit > m.p_local;
-            const localTbd = !m.local || m.local === 'A definir';
-            const visitTbd = !m.visit || m.visit === 'A definir';
-
-            html += `<div class="playoff-match ${pg.cls}">
-                <div class="playoff-match-label">${m.fase.replace('QF','QF ').replace('SF','SF ')}</div>
-                <div class="playoff-team ${localWin ? 'winner' : ''} ${localTbd ? 'tbd' : ''}">
-                    <span>${localTbd ? 'Por definir' : m.local}</span>
-                    <span class="playoff-score ${localWin ? 'winner' : ''}">${m.p_local !== null ? m.p_local : '–'}</span>
-                </div>
-                <div class="playoff-team ${visitWin ? 'winner' : ''} ${visitTbd ? 'tbd' : ''}">
-                    <span>${visitTbd ? 'Por definir' : m.visit}</span>
-                    <span class="playoff-score ${visitWin ? 'winner' : ''}">${m.p_visit !== null ? m.p_visit : '–'}</span>
-                </div>
-            </div>`;
-        });
-
-        html += `</div></div>`;
-    });
-
-    html += `</div>`;
-    return html;
-}
-
 function renderCat(cat) {
     const el = document.getElementById('cat-content');
     const data = etapaData[cat];
@@ -985,15 +717,14 @@ function renderCat(cat) {
         <div class="loading">
             <p style="font-size:14px; color:rgba(255,255,255,0.5);">
                 Datos de ${cat.toUpperCase()} no disponibles.<br>
-                <span style="font-size:12px;">Configura la URL de Google Sheets o espera el sorteo.</span>
+                <span style="font-size:12px;">Configure a URL del Google Sheets o aguarde el sorteo.</span>
             </p>
         </div>`;
         return;
     }
 
     const gruposHtml = data.grupos.map(renderGrupo).join('');
-    const playoffsHtml = renderPlayoffs(playoffData[cat]);
-    el.innerHTML = `${playoffsHtml}<div class="groups-grid">${gruposHtml}</div>`;
+    el.innerHTML = `<div class="groups-grid">${gruposHtml}</div>`;
 }
 
 // ============================================================
@@ -1007,9 +738,6 @@ function toggleConfig() {
         document.getElementById('url-oro').value = SHEET_URLS.oro;
         document.getElementById('url-plata').value = SHEET_URLS.plata;
         document.getElementById('url-bronce').value = SHEET_URLS.bronce;
-        document.getElementById('url-playoff-oro').value = PLAYOFF_URLS.oro;
-        document.getElementById('url-playoff-plata').value = PLAYOFF_URLS.plata;
-        document.getElementById('url-playoff-bronce').value = PLAYOFF_URLS.bronce;
     }
 }
 
@@ -1017,9 +745,6 @@ function saveUrls() {
     SHEET_URLS.oro    = document.getElementById('url-oro').value.trim() || SHEET_URLS.oro;
     SHEET_URLS.plata  = document.getElementById('url-plata').value.trim() || SHEET_URLS.plata;
     SHEET_URLS.bronce = document.getElementById('url-bronce').value.trim() || SHEET_URLS.bronce;
-    PLAYOFF_URLS.oro    = document.getElementById('url-playoff-oro').value.trim() || PLAYOFF_URLS.oro;
-    PLAYOFF_URLS.plata  = document.getElementById('url-playoff-plata').value.trim() || PLAYOFF_URLS.plata;
-    PLAYOFF_URLS.bronce = document.getElementById('url-playoff-bronce').value.trim() || PLAYOFF_URLS.bronce;
     document.getElementById('config-panel').style.display = 'none';
     loadAllData();
 }
