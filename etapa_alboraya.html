@@ -319,9 +319,18 @@ document.querySelector('.page-title').addEventListener('click', () => {
 // Deixe '' para usar somente o arquivo local etapa_alboraya_data.json
 // ============================================================
 const SHEET_URLS = {
-    oro:    '',
-    plata:  '',
-    bronce: ''
+    oro: {
+        grupos:   'https://docs.google.com/spreadsheets/d/e/2PACX-1vTBpq1LZGsCZYtEoqgSVKOmESc_Sr5mhV0QuZgDdODj6BmKZDpzTlyFDrNaFnVTsbzappBmdpY4A5BR/pub?gid=122668565&single=true&output=csv',
+        playoffs: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTBpq1LZGsCZYtEoqgSVKOmESc_Sr5mhV0QuZgDdODj6BmKZDpzTlyFDrNaFnVTsbzappBmdpY4A5BR/pub?gid=1982482237&single=true&output=csv'
+    },
+    plata: {
+        grupos:   'https://docs.google.com/spreadsheets/d/e/2PACX-1vTBpq1LZGsCZYtEoqgSVKOmESc_Sr5mhV0QuZgDdODj6BmKZDpzTlyFDrNaFnVTsbzappBmdpY4A5BR/pub?gid=1368133393&single=true&output=csv',
+        playoffs: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTBpq1LZGsCZYtEoqgSVKOmESc_Sr5mhV0QuZgDdODj6BmKZDpzTlyFDrNaFnVTsbzappBmdpY4A5BR/pub?gid=1781343341&single=true&output=csv'
+    },
+    bronce: {
+        grupos:   'https://docs.google.com/spreadsheets/d/e/2PACX-1vTBpq1LZGsCZYtEoqgSVKOmESc_Sr5mhV0QuZgDdODj6BmKZDpzTlyFDrNaFnVTsbzappBmdpY4A5BR/pub?gid=1661252027&single=true&output=csv',
+        playoffs: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTBpq1LZGsCZYtEoqgSVKOmESc_Sr5mhV0QuZgDdODj6BmKZDpzTlyFDrNaFnVTsbzappBmdpY4A5BR/pub?gid=244283834&single=true&output=csv'
+    }
 };
 
 let etapaData = {};
@@ -355,16 +364,35 @@ async function loadAllData() {
     renderCat(currentCat);
 
     // Tenta Sheets se configurado
-    const promises = Object.entries(SHEET_URLS).map(async ([cat, url]) => {
-        if (!url) return;
-        try {
-            const data = await loadFromSheets(url);
-            if (data && data.grupos && data.grupos.length > 0) {
-                etapaData[cat] = Object.assign({}, etapaData[cat], data);
+    const promises = Object.entries(SHEET_URLS).map(async ([cat, urls]) => {
+        if (!urls || (!urls.grupos && !urls.playoffs)) return;
+        const merged = Object.assign({}, etapaData[cat]);
+
+        if (urls.grupos) {
+            try {
+                const resp = await fetch(urls.grupos);
+                if (resp.ok) {
+                    const g = parseCSV(await resp.text());
+                    if (g.grupos && g.grupos.length > 0) merged.grupos = g.grupos;
+                }
+            } catch (e) {
+                console.warn(`Grupos ${cat} indisponível`);
             }
-        } catch (e) {
-            console.warn(`Sheets ${cat} indisponível, usando arquivo local`);
         }
+
+        if (urls.playoffs) {
+            try {
+                const resp = await fetch(urls.playoffs);
+                if (resp.ok) {
+                    const po = parsePlayoffsCSV(await resp.text());
+                    if (po) merged.playoffs = po;
+                }
+            } catch (e) {
+                console.warn(`Playoffs ${cat} indisponível`);
+            }
+        }
+
+        etapaData[cat] = merged;
     });
     await Promise.allSettled(promises);
 
@@ -404,6 +432,68 @@ function getOrAdd(arr, val) {
     let idx = arr.indexOf(val);
     if (idx === -1) { arr.push(val); idx = arr.length - 1; }
     return idx;
+}
+
+// ============================================================
+// PARSER DE PLAYOFFS
+// Colunas: fase, local, visitante, pontos_local, pontos_visit
+// ============================================================
+function parsePlayoffsCSV(text) {
+    const lines = text.trim().split('\n').map(l => l.split(',').map(c => c.trim().replace(/"/g, '')));
+    if (lines.length < 2) return null;
+    const headers = lines[0].map(h => h.toLowerCase().trim());
+    const col = {
+        fase:  headers.indexOf('fase'),
+        local: headers.indexOf('local'),
+        visit: headers.indexOf('visitante'),
+        pl:    headers.indexOf('pontos_local'),
+        pv:    headers.indexOf('pontos_visit')
+    };
+
+    const po = { triangular: null, octavos: [], cuartos: [], semifinais: [], tercer: null, final: null };
+    const triEquipes = [], triPartidas = [];
+    const n = { oct: 0, cua: 0, sem: 0 };
+
+    for (let i = 1; i < lines.length; i++) {
+        const row = lines[i];
+        const fase  = (row[col.fase]  || '').toLowerCase().trim();
+        const local = (row[col.local] || '').trim();
+        const visit = (row[col.visit] || '').trim();
+        if (!fase || !local) continue;
+
+        const rawL = row[col.pl], rawV = row[col.pv];
+        const pl = (rawL !== undefined && rawL !== '') ? parseInt(rawL) : null;
+        const pv = (rawV !== undefined && rawV !== '') ? parseInt(rawV) : null;
+
+        if (fase.includes('triang')) {
+            const li = getOrAdd(triEquipes, local);
+            const vi = getOrAdd(triEquipes, visit);
+            triPartidas.push({ local: li, visit: vi, p_local: pl, p_visit: pv });
+            continue;
+        }
+
+        const m = { a: local, b: visit, p_a: pl, p_b: pv };
+        // ordem importa: 'semifinal' contém 'final'
+        if (fase.includes('octav')) {
+            m.label = 'Octavos ' + (++n.oct);
+            po.octavos.push(m);
+        } else if (fase.includes('cuart')) {
+            m.label = 'Cuartos ' + (++n.cua);
+            po.cuartos.push(m);
+        } else if (fase.includes('semi')) {
+            m.label = 'Semifinal ' + (++n.sem);
+            po.semifinais.push(m);
+        } else if (fase.includes('tercer') || fase.includes('3') || fase.includes('bronce')) {
+            m.label = '3er Puesto';
+            po.tercer = m;
+        } else if (fase.includes('final')) {
+            m.label = 'Final';
+            po.final = m;
+        }
+    }
+
+    if (triPartidas.length) po.triangular = { equipes: triEquipes, partidas: triPartidas };
+    return po;
 }
 
 // ============================================================
@@ -478,15 +568,15 @@ function renderGrupo(g, cat) {
     <div class="group-card">
         <div class="group-header">${g.nome}</div>
         <div class="group-body">
-            <div class="section-label">Partidas</div>
-            ${matchesHtml}
-            <div class="section-label" style="margin-top:14px;">Clasificación</div>
+            <div class="section-label">Clasificación</div>
             <table class="standings-table">
                 <thead><tr>
                     <th>Pareja</th><th>V</th><th>P+</th><th>P−</th><th>Coef</th>
                 </tr></thead>
                 <tbody>${standingsHtml}</tbody>
             </table>
+            <div class="section-label" style="margin-top:14px;">Partidas</div>
+            ${matchesHtml}
         </div>
     </div>`;
 }
@@ -625,16 +715,16 @@ function toggleConfig() {
     const panel = document.getElementById('config-panel');
     panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
     if (panel.style.display === 'block') {
-        document.getElementById('url-oro').value = SHEET_URLS.oro;
-        document.getElementById('url-plata').value = SHEET_URLS.plata;
-        document.getElementById('url-bronce').value = SHEET_URLS.bronce;
+        document.getElementById('url-oro').value = SHEET_URLS.oro.grupos;
+        document.getElementById('url-plata').value = SHEET_URLS.plata.grupos;
+        document.getElementById('url-bronce').value = SHEET_URLS.bronce.grupos;
     }
 }
 
 function saveUrls() {
-    SHEET_URLS.oro    = document.getElementById('url-oro').value.trim();
-    SHEET_URLS.plata  = document.getElementById('url-plata').value.trim();
-    SHEET_URLS.bronce = document.getElementById('url-bronce').value.trim();
+    SHEET_URLS.oro.grupos    = document.getElementById('url-oro').value.trim();
+    SHEET_URLS.plata.grupos  = document.getElementById('url-plata').value.trim();
+    SHEET_URLS.bronce.grupos = document.getElementById('url-bronce').value.trim();
     document.getElementById('config-panel').style.display = 'none';
     loadAllData();
 }
