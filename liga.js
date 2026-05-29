@@ -97,21 +97,39 @@ function renderGrupo(g, cat) {
     </div>`;
 }
 
+/* ---------- detecta rótulos de "cruce" pré-sorteio (não mostrar) ---------- */
+function isPlaceholderTeam(name) {
+    if (!name) return true;
+    const s = String(name).trim();
+    if (!s || s === '-' || s === '–') return true;
+    const low = s.toLowerCase();
+    if (/^(por definir|tbd|a definir|pendiente|sorteo)$/.test(low)) return true;
+    // ex.: "1º A", "2A", "3 C", "1°B"
+    if (/^[123][º°o]?\s*[-/]?\s*[a-d]$/i.test(s)) return true;
+    // ex.: "1º Grupo A", "primero grupo b", "segundo a"
+    if (/grupo|primero|segundo|tercero/.test(low)) return true;
+    // ex.: "Ganador QF1", "Vencedor C1", "Perdedor SF2", "W1", "G2"
+    if (/ganador|vencedor|perdedor|ganad|vence|^[wgl]\s?\d|^qf\d|^sf\d/i.test(low)) return true;
+    return false;
+}
+
 /* ---------- bracket: uma chave (partida) ---------- */
 function tieHtml(m, opts = {}) {
-    const has = m && m.p_a != null && m.p_b != null;
+    const rawA = m && m.a, rawB = m && m.b;
+    const aTbd = isPlaceholderTeam(rawA), bTbd = isPlaceholderTeam(rawB);
+    const a = aTbd ? 'Por definir' : rawA;
+    const b = bTbd ? 'Por definir' : rawB;
+    // só consideramos resultado se ambos os times forem reais
+    const has = !aTbd && !bTbd && m && m.p_a != null && m.p_b != null;
     const aw = has && m.p_a > m.p_b, bw = has && m.p_b > m.p_a;
-    const a = (m && m.a) || opts.aTbd || 'Por definir';
-    const b = (m && m.b) || opts.bTbd || 'Por definir';
-    const aTbd = !(m && m.a), bTbd = !(m && m.b);
     const cls = ['tie']; if (opts.final) cls.push('final'); if (opts.bronze) cls.push('bronze-tie');
     return `<div class="${cls.join(' ')}">
         <div class="tie-label">${opts.label || (m && m.label) || ''}</div>
         <div class="tie-row ${aw ? 'win' : ''} ${aTbd ? 'tbd' : ''}">
-            <span class="t">${a}</span><span class="s">${m && m.p_a != null ? m.p_a : ''}</span>
+            <span class="t">${a}</span><span class="s">${has && m.p_a != null ? m.p_a : ''}</span>
         </div>
         <div class="tie-row ${bw ? 'win' : ''} ${bTbd ? 'tbd' : ''}">
-            <span class="t">${b}</span><span class="s">${m && m.p_b != null ? m.p_b : ''}</span>
+            <span class="t">${b}</span><span class="s">${has && m.p_b != null ? m.p_b : ''}</span>
         </div>
     </div>`;
 }
@@ -144,51 +162,56 @@ function triangularHtml(tri) {
         </div></div>`;
 }
 
-/* ---------- skeleton de rounds quando não há dados ---------- */
+/* ---------- skeleton helpers ---------- */
 function emptyRound(n) { return Array.from({ length: n }, () => null); }
+function padRound(arr, n) {
+    const out = (arr || []).slice(0, n);
+    while (out.length < n) out.push(null);
+    return out;
+}
 
-/* ---------- render do bracket completo (árvore conectada) ---------- */
-function renderBracket(po, cat) {
-    po = po || {};
-    // monta cada round, preenchendo com dados ou placeholders
-    const cuartos = (po.cuartos && po.cuartos.length) ? po.cuartos : emptyRound(4);
-    const semis   = (po.semifinais && po.semifinais.length) ? po.semifinais : emptyRound(2);
-    const octavos = (po.octavos && po.octavos.length) ? po.octavos : null;
-
-    let cols = '';
-
-    // pre-round específico
+/* ---------- fase previa (triangular no Oro, octavos no Plata/Bronce) ---------- */
+function preRoundBlock(po, cat) {
     if (cat === 'oro') {
-        cols += `<div class="round first-round" style="justify-content:flex-start;">
-            <div class="round-title">Triangular</div>
-            ${triangularHtml(po.triangular)}
-        </div>`;
-    } else if ((cat === 'plata' || cat === 'bronce')) {
-        const oct = octavos || emptyRound(cat === 'bronce' ? 8 : 6);
-        cols += `<div class="round first-round has-connectors">
-            <div class="round-title">Octavos</div>
-            ${oct.map((m, i) => tieHtml(m, { label: 'Octavos ' + (i+1) })).join('')}
+        return `<div class="pre-round">
+            <div class="sub-label">Fase previa · Triangular de 3os</div>
+            ${triangularHtml(po && po.triangular)}
         </div>`;
     }
+    const oct = (po && po.octavos && po.octavos.length) ? po.octavos : emptyRound(cat === 'bronce' ? 8 : 6);
+    const cards = oct.map((m, i) => `<div style="flex:1 1 215px; min-width:200px;">${tieHtml(m, { label: 'Octavos ' + (i+1) })}</div>`).join('');
+    return `<div class="pre-round">
+        <div class="sub-label">Fase previa · Octavos</div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">${cards}</div>
+    </div>`;
+}
 
-    const firstSpine = (cat === 'oro') ? 'has-connectors' : 'has-connectors';
-    cols += `<div class="round ${firstSpine}">
-        <div class="round-title">Cuartos</div>
-        ${cuartos.map((m, i) => tieHtml(m, { label: 'Cuartos ' + (i+1) })).join('')}
+/* ---------- render do bracket completo (árvore conectada Cuartos→Semis→Final) ---------- */
+function renderBracket(po, cat) {
+    po = po || {};
+    const cuartos = padRound(po.cuartos, 4);
+    const semis   = padRound(po.semifinais, 2);
+
+    const colCuartos = `<div class="bk-col matches">
+        <div class="bk-round-title">Cuartos</div>
+        ${cuartos.map((m, i) => `<div class="bk-cell">${tieHtml(m, { label: 'Cuartos ' + (i+1) })}</div>`).join('')}
+    </div>`;
+    const lines1 = `<div class="bk-col lines"><div class="bk-round-title"></div><div class="bk-merge"></div><div class="bk-merge"></div></div>`;
+    const colSemis = `<div class="bk-col matches">
+        <div class="bk-round-title">Semifinales</div>
+        ${semis.map((m, i) => `<div class="bk-cell">${tieHtml(m, { label: 'Semifinal ' + (i+1) })}</div>`).join('')}
+    </div>`;
+    const lines2 = `<div class="bk-col lines"><div class="bk-round-title"></div><div class="bk-merge"></div></div>`;
+    const colFinal = `<div class="bk-col matches last">
+        <div class="bk-round-title">Final</div>
+        <div class="bk-cell">${tieHtml(po.final, { label: 'Final', final: true })}</div>
     </div>`;
 
-    cols += `<div class="round has-connectors">
-        <div class="round-title">Semifinales</div>
-        ${semis.map((m, i) => tieHtml(m, { label: 'Semifinal ' + (i+1) })).join('')}
-    </div>`;
+    const tree = `<div class="bk">${colCuartos}${lines1}${colSemis}${lines2}${colFinal}</div>`;
+    const third = `<div class="sub-label" style="margin-top:14px;">3º y 4º puesto</div>
+        <div class="third-box">${tieHtml(po.tercer, { label: '3º y 4º puesto', bronze: true })}</div>`;
 
-    cols += `<div class="round">
-        <div class="round-title">Final</div>
-        ${tieHtml(po.final, { label: 'Final', final: true })}
-        ${tieHtml(po.tercer, { label: '3º y 4º puesto', bronze: true })}
-    </div>`;
-
-    return `<div class="bracket">${cols}</div>`;
+    return preRoundBlock(po, cat) + tree + third;
 }
 
 /* ---------- pódio (quando a final tem resultado) ---------- */
