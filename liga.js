@@ -38,31 +38,56 @@ function splitLine(line) {
 }
 
 /* ---------- classificação de grupo ----------
-   Desempate: 1) victorias · 2) confronto directo · 3) coeficiente · 4) puntos a favor */
+   Desempate (regra Liga Nacional): entre parejas empatadas en victorias,
+   se ordena por el SALDO de puntos SOLO en los partidos entre ellas (mini-liga).
+   Para 2 empatadas equivale al enfrentamiento directo.
+   Orden: 1) victorias · 2) saldo entre empatadas · 3) puntos a favor entre empatadas
+          · 4) saldo general · 5) puntos a favor general */
 function calcStandings(grupo) {
-    const n = grupo.equipes.length;
     const stats = grupo.equipes.map((e, i) => ({ idx: i, nome: e, v: 0, p_plus: 0, p_minus: 0 }));
-    // resultado de cada confronto: h2h[a][b] = vencedor (a|b) ou null
-    const h2h = Array.from({ length: n }, () => Array(n).fill(null));
-
+    const games = [];
     grupo.partidas.forEach(p => {
         if (p.p_local !== null && p.p_visit !== null) {
             stats[p.local].p_plus += p.p_local; stats[p.local].p_minus += p.p_visit;
             stats[p.visit].p_plus += p.p_visit; stats[p.visit].p_minus += p.p_local;
-            if (p.p_local > p.p_visit)      { stats[p.local].v++; h2h[p.local][p.visit] = p.local; h2h[p.visit][p.local] = p.local; }
-            else if (p.p_visit > p.p_local) { stats[p.visit].v++; h2h[p.local][p.visit] = p.visit; h2h[p.visit][p.local] = p.visit; }
+            if (p.p_local > p.p_visit) stats[p.local].v++;
+            else if (p.p_visit > p.p_local) stats[p.visit].v++;
+            games.push({ a: p.local, b: p.visit, pa: p.p_local, pb: p.p_visit });
         }
     });
 
-    return stats.sort((a, b) => {
-        if (b.v !== a.v) return b.v - a.v;                       // 1) victorias
-        const w = h2h[a.idx][b.idx];                             // 2) confronto directo (só entre 2)
-        if (w === a.idx) return -1;
-        if (w === b.idx) return 1;
-        const ca = a.p_plus - a.p_minus, cb = b.p_plus - b.p_minus;
-        if (cb !== ca) return cb - ca;                           // 3) coeficiente
-        return b.p_plus - a.p_plus;                              // 4) puntos a favor
-    });
+    // 1) ordena por victorias
+    stats.sort((a, b) => b.v - a.v);
+
+    // 2) desempata cada bloque de empate por la mini-liga entre ellos
+    const out = [];
+    let i = 0;
+    while (i < stats.length) {
+        let j = i;
+        while (j < stats.length && stats[j].v === stats[i].v) j++;
+        const bloque = stats.slice(i, j);
+        if (bloque.length > 1) {
+            const ids = new Set(bloque.map(t => t.idx));
+            const mini = {};
+            bloque.forEach(t => mini[t.idx] = { pf: 0, pc: 0 });
+            games.forEach(g => {
+                if (ids.has(g.a) && ids.has(g.b)) {
+                    mini[g.a].pf += g.pa; mini[g.a].pc += g.pb;
+                    mini[g.b].pf += g.pb; mini[g.b].pc += g.pa;
+                }
+            });
+            bloque.forEach(t => { t._ms = mini[t.idx].pf - mini[t.idx].pc; t._mf = mini[t.idx].pf; });
+            // comparator transitivo (valores escalares por pareja, sin ciclos)
+            bloque.sort((a, b) =>
+                b._ms - a._ms ||
+                b._mf - a._mf ||
+                (b.p_plus - b.p_minus) - (a.p_plus - a.p_minus) ||
+                b.p_plus - a.p_plus);
+        }
+        bloque.forEach(t => out.push(t));
+        i = j;
+    }
+    return out;
 }
 
 /* ---------- render de um grupo (classificação em cima, jogos embaixo) ---------- */
