@@ -37,19 +37,32 @@ function splitLine(line) {
     return out.map(s => s.trim());
 }
 
-/* ---------- classificação de grupo ---------- */
+/* ---------- classificação de grupo ----------
+   Desempate: 1) victorias · 2) confronto directo · 3) coeficiente · 4) puntos a favor */
 function calcStandings(grupo) {
-    const stats = grupo.equipes.map(e => ({ nome: e, v: 0, p_plus: 0, p_minus: 0 }));
+    const n = grupo.equipes.length;
+    const stats = grupo.equipes.map((e, i) => ({ idx: i, nome: e, v: 0, p_plus: 0, p_minus: 0 }));
+    // resultado de cada confronto: h2h[a][b] = vencedor (a|b) ou null
+    const h2h = Array.from({ length: n }, () => Array(n).fill(null));
+
     grupo.partidas.forEach(p => {
         if (p.p_local !== null && p.p_visit !== null) {
             stats[p.local].p_plus += p.p_local; stats[p.local].p_minus += p.p_visit;
             stats[p.visit].p_plus += p.p_visit; stats[p.visit].p_minus += p.p_local;
-            if (p.p_local > p.p_visit) stats[p.local].v++;
-            else if (p.p_visit > p.p_local) stats[p.visit].v++;
+            if (p.p_local > p.p_visit)      { stats[p.local].v++; h2h[p.local][p.visit] = p.local; h2h[p.visit][p.local] = p.local; }
+            else if (p.p_visit > p.p_local) { stats[p.visit].v++; h2h[p.local][p.visit] = p.visit; h2h[p.visit][p.local] = p.visit; }
         }
     });
-    return stats.sort((a, b) =>
-        b.v - a.v || (b.p_plus - b.p_minus) - (a.p_plus - a.p_minus) || b.p_plus - a.p_plus);
+
+    return stats.sort((a, b) => {
+        if (b.v !== a.v) return b.v - a.v;                       // 1) victorias
+        const w = h2h[a.idx][b.idx];                             // 2) confronto directo (só entre 2)
+        if (w === a.idx) return -1;
+        if (w === b.idx) return 1;
+        const ca = a.p_plus - a.p_minus, cb = b.p_plus - b.p_minus;
+        if (cb !== ca) return cb - ca;                           // 3) coeficiente
+        return b.p_plus - a.p_plus;                              // 4) puntos a favor
+    });
 }
 
 /* ---------- render de um grupo (classificação em cima, jogos embaixo) ---------- */
