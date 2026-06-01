@@ -18,6 +18,10 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="stylesheet" href="styles.css">
+    <style>
+        tr.sube { background: rgba(29,158,117,0.10); }
+        tr.sube td.pos::after { content: ' ↑'; color: #8fe3c6; font-size: 0.8em; }
+    </style>
 
     <!-- Google Analytics (GA4): troque G-XXXXXXXXXX pelo seu ID e descomente
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -77,6 +81,7 @@
             </div>
 
             <div id="players-view" style="overflow-x:auto;">
+                <div id="promo-note" class="format-note hidden"></div>
                 <table class="rank-table" id="ranking-table">
                     <thead>
                         <tr>
@@ -122,7 +127,21 @@
         let currentCategory = 'oro', currentView = 'players';
         let currentSort = { field: 'total', ascending: false };
 
-        fetch('ranking_data_2025.json').then(r => r.json()).then(d => { rankingData2025 = d; }).catch(() => { rankingData2025 = {}; });
+        // ============================================================
+        // Histórico 2025 — planilha SEPARADA (só temporada 2025)
+        // ============================================================
+        const HIST_URLS = {
+            oro:    'https://docs.google.com/spreadsheets/d/e/2PACX-1vQdOi04fla5khn5oBMsU-dkmOF8E3PyfZdbjv4o3k9AuJcX8aRLmoyHedqjh-SAMQuAv7wYnW4oJpJh/pub?gid=0&single=true&output=csv',
+            plata:  'https://docs.google.com/spreadsheets/d/e/2PACX-1vQdOi04fla5khn5oBMsU-dkmOF8E3PyfZdbjv4o3k9AuJcX8aRLmoyHedqjh-SAMQuAv7wYnW4oJpJh/pub?gid=875231887&single=true&output=csv',
+            bronce: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQdOi04fla5khn5oBMsU-dkmOF8E3PyfZdbjv4o3k9AuJcX8aRLmoyHedqjh-SAMQuAv7wYnW4oJpJh/pub?gid=581412827&single=true&output=csv'
+        };
+
+        // Cuántos suben de categoría (zona de promoción destacada)
+        const SUBEN = { oro: 0, plata: 6, bronce: 8, femenino: 0 };
+        const SUBE_TXT = {
+            plata: 'Los <b>6 primeros</b> suben a Oro',
+            bronce: 'Los <b>8 primeros</b> suben a Plata'
+        };
 
         // ============================================================
         // URLs do Google Sheets (CSV publicado) — um gid por aba.
@@ -287,10 +306,27 @@
             const noRes = document.getElementById('no-results');
             if (!players.length) { tbody.innerHTML = ''; noRes.classList.remove('hidden'); return; }
             noRes.classList.add('hidden');
-            tbody.innerHTML = players.map((p, i) => {
-                const pc = i < 3 ? `p${i+1}` : '';
-                return `<tr>
-                    <td class="num pos ${pc}">${i+1}</td>
+            // ranking real por Total (empatados dividem posição: 1,1,1,1,5...)
+            const rankMap = new Map();
+            let lastTotal = null, lastRank = 0;
+            [...rankingData[currentCategory]].sort((a, b) => b.total - a.total)
+                .forEach((p, i) => {
+                    if (p.total !== lastTotal) { lastRank = i + 1; lastTotal = p.total; }
+                    rankMap.set(p, lastRank);
+                });
+            // nota da zona de subida
+            const note = document.getElementById('promo-note');
+            const cut = SUBEN[currentCategory] || 0;
+            if (cut && SUBE_TXT[currentCategory]) {
+                note.innerHTML = '🟢 ' + SUBE_TXT[currentCategory];
+                note.classList.remove('hidden');
+            } else { note.classList.add('hidden'); }
+            tbody.innerHTML = players.map((p) => {
+                const rank = rankMap.get(p) || 0;
+                const pc = rank <= 3 ? `p${rank}` : '';
+                const sube = cut && rank <= cut ? ' sube' : '';
+                return `<tr class="${sube.trim()}">
+                    <td class="num pos ${pc}">${rank}</td>
                     <td><strong>${p.name}</strong></td>
                     <td>${clubDot(p.club)}</td>
                     <td class="num">${p.points_2025 || 0}</td>
@@ -318,7 +354,26 @@
         }
 
         let historiaCat = 'oro';
-        function showHistoria() {
+        let hist2025Loaded = false;
+        async function loadHistoria2025() {
+            if (hist2025Loaded) return;
+            const local = await fetch('ranking_data_2025.json').then(r => r.json()).catch(() => ({}));
+            const d = {};
+            d.femenino = local.femenino || []; // Femenino 2025: do arquivo local
+            const cats = Object.keys(HIST_URLS);
+            const res = await Promise.all(cats.map(c =>
+                fetch(HIST_URLS[c]).then(r => r.text())
+                    .then(t => ({ c, players: csvToPlayers(t) }))
+                    .catch(() => ({ c, players: null }))
+            ));
+            res.forEach(({ c, players }) => {
+                d[c] = (players && players.length) ? players : (local[c] || []);
+            });
+            rankingData2025 = d;
+            hist2025Loaded = true;
+        }
+
+        async function showHistoria() {
             document.getElementById('players-view').classList.add('hidden');
             document.getElementById('clubs-view').classList.add('hidden');
             document.querySelector('.view-toggle').style.display = 'none';
@@ -327,6 +382,9 @@
             const cats = ['oro','plata','bronce','femenino'];
             document.getElementById('historia-tabs').innerHTML = cats.map(c =>
                 `<button class="tab ${c===historiaCat?'active':''}" style="flex:0 0 auto;min-width:0;" onclick="renderHistoria('${c}', this)">${c}</button>`).join('');
+            const el = document.getElementById('historia-content');
+            if (!hist2025Loaded) el.innerHTML = '<div class="empty-note">Cargando histórico 2025…</div>';
+            await loadHistoria2025();
             renderHistoria(historiaCat);
         }
         function renderHistoria(cat) {
@@ -336,14 +394,18 @@
             const data = (rankingData2025 && rankingData2025[cat]) || [];
             const el = document.getElementById('historia-content');
             if (!data.length) { el.innerHTML = '<div class="empty-note">Datos de 2025 no disponibles.</div>'; return; }
+            const hRank = new Map();
+            let lt = null, lr = 0;
+            [...data].sort((a, b) => b.total - a.total)
+                .forEach((p, i) => { if (p.total !== lt) { lr = i + 1; lt = p.total; } hRank.set(p, lr); });
             el.innerHTML = `<table class="rank-table">
                 <thead><tr><th class="num">Pos</th><th>Jugador</th><th>Club</th><th class="num">Total 2025</th></tr></thead>
-                <tbody>${data.map((p,i)=>`<tr>
-                    <td class="num pos ${i<3?'p'+(i+1):''}">${i+1}</td>
+                <tbody>${data.map((p)=>{const rk=hRank.get(p)||0;return `<tr>
+                    <td class="num pos ${rk<=3?'p'+rk:''}">${rk}</td>
                     <td><strong>${p.name}</strong></td>
                     <td>${clubDot(p.club)}</td>
                     <td class="num total-pts">${p.total}</td>
-                </tr>`).join('')}</tbody></table>`;
+                </tr>`;}).join('')}</tbody></table>`;
         }
     </script>
 </body>
