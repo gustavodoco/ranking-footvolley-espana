@@ -396,13 +396,21 @@
                     });
                 });
             });
-            // MVP de cada etapa -> 880 · mayor participación femenina -> 740
-            (CLUB_BONUS.mvp || []).forEach(m => { if (m && m.club) ensure(m.club).mvp += 880; });
+            // MVP de cada etapa -> 880 sumados YA en la columna de esa etapa.
+            // c.mvp queda solo como dato informativo (no se vuelve a sumar al total).
+            (CLUB_BONUS.mvp || []).forEach(m => {
+                if (!m || !m.club) return;
+                const c = ensure(m.club);
+                c.mvp += 880;
+                const et = ETAPAS.find(e => e.label.toLowerCase() === (m.etapa || '').toLowerCase());
+                if (et) c.etapas[et.key] += 880;
+            });
             if (CLUB_BONUS.femClub) ensure(CLUB_BONUS.femClub).fem += 740;
 
             const arr = Object.values(clubs);
             arr.forEach(c => {
-                c.total = ETAPAS.reduce((s, e) => s + c.etapas[e.key], 0) + c.mvp + c.fem;
+                // etapas ya incluyen el MVP; total = etapas + fem
+                c.total = ETAPAS.reduce((s, e) => s + c.etapas[e.key], 0) + c.fem;
             });
             arr.sort((a, b) => b.total - a.total);
             let lt = null, lr = 0;
