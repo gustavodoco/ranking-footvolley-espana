@@ -59,8 +59,6 @@
             <button class="tab active" data-category="oro">Oro</button>
             <button class="tab" data-category="plata">Plata</button>
             <button class="tab" data-category="bronce">Bronce</button>
-            <button class="tab" data-category="femenino">Femenino</button>
-            <button class="tab ghost" id="tab-2025" data-category="historia">2025 ▾</button>
         </div>
 
         <div class="card">
@@ -120,6 +118,7 @@
         <div><b>Ascensos:</b> en Plata suben los 6 primeros a Oro · en Bronce suben los 8 primeros a Plata.</div>
         <div><b>Desempate:</b> a igualdad de puntos se ordena por total acumulado de la temporada.</div>
         Liga Nacional de Footvolley España · Temporada 2026
+        · <a href="#" onclick="openHistoria(); return false;" style="color:var(--faint);text-decoration:underline;">Ranking histórico 2025</a>
     </footer>
 
     <script src="liga.js"></script>
@@ -128,21 +127,11 @@
         let currentCategory = 'oro', currentView = 'players';
         let currentSort = { field: 'total', ascending: false };
 
-        // ============================================================
-        // Histórico 2025 — planilha SEPARADA (só temporada 2025)
-        // ============================================================
-        const HIST_URLS = {
-            oro:    'https://docs.google.com/spreadsheets/d/e/2PACX-1vQdOi04fla5khn5oBMsU-dkmOF8E3PyfZdbjv4o3k9AuJcX8aRLmoyHedqjh-SAMQuAv7wYnW4oJpJh/pub?gid=0&single=true&output=csv',
-            plata:  'https://docs.google.com/spreadsheets/d/e/2PACX-1vQdOi04fla5khn5oBMsU-dkmOF8E3PyfZdbjv4o3k9AuJcX8aRLmoyHedqjh-SAMQuAv7wYnW4oJpJh/pub?gid=875231887&single=true&output=csv',
-            bronce: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQdOi04fla5khn5oBMsU-dkmOF8E3PyfZdbjv4o3k9AuJcX8aRLmoyHedqjh-SAMQuAv7wYnW4oJpJh/pub?gid=581412827&single=true&output=csv'
-        };
+        // Histórico 2025 — temporada encerrada, lido do arquivo local (fixo e confiável)
+        fetch('ranking_data_2025.json').then(r => r.json()).then(d => { rankingData2025 = d; }).catch(() => { rankingData2025 = {}; });
 
         // Cuántos suben de categoría (zona de promoción destacada)
         const SUBEN = { oro: 0, plata: 6, bronce: 8, femenino: 0 };
-        const SUBE_TXT = {
-            plata: 'Los <b>6 primeros</b> suben a Oro',
-            bronce: 'Los <b>8 primeros</b> suben a Plata'
-        };
 
         // ============================================================
         // URLs do Google Sheets (CSV publicado) — um gid por aba.
@@ -349,26 +338,16 @@
         }
 
         let historiaCat = 'oro';
-        let hist2025Loaded = false;
-        async function loadHistoria2025() {
-            if (hist2025Loaded) return;
-            const local = await fetch('ranking_data_2025.json').then(r => r.json()).catch(() => ({}));
-            const d = {};
-            d.femenino = local.femenino || []; // Femenino 2025: do arquivo local
-            const cats = Object.keys(HIST_URLS);
-            const res = await Promise.all(cats.map(c =>
-                fetch(HIST_URLS[c]).then(r => r.text())
-                    .then(t => ({ c, players: csvToPlayers(t) }))
-                    .catch(() => ({ c, players: null }))
-            ));
-            res.forEach(({ c, players }) => {
-                d[c] = (players && players.length) ? players : (local[c] || []);
-            });
-            rankingData2025 = d;
-            hist2025Loaded = true;
+
+        // Abre o histórico 2025 (a partir do link no rodapé) e rola até ele
+        function openHistoria() {
+            document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
+            currentCategory = 'historia';
+            showHistoria();
+            document.querySelector('.card').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        async function showHistoria() {
+        function showHistoria() {
             document.getElementById('players-view').classList.add('hidden');
             document.getElementById('clubs-view').classList.add('hidden');
             document.querySelector('.view-toggle').style.display = 'none';
@@ -377,9 +356,6 @@
             const cats = ['oro','plata','bronce','femenino'];
             document.getElementById('historia-tabs').innerHTML = cats.map(c =>
                 `<button class="tab ${c===historiaCat?'active':''}" style="flex:0 0 auto;min-width:0;" onclick="renderHistoria('${c}', this)">${c}</button>`).join('');
-            const el = document.getElementById('historia-content');
-            if (!hist2025Loaded) el.innerHTML = '<div class="empty-note">Cargando histórico 2025…</div>';
-            await loadHistoria2025();
             renderHistoria(historiaCat);
         }
         function renderHistoria(cat) {
