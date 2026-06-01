@@ -46,6 +46,11 @@
             <p class="sub">Clasificación oficial · España</p>
         </div>
 
+        <div class="update-bar">
+            <span id="last-update">Cargando datos…</span>
+            <button class="refresh-btn" onclick="loadData()">↻ Actualizar</button>
+        </div>
+
         <div class="tabs">
             <button class="tab active" data-category="oro">Oro</button>
             <button class="tab" data-category="plata">Plata</button>
@@ -117,8 +122,100 @@
         let currentCategory = 'oro', currentView = 'players';
         let currentSort = { field: 'total', ascending: false };
 
-        fetch('ranking_data.json').then(r => r.json()).then(d => { rankingData = d; updateView(); });
         fetch('ranking_data_2025.json').then(r => r.json()).then(d => { rankingData2025 = d; }).catch(() => { rankingData2025 = {}; });
+
+        // ============================================================
+        // URLs do Google Sheets (CSV publicado) — um gid por aba.
+        // Para atualizar o ranking: basta editar a planilha publicada.
+        // ============================================================
+        const RANKING_URLS = {
+            oro:    'https://docs.google.com/spreadsheets/d/e/2PACX-1vTMUZDOF0F4IDNirZtclyAjBizlblxKKEXin0mf7K7ziReAVSEVlCnO_tZVEaI6USxJ1HDZnssuDt9I/pub?gid=0&single=true&output=csv',
+            plata:  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTMUZDOF0F4IDNirZtclyAjBizlblxKKEXin0mf7K7ziReAVSEVlCnO_tZVEaI6USxJ1HDZnssuDt9I/pub?gid=875231887&single=true&output=csv',
+            bronce: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTMUZDOF0F4IDNirZtclyAjBizlblxKKEXin0mf7K7ziReAVSEVlCnO_tZVEaI6USxJ1HDZnssuDt9I/pub?gid=581412827&single=true&output=csv'
+        };
+
+        const num = v => { v = (v || '').toString().replace(/[^\d.-]/g, ''); return v ? parseFloat(v) : 0; };
+
+        // CSV de uma categoria -> lista de jogadores (usa splitLine de liga.js)
+        function csvToPlayers(text) {
+            const lines = text.split(/\r?\n/);
+            const hi = lines.findIndex(l => splitLine(l).some(c => c.toLowerCase() === 'jugador'));
+            if (hi === -1) return [];
+            const head = splitLine(lines[hi]);
+            const col = n => head.findIndex(h => h.toLowerCase() === n.toLowerCase());
+            const ci = {
+                name: col('Jugador'), club: col('Club'),
+                p25: head.findIndex(h => /puntos/i.test(h)),
+                e1: col('I Etapa'), e2: col('II Etapa'), e3: col('III Etapa'),
+                e4: col('IV Etapa'), e5: col('V Etapa'), total: col('Total')
+            };
+            const players = [];
+            for (let i = hi + 1; i < lines.length; i++) {
+                const r = splitLine(lines[i]);
+                const name = (r[ci.name] || '').trim();
+                if (!name) continue;
+                const et = [ci.e1, ci.e2, ci.e3, ci.e4, ci.e5].map(c => c >= 0 ? num(r[c]) : 0);
+                let total = ci.total >= 0 ? num(r[ci.total]) : 0;
+                if (!total) total = et.reduce((a, b) => a + b, 0);
+                players.push({
+                    name, club: (r[ci.club] || '').trim(),
+                    points_2025: ci.p25 >= 0 ? num(r[ci.p25]) : 0,
+                    etapa_1: et[0], etapa_2: et[1], etapa_3: et[2], etapa_4: et[3], etapa_5: et[4],
+                    total
+                });
+            }
+            players.sort((a, b) => b.total - a.total);
+            players.forEach((p, i) => p.position = i + 1);
+            return players;
+        }
+
+        // Ranking de clubes (só pontos das etapas 2026, via Total)
+        function buildClubs(players) {
+            const map = {};
+            players.forEach(p => {
+                if (!p.club) return;
+                (map[p.club] = map[p.club] || { name: p.club, points: 0, players: 0 });
+                map[p.club].points += p.total; map[p.club].players += 1;
+            });
+            const arr = Object.values(map).sort((a, b) => b.points - a.points);
+            arr.forEach((c, i) => c.position = i + 1);
+            return arr;
+        }
+
+        async function loadData() {
+            const upd = document.getElementById('last-update');
+            upd.textContent = 'Actualizando…';
+            const local = await fetch('ranking_data.json').then(r => r.json()).catch(() => ({}));
+            const data = { club_rankings: {} };
+            // Femenino: do arquivo local (sem etapa nesta temporada)
+            data.femenino = local.femenino || [];
+            data.club_rankings.femenino = (local.club_rankings || {}).femenino || [];
+
+            const cats = Object.keys(RANKING_URLS);
+            const res = await Promise.all(cats.map(cat =>
+                fetch(RANKING_URLS[cat]).then(r => r.text())
+                    .then(txt => ({ cat, players: csvToPlayers(txt) }))
+                    .catch(() => ({ cat, players: null }))
+            ));
+            res.forEach(({ cat, players }) => {
+                if (players && players.length) {
+                    data[cat] = players;
+                    data.club_rankings[cat] = buildClubs(players);
+                } else { // fallback ao JSON local se a planilha falhar
+                    data[cat] = local[cat] || [];
+                    data.club_rankings[cat] = (local.club_rankings || {})[cat] || [];
+                }
+            });
+
+            rankingData = data;
+            if (currentCategory !== 'historia') updateView();
+            const allFailed = res.every(r => !r.players);
+            upd.textContent = allFailed
+                ? 'Sin conexión con la planilla — datos locales'
+                : 'Actualizado: ' + new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+        }
+
+        loadData(); // carrega uma vez ao abrir; use ↻ para forçar atualización
 
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', () => {
