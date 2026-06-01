@@ -364,30 +364,46 @@
             }).join('');
         }
 
-        // ===== Clasificación de Clubes 2026 =====
+        // ===== Clasificación de Clubes 2026 (por etapa) =====
+        const ETAPAS = [
+            { key: 'etapa_1', label: 'Ibiza' },
+            { key: 'etapa_2', label: 'Valencia' },
+            { key: 'etapa_3', label: 'Donosti' },
+            { key: 'etapa_4', label: 'Vigo' },
+            { key: 'etapa_5', label: 'Alicante' }
+        ];
+
         function computeClubChampionship() {
             const cats = ['oro', 'plata', 'bronce'];
             const clubs = {};
-            const ensure = c => (clubs[c] = clubs[c] || { name: c, oro: 0, plata: 0, bronce: 0, mvp: 0, fem: 0, total: 0 });
-            // 1) los 3 mejores jugadores por club y categoría
-            cats.forEach(cat => {
-                const byClub = {};
-                (rankingData[cat] || []).forEach(p => {
-                    if (!p.club) return;
-                    (byClub[p.club] = byClub[p.club] || []).push(p);
-                });
-                Object.entries(byClub).forEach(([club, arr]) => {
-                    arr.sort((a, b) => b.total - a.total);
-                    ensure(club)[cat] = arr.slice(0, 3).reduce((s, p) => s + (p.total || 0), 0);
+            const ensure = c => (clubs[c] = clubs[c] || {
+                name: c, etapas: { etapa_1: 0, etapa_2: 0, etapa_3: 0, etapa_4: 0, etapa_5: 0 }, mvp: 0, fem: 0, total: 0
+            });
+            // Para cada etapa: los 3 mejores del club en cada categoría (según esa etapa) y se suman
+            ETAPAS.forEach(e => {
+                cats.forEach(cat => {
+                    const byClub = {};
+                    (rankingData[cat] || []).forEach(p => {
+                        if (!p.club) return;
+                        (byClub[p.club] = byClub[p.club] || []).push(p);
+                    });
+                    Object.entries(byClub).forEach(([club, arr]) => {
+                        const top3 = arr.slice()
+                            .sort((a, b) => (b[e.key] || 0) - (a[e.key] || 0))
+                            .slice(0, 3)
+                            .reduce((s, p) => s + (p[e.key] || 0), 0);
+                        ensure(club).etapas[e.key] += top3;
+                    });
                 });
             });
-            // 2) MVP de cada etapa -> 880
+            // MVP de cada etapa -> 880 · mayor participación femenina -> 740
             (CLUB_BONUS.mvp || []).forEach(m => { if (m && m.club) ensure(m.club).mvp += 880; });
-            // 3) mayor participación femenina -> 740
             if (CLUB_BONUS.femClub) ensure(CLUB_BONUS.femClub).fem += 740;
 
             const arr = Object.values(clubs);
-            arr.forEach(c => c.total = c.oro + c.plata + c.bronce + c.mvp + c.fem);
+            arr.forEach(c => {
+                c.total = ETAPAS.reduce((s, e) => s + c.etapas[e.key], 0) + c.mvp + c.fem;
+            });
             arr.sort((a, b) => b.total - a.total);
             let lt = null, lr = 0;
             arr.forEach((c, i) => { if (c.total !== lt) { lr = i + 1; lt = c.total; } c.position = lr; });
@@ -405,20 +421,19 @@
             const clubs = computeClubChampionship();
             const el = document.getElementById('campeon-content');
             if (!clubs.length) { el.innerHTML = '<div class="empty-note">Datos no disponibles.</div>'; return; }
+            const etHead = ETAPAS.map(e => `<th class="num etapa-col">${e.label}</th>`).join('');
             el.innerHTML = `<table class="rank-table">
                 <thead><tr>
                     <th class="num">Pos</th><th>Club</th>
-                    <th class="num">Oro</th><th class="num">Plata</th><th class="num">Bronce</th>
-                    <th class="num">MVP</th><th class="num">Fem</th><th class="num">Total</th>
+                    ${etHead}
+                    <th class="num etapa-col">MVP</th><th class="num etapa-col">Fem</th><th class="num">Total</th>
                 </tr></thead>
                 <tbody>${clubs.map(c => `<tr class="${c.position === 1 ? 'sube' : ''}">
                     <td class="num pos ${c.position <= 3 ? 'p' + c.position : ''}">${c.position}</td>
                     <td>${clubDot(c.name)}${c.position === 1 ? ' 👑' : ''}</td>
-                    <td class="num">${c.oro || 0}</td>
-                    <td class="num">${c.plata || 0}</td>
-                    <td class="num">${c.bronce || 0}</td>
-                    <td class="num">${c.mvp || 0}</td>
-                    <td class="num">${c.fem || 0}</td>
+                    ${ETAPAS.map(e => `<td class="num etapa-col">${c.etapas[e.key] || 0}</td>`).join('')}
+                    <td class="num etapa-col">${c.mvp || 0}</td>
+                    <td class="num etapa-col">${c.fem || 0}</td>
                     <td class="num total-pts">${c.total}</td>
                 </tr>`).join('')}</tbody></table>`;
         }
