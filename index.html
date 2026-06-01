@@ -81,7 +81,6 @@
             </div>
 
             <div id="players-view" style="overflow-x:auto;">
-                <div id="promo-note" class="format-note hidden"></div>
                 <table class="rank-table" id="ranking-table">
                     <thead>
                         <tr>
@@ -115,8 +114,10 @@
     <footer class="site-footer">
         <div class="legend">
             <span><span class="club-dot" style="background:var(--gold)"></span> Top 3</span>
+            <span><span class="club-dot" style="background:#1d9e75"></span> Zona de ascenso ↑</span>
             <span><b>Total</b> = mejores resultados de la temporada 2026</span>
         </div>
+        <div><b>Ascensos:</b> en Plata suben los 6 primeros a Oro · en Bronce suben los 8 primeros a Plata.</div>
         <div><b>Desempate:</b> a igualdad de puntos se ordena por total acumulado de la temporada.</div>
         Liga Nacional de Footvolley España · Temporada 2026
     </footer>
@@ -314,13 +315,7 @@
                     if (p.total !== lastTotal) { lastRank = i + 1; lastTotal = p.total; }
                     rankMap.set(p, lastRank);
                 });
-            // nota da zona de subida
-            const note = document.getElementById('promo-note');
             const cut = SUBEN[currentCategory] || 0;
-            if (cut && SUBE_TXT[currentCategory]) {
-                note.innerHTML = '🟢 ' + SUBE_TXT[currentCategory];
-                note.classList.remove('hidden');
-            } else { note.classList.add('hidden'); }
             tbody.innerHTML = players.map((p) => {
                 const rank = rankMap.get(p) || 0;
                 const pc = rank <= 3 ? `p${rank}` : '';
