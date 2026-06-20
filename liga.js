@@ -210,18 +210,22 @@ function padRound(arr, n) {
 
 /* ---------- fase previa (triangular no Oro, octavos no Plata/Bronce) ---------- */
 function preRoundBlock(po, cat) {
-    if (cat === 'oro') {
+    // Dirigido por dados: triangular se existir, senão octavos se existirem,
+    // senão nada (ex.: clasificación directa desde grupos a cuartos).
+    if (po && po.triangular) {
         return `<div class="pre-round">
             <div class="sub-label">Fase previa · Triangular de 3os</div>
-            ${triangularHtml(po && po.triangular)}
+            ${triangularHtml(po.triangular)}
         </div>`;
     }
-    const oct = (po && po.octavos && po.octavos.length) ? po.octavos : emptyRound(cat === 'bronce' ? 8 : 6);
-    const cards = oct.map((m, i) => `<div style="flex:1 1 215px; min-width:200px;">${tieHtml(m, { label: 'Octavos ' + (i+1) })}</div>`).join('');
-    return `<div class="pre-round">
-        <div class="sub-label">Fase previa · Octavos</div>
-        <div style="display:flex; gap:12px; flex-wrap:wrap;">${cards}</div>
-    </div>`;
+    if (po && po.octavos && po.octavos.length) {
+        const cards = po.octavos.map((m, i) => `<div style="flex:1 1 215px; min-width:200px;">${tieHtml(m, { label: 'Octavos ' + (i+1) })}</div>`).join('');
+        return `<div class="pre-round">
+            <div class="sub-label">Fase previa · Octavos</div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">${cards}</div>
+        </div>`;
+    }
+    return '';
 }
 
 /* ---------- render do bracket completo (árvore conectada Cuartos→Semis→Final) ---------- */
