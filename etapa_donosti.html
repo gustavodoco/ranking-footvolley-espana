@@ -17,6 +17,14 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="stylesheet" href="styles.css">
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WWQS95ZVC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9WWQS95ZVC');
+    </script>
 </head>
 <body>
 <div class="container">
@@ -67,29 +75,24 @@
         <span><span class="qdot n"></span> Eliminado</span>
     </div>
     <div><b>Desempate en grupos:</b> 1) victorias · 2) saldo de puntos solo en los partidos entre las parejas empatadas · 3) saldo general.</div>
-    Actualización automática desde Google Sheets · Etapa 2 2026
+    Actualización automática desde Google Sheets · Etapa 3 2026
 </footer>
 
 <script src="liga.js"></script>
 <script>
-// TODO: colar URLs CSV de Donosti tras publicar las hojas (cada tab = gid único).
-// Hasta entonces, la página carga desde el JSON local (etapa_donosti_data.json).
-const GRUPOS_URLS = {
-    oro:    '',
-    plata:  '',
-    bronce: ''
-};
-const PLAYOFFS_URLS = {
-    oro:    '',
-    plata:  '',
-    bronce: ''
+// Etapa 3 Donostia — uma só aba por categoria (grupos + playoffs juntos).
+// Colunas da aba: fase, local, visitante, pontos_local, pontos_visit
+const DATA_URLS = {
+    oro:    'https://docs.google.com/spreadsheets/d/e/2PACX-1vRWt137IeyKi-7RnAObYEvh15mpvFNyowk9BGmgfkAoAXyOoZvyH1ycg6Q6paudVZ57G2ZhWoh9dwJO/pub?gid=1666544623&single=true&output=csv',
+    plata:  'https://docs.google.com/spreadsheets/d/e/2PACX-1vRWt137IeyKi-7RnAObYEvh15mpvFNyowk9BGmgfkAoAXyOoZvyH1ycg6Q6paudVZ57G2ZhWoh9dwJO/pub?gid=1416312311&single=true&output=csv',
+    bronce: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRWt137IeyKi-7RnAObYEvh15mpvFNyowk9BGmgfkAoAXyOoZvyH1ycg6Q6paudVZ57G2ZhWoh9dwJO/pub?gid=917052557&single=true&output=csv'
 };
 const LOCAL_FILE = 'etapa_donosti_data.json';
 
 const FORMATO = {
     oro:    '3 grupos de 4 · cada pareja juega <b>3 partidos</b>. 1º y 2º de cada grupo van directo a <b>cuartos</b> (domingo). Los 3 terceros disputan un <b>triangular</b> (sábado) — clasifican 2. Total: <b>8 parejas</b> a cuartos. <b>Los cruces se definen por sorteo.</b>',
     plata:  '3 grupos de 4 · cada pareja juega <b>3 partidos</b>. 1º y 2º de cada grupo van directo a <b>cuartos</b> (domingo). Los 3 terceros disputan un <b>triangular</b> (sábado) — clasifican 2. Total: <b>8 parejas</b> a cuartos. <b>Los cruces se definen por sorteo.</b>',
-    bronce: '4 grupos (2 de 5 y 2 de 4) · cada pareja juega <b>3 o 4 partidos</b>. Clasifican el <b>1º y 2º de cada grupo</b> = <b>8 parejas</b> a <b>cuartos</b> (domingo). <b>Los cruces se definen por sorteo.</b>'
+    bronce: '4 grupos (2 de 5 y 2 de 4) · cada pareja juega <b>3 o 4 partidos</b>. El <b>1º de cada grupo</b> pasa directo a <b>cuartos</b>. Los <b>2º y 3º</b> (8 parejas) disputan unas <b>pre-cuartas (octavos)</b> — clasifican 4. Total: <b>8 parejas</b> a cuartos (domingo). <b>Los cruces se definen por sorteo.</b>'
 };
 
 let etapaData = {};
@@ -108,18 +111,18 @@ async function loadAllData() {
     } catch (e) { console.warn('Arquivo local indisponível'); }
     refreshStatus(); renderCat(currentCat);
 
-    // 2) Google Sheets (grupos + playoffs por categoria)
+    // 2) Google Sheets — uma aba por categoria (grupos + playoffs juntos)
     const tasks = [];
     ['oro','plata','bronce'].forEach(cat => {
-        if (GRUPOS_URLS[cat]) tasks.push((async () => {
-            try { const t = await fetchCSV(GRUPOS_URLS[cat]); const d = parseGruposCSV(t);
-                if (d.grupos && d.grupos.length) etapaData[cat] = Object.assign({}, etapaData[cat], { grupos: d.grupos });
-            } catch (e) { console.warn('Grupos ' + cat + ' indisponível'); }
-        })());
-        if (PLAYOFFS_URLS[cat]) tasks.push((async () => {
-            try { const t = await fetchCSV(PLAYOFFS_URLS[cat]); const po = parsePlayoffsCSV(t);
-                if (po) etapaData[cat] = Object.assign({}, etapaData[cat], { playoffs: po });
-            } catch (e) { console.warn('Playoffs ' + cat + ' indisponível'); }
+        if (DATA_URLS[cat]) tasks.push((async () => {
+            try {
+                const t = await fetchCSV(DATA_URLS[cat]);
+                const d = parseUnifiedCSV(t);
+                const patch = {};
+                if (d.grupos && d.grupos.length) patch.grupos = d.grupos;
+                if (d.playoffs) patch.playoffs = d.playoffs;
+                if (Object.keys(patch).length) etapaData[cat] = Object.assign({}, etapaData[cat], patch);
+            } catch (e) { console.warn('Datos ' + cat + ' indisponível'); }
         })());
     });
     await Promise.allSettled(tasks);

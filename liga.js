@@ -99,7 +99,7 @@ function renderGrupo(g, cat) {
         let q = '<span class="qdot n"></span>';
         if (cat === 'oro')        { if (i < 2) q = '<span class="qdot q" title="Clasifica a cuartos"></span>'; else if (i === 2) q = '<span class="qdot q3" title="Va al triangular"></span>'; }
         else if (cat === 'plata') { if (i === 0) q = '<span class="qdot q" title="Clasifica directo"></span>'; else if (i === 1 || i === 2) q = '<span class="qdot q3" title="Juega octavos"></span>'; }
-        else if (cat === 'bronce'){ if (i < 2) q = '<span class="qdot q" title="Clasifica a octavos"></span>'; else if (i === 2) q = '<span class="qdot q3" title="Posible mejor tercero"></span>'; }
+        else if (cat === 'bronce'){ if (i === 0) q = '<span class="qdot q" title="Clasifica directo a cuartos"></span>'; else if (i === 1 || i === 2) q = '<span class="qdot q3" title="Juega pre-cuartos (octavos)"></span>'; }
         return `<tr>
             <td><span class="team-rank ${rc}">${i+1}</span>${s.nome}${q}</td>
             <td>${s.v}</td><td>${s.p_plus}</td><td>${s.p_minus}</td>
@@ -293,6 +293,58 @@ function parseGruposCSV(text) {
         g.partidas.push({ local: idxOf(g.equipes, local), visit: idxOf(g.equipes, visit), p_local: num(get(r, iPL)), p_visit: num(get(r, iPV)) });
     }
     return { grupos: Object.values(grupos) };
+}
+
+/* ---------- parser UNIFICADO (uma só aba por categoria) ----------
+   Colunas: fase, local, visitante, pontos_local, pontos_visit
+   - fase "Grupo A/B/C/D"          -> fase de grupos
+   - fase "Triangular"             -> triangular (oro/plata)
+   - fase "OF1..OF8" ou "Octavos"  -> pre-cuartos (bronce: 2os vs 3os)
+   - fase "QF1..QF4" / "Cuartos"   -> cuartos
+   - fase "SF1..SF2" / "Semifinal" -> semifinais
+   - fase "3lugar" / "Tercer"      -> 3º y 4º
+   - fase "Final"                  -> final
+   Retorna { grupos:[...], playoffs:{...}|null } */
+function parseUnifiedCSV(text) {
+    const rows = text.trim().split('\n').map(splitLine);
+    if (rows.length < 2) return { grupos: [], playoffs: null };
+    const h = rows[0].map(x => x.toLowerCase());
+    const c = n => h.indexOf(n);
+    const iF = c('fase'), iL = c('local'), iV = c('visitante'), iPL = c('pontos_local'), iPV = c('pontos_visit');
+    const get = (r, i) => (i >= 0 && r[i] != null ? r[i].trim() : '');
+    const num = v => (v !== '' && !isNaN(parseInt(v))) ? parseInt(v) : null;
+
+    const grupos = {};
+    const po = { triangular: null, octavos: [], cuartos: [], semifinais: [], tercer: null, final: null };
+    const triEq = [], triP = [];
+    const nC = { o: 0, c: 0, s: 0 };
+
+    for (let i = 1; i < rows.length; i++) {
+        const r = rows[i];
+        const faseRaw = get(r, iF), fase = faseRaw.toLowerCase(), local = get(r, iL), visit = get(r, iV);
+        if (!fase || !local) continue;
+        const pl = num(get(r, iPL)), pv = num(get(r, iPV));
+
+        // ---- fase de grupos ----
+        if (fase.startsWith('grupo') || fase.startsWith('grup ') || /^g[ -]?[a-d]$/.test(fase)) {
+            if (!grupos[faseRaw]) grupos[faseRaw] = { nome: faseRaw, partidas: [], equipes: [] };
+            const g = grupos[faseRaw];
+            g.partidas.push({ local: idxOf(g.equipes, local), visit: idxOf(g.equipes, visit), p_local: pl, p_visit: pv });
+            continue;
+        }
+        // ---- triangular ----
+        if (fase.includes('triang')) { triP.push({ local: idxOf(triEq, local), visit: idxOf(triEq, visit), p_local: pl, p_visit: pv }); continue; }
+        // ---- eliminatórias ----
+        const m = { a: local, b: visit, p_a: pl, p_b: pv };
+        if (fase.includes('octav') || /^of\d/.test(fase))      { m.label = 'Octavos ' + (++nC.o); po.octavos.push(m); }
+        else if (fase.includes('cuart') || /^qf\d/.test(fase)) { m.label = 'Cuartos ' + (++nC.c); po.cuartos.push(m); }
+        else if (fase.includes('semi')  || /^sf\d/.test(fase)) { m.label = 'Semifinal ' + (++nC.s); po.semifinais.push(m); }
+        else if (fase.includes('tercer') || fase.includes('3lugar') || fase.includes('3º') || fase.includes('3o') || fase.includes('bronce')) { m.label = '3º y 4º puesto'; po.tercer = m; }
+        else if (fase.includes('final')) { m.label = 'Final'; po.final = m; }
+    }
+    if (triP.length) po.triangular = { equipes: triEq, partidas: triP };
+    const hasPo = po.triangular || po.octavos.length || po.cuartos.length || po.semifinais.length || po.tercer || po.final;
+    return { grupos: Object.values(grupos), playoffs: hasPo ? po : null };
 }
 
 /* ---------- parser de PLAYOFFS (fase, local, visitante, pontos_local, pontos_visit)
