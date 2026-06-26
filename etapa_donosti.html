@@ -17,6 +17,25 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="stylesheet" href="styles.css">
+    <style>
+      .cal-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .cal-table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 12.5px; }
+      .cal-table thead th {
+          padding: 9px 8px; text-align: center; color: var(--navy-900);
+          background: linear-gradient(150deg, var(--gold) 0%, var(--gold-2) 100%);
+          font-weight: 800; font-size: 11px; letter-spacing: .5px;
+      }
+      .cal-table thead th:first-child { border-radius: 8px 0 0 0; }
+      .cal-table thead th:last-child { border-radius: 0 8px 0 0; }
+      .cal-table td {
+          padding: 9px 8px; text-align: center; vertical-align: top;
+          border-bottom: 1px solid var(--line-2); color: rgba(255,255,255,0.88);
+      }
+      .cal-table tbody tr:hover { background: rgba(255,255,255,0.035); }
+      .cal-hora { font-weight: 800; color: var(--gold); font-size: 12px; display: block; margin-bottom: 3px; }
+      .cal-game { line-height: 1.25; }
+      .cal-empty { color: var(--faint); }
+    </style>
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WWQS95ZVC"></script>
     <script>
@@ -55,6 +74,11 @@
         <button class="refresh-btn" onclick="loadAllData()">↻ Actualizar</button>
     </div>
 
+    <div class="card" id="cal-card" style="margin-bottom:18px; display:none;">
+        <div class="section-title">📅 Horarios sábado · por pista</div>
+        <div id="cal-content" class="cal-wrap"></div>
+    </div>
+
     <div class="tabs">
         <button class="tab active" onclick="showCat('oro', this)">Oro</button>
         <button class="tab" onclick="showCat('plata', this)">Plata</button>
@@ -88,6 +112,7 @@ const DATA_URLS = {
     bronce: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRWt137IeyKi-7RnAObYEvh15mpvFNyowk9BGmgfkAoAXyOoZvyH1ycg6Q6paudVZ57G2ZhWoh9dwJO/pub?gid=917052557&single=true&output=csv'
 };
 const LOCAL_FILE = 'etapa_donosti_data.json';
+const CALENDARIO_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRWt137IeyKi-7RnAObYEvh15mpvFNyowk9BGmgfkAoAXyOoZvyH1ycg6Q6paudVZ57G2ZhWoh9dwJO/pub?gid=1553893404&single=true&output=csv';
 
 const FORMATO = {
     oro:    '3 grupos de 4 · cada pareja juega <b>3 partidos</b>. 1º y 2º de cada grupo van directo a <b>cuartos</b> (domingo). Los 3 terceros disputan un <b>triangular</b> (sábado) — clasifican 2. Total: <b>8 parejas</b> a cuartos. <b>Los cruces se definen por sorteo.</b>',
@@ -130,6 +155,40 @@ async function loadAllData() {
     const now = new Date();
     document.getElementById('last-update').textContent = 'Última actualización: ' + now.toLocaleTimeString('es-ES');
     refreshStatus(); renderCat(currentCat);
+    loadCalendario();
+}
+
+/* ---------- Calendario sábado (posicional: Hora,Pista1,Hora,Pista2,Hora,Pista3,Hora,Pista4) ---------- */
+async function loadCalendario() {
+    try {
+        const text = await fetchCSV(CALENDARIO_URL);
+        const rows = text.trim().split('\n').map(splitLine);
+        if (rows.length < 2) return;
+        const pistas = [
+            { hora: 0, jogo: 1 }, { hora: 2, jogo: 3 },
+            { hora: 4, jogo: 5 }, { hora: 6, jogo: 7 }
+        ];
+        const cell = (r, i) => (i < r.length && r[i] != null ? r[i].trim() : '');
+        let body = '';
+        for (let i = 1; i < rows.length; i++) {
+            const r = rows[i];
+            if (!r.join('').trim()) continue;
+            let tds = '';
+            pistas.forEach(p => {
+                const h = cell(r, p.hora), j = cell(r, p.jogo);
+                tds += (h || j)
+                    ? `<td>${h ? `<span class="cal-hora">${h}</span>` : ''}<span class="cal-game">${j || '—'}</span></td>`
+                    : '<td class="cal-empty">—</td>';
+            });
+            body += '<tr>' + tds + '</tr>';
+        }
+        if (!body) return;
+        document.getElementById('cal-content').innerHTML =
+            '<table class="cal-table"><thead><tr>' +
+            '<th>Pista 1</th><th>Pista 2</th><th>Pista 3</th><th>Pista 4</th>' +
+            '</tr></thead><tbody>' + body + '</tbody></table>';
+        document.getElementById('cal-card').style.display = '';
+    } catch (e) { console.warn('Calendario indisponível'); }
 }
 
 async function fetchCSV(url) {
