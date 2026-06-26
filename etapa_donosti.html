@@ -18,23 +18,15 @@
 
     <link rel="stylesheet" href="styles.css">
     <style>
-      .cal-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-      .cal-table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 12.5px; }
-      .cal-table thead th {
-          padding: 9px 8px; text-align: center; color: var(--navy-900);
-          background: linear-gradient(150deg, var(--gold) 0%, var(--gold-2) 100%);
-          font-weight: 800; font-size: 11px; letter-spacing: .5px;
+      .match-meta {
+          display: flex; align-items: center; gap: 7px;
+          font-size: 10.5px; color: var(--faint); margin: 8px 0 -2px;
       }
-      .cal-table thead th:first-child { border-radius: 8px 0 0 0; }
-      .cal-table thead th:last-child { border-radius: 0 8px 0 0; }
-      .cal-table td {
-          padding: 9px 8px; text-align: center; vertical-align: top;
-          border-bottom: 1px solid var(--line-2); color: rgba(255,255,255,0.88);
+      .match-meta .mt-hora { font-weight: 800; color: var(--gold); }
+      .match-meta .mt-pista {
+          background: rgba(255,255,255,0.07); border: 1px solid var(--line);
+          border-radius: 5px; padding: 1px 6px; color: var(--muted); font-weight: 600;
       }
-      .cal-table tbody tr:hover { background: rgba(255,255,255,0.035); }
-      .cal-hora { font-weight: 800; color: var(--gold); font-size: 12px; display: block; margin-bottom: 3px; }
-      .cal-game { line-height: 1.25; }
-      .cal-empty { color: var(--faint); }
     </style>
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WWQS95ZVC"></script>
@@ -72,11 +64,6 @@
     <div class="update-bar">
         <span id="last-update">Cargando datos…</span>
         <button class="refresh-btn" onclick="loadAllData()">↻ Actualizar</button>
-    </div>
-
-    <div class="card" id="cal-card" style="margin-bottom:18px; display:none;">
-        <div class="section-title">📅 Horarios sábado · por pista</div>
-        <div id="cal-content" class="cal-wrap"></div>
     </div>
 
     <div class="tabs">
@@ -158,37 +145,49 @@ async function loadAllData() {
     loadCalendario();
 }
 
-/* ---------- Calendario sábado (posicional: Hora,Pista1,Hora,Pista2,Hora,Pista3,Hora,Pista4) ---------- */
+/* ---------- Calendario sábado: liga hora+pista a cada partida (posicional) ---------- */
+let CAL_LIST = [];
+const norm = s => (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim();
+
 async function loadCalendario() {
     try {
         const text = await fetchCSV(CALENDARIO_URL);
         const rows = text.trim().split('\n').map(splitLine);
         if (rows.length < 2) return;
         const pistas = [
-            { hora: 0, jogo: 1 }, { hora: 2, jogo: 3 },
-            { hora: 4, jogo: 5 }, { hora: 6, jogo: 7 }
+            { hora: 0, jogo: 1, label: 'Pista 1' }, { hora: 2, jogo: 3, label: 'Pista 2' },
+            { hora: 4, jogo: 5, label: 'Pista 3' }, { hora: 6, jogo: 7, label: 'Pista 4' }
         ];
         const cell = (r, i) => (i < r.length && r[i] != null ? r[i].trim() : '');
-        let body = '';
+        const list = [];
         for (let i = 1; i < rows.length; i++) {
             const r = rows[i];
-            if (!r.join('').trim()) continue;
-            let tds = '';
             pistas.forEach(p => {
                 const h = cell(r, p.hora), j = cell(r, p.jogo);
-                tds += (h || j)
-                    ? `<td>${h ? `<span class="cal-hora">${h}</span>` : ''}<span class="cal-game">${j || '—'}</span></td>`
-                    : '<td class="cal-empty">—</td>';
+                if (j) list.push({ hora: h, pista: p.label, jogo: norm(j) });
             });
-            body += '<tr>' + tds + '</tr>';
         }
-        if (!body) return;
-        document.getElementById('cal-content').innerHTML =
-            '<table class="cal-table"><thead><tr>' +
-            '<th>Pista 1</th><th>Pista 2</th><th>Pista 3</th><th>Pista 4</th>' +
-            '</tr></thead><tbody>' + body + '</tbody></table>';
-        document.getElementById('cal-card').style.display = '';
+        CAL_LIST = list;
+        annotateMatches();
     } catch (e) { console.warn('Calendario indisponível'); }
+}
+
+function annotateMatches() {
+    if (!CAL_LIST.length) return;
+    document.querySelectorAll('#cat-content .match').forEach(m => {
+        if (m.previousElementSibling && m.previousElementSibling.classList.contains('match-meta')) return;
+        const nms = m.querySelectorAll('.nm');
+        if (nms.length < 2) return;
+        const a = norm(nms[0].textContent), b = norm(nms[1].textContent);
+        if (!a || !b) return;
+        const hit = CAL_LIST.find(e => e.jogo.includes(a) && e.jogo.includes(b));
+        if (!hit) return;
+        const meta = document.createElement('div');
+        meta.className = 'match-meta';
+        meta.innerHTML = (hit.hora ? `<span class="mt-hora">🕐 ${hit.hora}</span>` : '') +
+                         `<span class="mt-pista">${hit.pista}</span>`;
+        m.parentNode.insertBefore(meta, m);
+    });
 }
 
 async function fetchCSV(url) {
@@ -226,6 +225,7 @@ function renderCat(cat) {
         '<div class="format-note">' + FORMATO[cat] + '</div>' +
         renderBracket(data.playoffs, cat) +
         podium;
+    annotateMatches();
 }
 
 loadAllData();
