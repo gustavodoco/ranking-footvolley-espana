@@ -1,5 +1,5 @@
 {
-  "_info": "Etapa 3 Donostia 2026 (27-28/06). Sábado: grupos + triangular. Domingo: cuartos. Preencher equipes y resultados tras el sorteo.",
+  "_info": "Etapa 3 Donostia 2026 (27-28/06). Sábado: grupos + octavos. Domingo: cuartos. Preencher equipes y resultados tras el sorteo.",
   "oro": {
     "grupos": [
       {
@@ -8,12 +8,13 @@
           "Dupla A1",
           "Dupla A2",
           "Dupla A3",
-          "Dupla A4"
+          "Dupla A4",
+          "Dupla A5"
         ],
         "partidas": [
           {
-            "local": 0,
-            "visit": 1,
+            "local": 1,
+            "visit": 4,
             "p_local": null,
             "p_visit": null
           },
@@ -25,13 +26,13 @@
           },
           {
             "local": 0,
-            "visit": 2,
+            "visit": 4,
             "p_local": null,
             "p_visit": null
           },
           {
             "local": 1,
-            "visit": 3,
+            "visit": 2,
             "p_local": null,
             "p_visit": null
           },
@@ -42,8 +43,32 @@
             "p_visit": null
           },
           {
-            "local": 1,
+            "local": 4,
             "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 4,
             "p_local": null,
             "p_visit": null
           }
@@ -55,12 +80,20 @@
           "Dupla B1",
           "Dupla B2",
           "Dupla B3",
-          "Dupla B4"
+          "Dupla B4",
+          "Dupla B5",
+          "Dupla B6"
         ],
         "partidas": [
           {
             "local": 0,
-            "visit": 1,
+            "visit": 5,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 1,
+            "visit": 4,
             "p_local": null,
             "p_visit": null
           },
@@ -72,13 +105,19 @@
           },
           {
             "local": 0,
-            "visit": 2,
+            "visit": 4,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 5,
+            "visit": 3,
             "p_local": null,
             "p_visit": null
           },
           {
             "local": 1,
-            "visit": 3,
+            "visit": 2,
             "p_local": null,
             "p_visit": null
           },
@@ -89,22 +128,35 @@
             "p_visit": null
           },
           {
-            "local": 1,
+            "local": 4,
             "visit": 2,
             "p_local": null,
             "p_visit": null
-          }
-        ]
-      },
-      {
-        "nome": "Grupo C",
-        "equipes": [
-          "Dupla C1",
-          "Dupla C2",
-          "Dupla C3",
-          "Dupla C4"
-        ],
-        "partidas": [
+          },
+          {
+            "local": 5,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 4,
+            "visit": 5,
+            "p_local": null,
+            "p_visit": null
+          },
           {
             "local": 0,
             "visit": 1,
@@ -113,31 +165,13 @@
           },
           {
             "local": 2,
-            "visit": 3,
+            "visit": 5,
             "p_local": null,
             "p_visit": null
           },
           {
-            "local": 0,
-            "visit": 2,
-            "p_local": null,
-            "p_visit": null
-          },
-          {
-            "local": 1,
-            "visit": 3,
-            "p_local": null,
-            "p_visit": null
-          },
-          {
-            "local": 0,
-            "visit": 3,
-            "p_local": null,
-            "p_visit": null
-          },
-          {
-            "local": 1,
-            "visit": 2,
+            "local": 3,
+            "visit": 4,
             "p_local": null,
             "p_visit": null
           }
@@ -145,33 +179,6 @@
       }
     ],
     "playoffs": {
-      "triangular": {
-        "equipes": [
-          "3º Grupo A",
-          "3º Grupo B",
-          "3º Grupo C"
-        ],
-        "partidas": [
-          {
-            "local": 0,
-            "visit": 1,
-            "p_local": null,
-            "p_visit": null
-          },
-          {
-            "local": 2,
-            "visit": 0,
-            "p_local": null,
-            "p_visit": null
-          },
-          {
-            "local": 1,
-            "visit": 2,
-            "p_local": null,
-            "p_visit": null
-          }
-        ]
-      },
       "cuartos": [
         {
           "label": "Cuartos 1",
@@ -231,7 +238,8 @@
         "b": "Ganador SF2",
         "p_a": null,
         "p_b": null
-      }
+      },
+      "_nota": "4 primeros de cada grupo (2 grupos) = 8 a cuartos."
     }
   },
   "plata": {
@@ -548,67 +556,42 @@
           "Dupla B1",
           "Dupla B2",
           "Dupla B3",
-          "Dupla B4",
-          "Dupla B5"
+          "Dupla B4"
         ],
         "partidas": [
           {
+            "local": 0,
+            "visit": 3,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
             "local": 1,
-            "visit": 4,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 2,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 3,
+            "visit": 1,
+            "p_local": null,
+            "p_visit": null
+          },
+          {
+            "local": 0,
+            "visit": 1,
             "p_local": null,
             "p_visit": null
           },
           {
             "local": 2,
             "visit": 3,
-            "p_local": null,
-            "p_visit": null
-          },
-          {
-            "local": 0,
-            "visit": 4,
-            "p_local": null,
-            "p_visit": null
-          },
-          {
-            "local": 1,
-            "visit": 2,
-            "p_local": null,
-            "p_visit": null
-          },
-          {
-            "local": 0,
-            "visit": 3,
-            "p_local": null,
-            "p_visit": null
-          },
-          {
-            "local": 4,
-            "visit": 2,
-            "p_local": null,
-            "p_visit": null
-          },
-          {
-            "local": 0,
-            "visit": 2,
-            "p_local": null,
-            "p_visit": null
-          },
-          {
-            "local": 3,
-            "visit": 1,
-            "p_local": null,
-            "p_visit": null
-          },
-          {
-            "local": 0,
-            "visit": 1,
-            "p_local": null,
-            "p_visit": null
-          },
-          {
-            "local": 3,
-            "visit": 4,
             "p_local": null,
             "p_visit": null
           }
@@ -710,6 +693,36 @@
       }
     ],
     "playoffs": {
+      "octavos": [
+        {
+          "label": "Octavos 1",
+          "a": "Por definir",
+          "b": "Por definir",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Octavos 2",
+          "a": "Por definir",
+          "b": "Por definir",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Octavos 3",
+          "a": "Por definir",
+          "b": "Por definir",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "label": "Octavos 4",
+          "a": "Por definir",
+          "b": "Por definir",
+          "p_a": null,
+          "p_b": null
+        }
+      ],
       "cuartos": [
         {
           "label": "Cuartos 1",
@@ -770,7 +783,7 @@
         "p_a": null,
         "p_b": null
       },
-      "_nota": "2 primeros de cada grupo (4 grupos) = 8 a cuartos."
+      "_nota": "1os directo + 4 de octavos = 8 a cuartos. Octavos: 1 set de 21."
     }
   }
 }

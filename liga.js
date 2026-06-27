@@ -97,7 +97,7 @@ function renderGrupo(g, cat) {
         const coef = s.p_plus - s.p_minus;
         let rc = ''; if (i === 0) rc = 'r1'; else if (i === 1) rc = 'r2'; else if (i === 2) rc = 'r3';
         let q = '<span class="qdot n"></span>';
-        if (cat === 'oro')        { if (i < 2) q = '<span class="qdot q" title="Clasifica a cuartos"></span>'; else if (i === 2) q = '<span class="qdot q3" title="Va al triangular"></span>'; }
+        if (cat === 'oro')        { if (i < 4) q = '<span class="qdot q" title="Clasifica a cuartos"></span>'; }
         else if (cat === 'plata') { if (i === 0) q = '<span class="qdot q" title="Clasifica directo"></span>'; else if (i === 1 || i === 2) q = '<span class="qdot q3" title="Juega octavos"></span>'; }
         else if (cat === 'bronce'){ if (i === 0) q = '<span class="qdot q" title="Clasifica directo a cuartos"></span>'; else if (i === 1 || i === 2) q = '<span class="qdot q3" title="Juega pre-cuartos (octavos)"></span>'; }
         return `<tr>
