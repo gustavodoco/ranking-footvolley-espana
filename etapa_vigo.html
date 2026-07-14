@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etapa 3 · Donostia · Liga Nacional de Footvolley España</title>
-    <meta name="description" content="Resultados en directo de Donostia — Etapa 3 2026 (27-28/06). Grupos, eliminatorias y clasificación de la Liga Nacional de Footvolley España.">
+    <title>Etapa 4 · Vigo · Liga Nacional de Footvolley España</title>
+    <meta name="description" content="Resultados en directo de Vigo — Etapa 4 2026 (18-19/07). Grupos, eliminatorias y clasificación de la Liga Nacional de Footvolley España.">
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Liga Nacional de Footvolley España">
-    <meta property="og:title" content="Etapa 3 · Donostia · Footvolley España 2026">
-    <meta property="og:description" content="Grupos, eliminatorias y resultados en directo — Etapa 3 2026.">
-    <meta property="og:url" content="https://ranking-footvolley-espana.vercel.app/etapa_donosti.html">
+    <meta property="og:title" content="Etapa 4 · Vigo · Footvolley España 2026">
+    <meta property="og:description" content="Grupos, eliminatorias y resultados en directo — Etapa 4 2026.">
+    <meta property="og:url" content="https://ranking-footvolley-espana.vercel.app/etapa_vigo.html">
     <meta property="og:image" content="https://ranking-footvolley-espana.vercel.app/logo.png">
     <meta name="twitter:card" content="summary_large_image">
 
@@ -48,16 +48,16 @@
         <nav class="nav">
             <a href="index.html">Ranking</a>
             <a href="calendario.html">Calendario</a>
-            <a href="etapa_ibiza.html" class="">Ibiza</a>
+            <a href="etapa_ibiza.html">Ibiza</a>
             <a href="etapa_alboraya.html">Valencia</a>
-            <a href="etapa_donosti.html" class="active">Donostia</a>
-            <a href="etapa_vigo.html">Vigo</a>
+            <a href="etapa_donosti.html">Donostia</a>
+            <a href="etapa_vigo.html" class="active">Vigo</a>
         </nav>
     </div>
 
     <div class="hero">
-        <span class="eyebrow">Etapa 3 · 2026 · 27-28 jun</span>
-        <h1>🏖 <span class="accent">Donostia</span></h1>
+        <span class="eyebrow">Etapa 4 · 2026 · 18-19 jul</span>
+        <h1>🏖 <span class="accent">Vigo</span></h1>
         <p class="sub">Liga Nacional de Footvolley España</p>
         <div id="status-badge" class="status-badge soon"><span>Cargando…</span></div>
     </div>
@@ -87,26 +87,36 @@
         <span><span class="qdot n"></span> Eliminado</span>
     </div>
     <div><b>Desempate en grupos:</b> 1) victorias · 2) saldo de puntos solo en los partidos entre las parejas empatadas · 3) saldo general.</div>
-    Actualización automática desde Google Sheets · Etapa 3 2026
+    Actualización automática desde Google Sheets · Etapa 4 2026
 </footer>
 
 <script src="liga.js"></script>
 <script>
-// Etapa 3 Donostia — uma só aba por categoria (grupos + playoffs juntos).
+// Etapa 4 Vigo — uma só aba por categoria (grupos + playoffs juntos).
 // Colunas da aba: fase, local, visitante, pontos_local, pontos_visit
 const DATA_URLS = {
-    oro:    'https://docs.google.com/spreadsheets/d/e/2PACX-1vRWt137IeyKi-7RnAObYEvh15mpvFNyowk9BGmgfkAoAXyOoZvyH1ycg6Q6paudVZ57G2ZhWoh9dwJO/pub?gid=1666544623&single=true&output=csv',
-    plata:  'https://docs.google.com/spreadsheets/d/e/2PACX-1vRWt137IeyKi-7RnAObYEvh15mpvFNyowk9BGmgfkAoAXyOoZvyH1ycg6Q6paudVZ57G2ZhWoh9dwJO/pub?gid=1416312311&single=true&output=csv',
-    bronce: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRWt137IeyKi-7RnAObYEvh15mpvFNyowk9BGmgfkAoAXyOoZvyH1ycg6Q6paudVZ57G2ZhWoh9dwJO/pub?gid=917052557&single=true&output=csv'
+    oro:    'https://docs.google.com/spreadsheets/d/e/2PACX-1vR-2fvSTlogyiGdmH7MK03oOaJOvJmvNpjbpjZBSbSLBP2gOAtcodj8v3Q_L8JSZoWV5faHZ12yunLg/pub?gid=1709608451&single=true&output=csv',
+    plata:  'https://docs.google.com/spreadsheets/d/e/2PACX-1vR-2fvSTlogyiGdmH7MK03oOaJOvJmvNpjbpjZBSbSLBP2gOAtcodj8v3Q_L8JSZoWV5faHZ12yunLg/pub?gid=629576811&single=true&output=csv',
+    bronce: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR-2fvSTlogyiGdmH7MK03oOaJOvJmvNpjbpjZBSbSLBP2gOAtcodj8v3Q_L8JSZoWV5faHZ12yunLg/pub?gid=480529194&single=true&output=csv'
 };
-const LOCAL_FILE = 'etapa_donosti_data.json';
-const CALENDARIO_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRWt137IeyKi-7RnAObYEvh15mpvFNyowk9BGmgfkAoAXyOoZvyH1ycg6Q6paudVZ57G2ZhWoh9dwJO/pub?gid=1553893404&single=true&output=csv';
+const LOCAL_FILE = 'etapa_vigo_data.json';
+const CALENDARIO_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR-2fvSTlogyiGdmH7MK03oOaJOvJmvNpjbpjZBSbSLBP2gOAtcodj8v3Q_L8JSZoWV5faHZ12yunLg/pub?gid=1312764150&single=true&output=csv';
 
 const FORMATO = {
-    oro:    '2 grupos (uno de 5 y otro de 6 parejas). Los <b>4 primeros de cada grupo</b> pasan a <b>cuartos</b> de final (domingo). Total: <b>8 parejas</b> a cuartos. <b>Los cruces se definen por sorteo.</b>',
-    plata:  '3 grupos de 4. Los <b>1º y 2º</b> de cada grupo pasan a <b>cuartos</b> (domingo). Los <b>3º</b> disputan un <b>triangular de octavos</b> (sábado) — pasan <b>2 parejas</b>. Total: <b>8 parejas</b> a cuartos. <b>Los cruces se definen por sorteo.</b>',
-    bronce: '4 grupos (uno de 5 y tres de 4). El <b>1º de cada grupo</b> pasa directo a <b>cuartos</b> (domingo). Los <b>2º y 3º</b> (8 parejas) juegan <b>octavos</b> (sábado · 1 set de 21) — clasifican 4. Total: <b>8 parejas</b> a cuartos. <b>Los cruces se definen por sorteo.</b>'
+    oro:    '<b>Grupo único de 7 parejas</b> — todos contra todos (21 partidas, sábado · 1 set de 21 puntos). Cada pareja juega <b>6 partidos</b>. Los <b>4 primeros</b> pasan directo a <b>semifinales</b> (domingo). <b>No hay cuartos.</b> Cruces de semis: <b>1º-4º</b> y <b>2º-3º</b>.',
+    plata:  '<b>3 grupos de 4.</b> Los <b>1º y 2º</b> de cada grupo pasan a <b>cuartos</b> (domingo) — 6 parejas. Los <b>3 terceros</b> disputan un <b>triangular</b> (sábado) — clasifican <b>2</b>. Total: <b>8 parejas</b> a cuartos. <b>Los cruces se definen por sorteo.</b>',
+    bronce: '<b>3 grupos</b> (dos de 4 y uno de 5). Los <b>1º y 2º</b> de cada grupo pasan a <b>cuartos</b> (domingo) — 6 parejas. Los <b>3 terceros</b> disputan un <b>triangular</b> (sábado) — clasifican <b>2</b>. Total: <b>8 parejas</b> a cuartos. <b>Los cruces se definen por sorteo.</b>'
 };
+
+// Marcadores de clasificación por categoría (lidos por liga.js)
+const CLASIF_RULES = {
+    oro:    { directo: 4, tituloDirecto: 'Clasifica a semifinales' },
+    plata:  { directo: 2, repesca: 3, tituloDirecto: 'Clasifica directo a cuartos', tituloRepesca: 'Juega el triangular' },
+    bronce: { directo: 2, repesca: 3, tituloDirecto: 'Clasifica directo a cuartos', tituloRepesca: 'Juega el triangular' }
+};
+
+// Formato do bracket por categoria: 'semis' = árbol sin cuartos
+const BRACKET_MODE = { oro: 'semis', plata: 'cuartos', bronce: 'cuartos' };
 
 let etapaData = {};
 let currentCat = 'oro';

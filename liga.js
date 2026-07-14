@@ -90,16 +90,32 @@ function calcStandings(grupo) {
     return out;
 }
 
+/* ---------- marcadores de classificação ----------
+   Dirigido por dados: cada página de etapa pode definir a global CLASIF_RULES:
+     CLASIF_RULES = { oro: { directo: 4 }, plata: { directo: 2, repesca: 3 }, ... }
+   - directo : nº de primeiras posições que clasifican directo
+   - repesca : posição (1-based) que vai a repesca/triangular  (opcional)
+   Sem CLASIF_RULES, mantém o comportamento antigo (Ibiza/Alboraya/Donosti). */
+function qDot(cat, i) {
+    const R = (typeof CLASIF_RULES !== 'undefined' && CLASIF_RULES) ? CLASIF_RULES[cat] : null;
+    if (R) {
+        if (i < (R.directo || 0)) return '<span class="qdot q" title="' + (R.tituloDirecto || 'Clasifica directo') + '"></span>';
+        if (R.repesca && i === (R.repesca - 1)) return '<span class="qdot q3" title="' + (R.tituloRepesca || 'Repesca / triangular') + '"></span>';
+        return '<span class="qdot n"></span>';
+    }
+    if (cat === 'oro')        { if (i < 4) return '<span class="qdot q" title="Clasifica a cuartos"></span>'; }
+    else if (cat === 'plata') { if (i === 0) return '<span class="qdot q" title="Clasifica directo"></span>'; if (i === 1 || i === 2) return '<span class="qdot q3" title="Juega octavos"></span>'; }
+    else if (cat === 'bronce'){ if (i === 0) return '<span class="qdot q" title="Clasifica directo a cuartos"></span>'; if (i === 1 || i === 2) return '<span class="qdot q3" title="Juega pre-cuartos (octavos)"></span>'; }
+    return '<span class="qdot n"></span>';
+}
+
 /* ---------- render de um grupo (classificação em cima, jogos embaixo) ---------- */
 function renderGrupo(g, cat) {
     const standings = calcStandings(g);
     const rows = standings.map((s, i) => {
         const coef = s.p_plus - s.p_minus;
         let rc = ''; if (i === 0) rc = 'r1'; else if (i === 1) rc = 'r2'; else if (i === 2) rc = 'r3';
-        let q = '<span class="qdot n"></span>';
-        if (cat === 'oro')        { if (i < 4) q = '<span class="qdot q" title="Clasifica a cuartos"></span>'; }
-        else if (cat === 'plata') { if (i === 0) q = '<span class="qdot q" title="Clasifica directo"></span>'; else if (i === 1 || i === 2) q = '<span class="qdot q3" title="Juega octavos"></span>'; }
-        else if (cat === 'bronce'){ if (i === 0) q = '<span class="qdot q" title="Clasifica directo a cuartos"></span>'; else if (i === 1 || i === 2) q = '<span class="qdot q3" title="Juega pre-cuartos (octavos)"></span>'; }
+        const q = qDot(cat, i);
         return `<tr>
             <td><span class="team-rank ${rc}">${i+1}</span>${s.nome}${q}</td>
             <td>${s.v}</td><td>${s.p_plus}</td><td>${s.p_minus}</td>
@@ -231,6 +247,8 @@ function preRoundBlock(po, cat) {
 /* ---------- render do bracket completo (árvore conectada Cuartos→Semis→Final) ---------- */
 function renderBracket(po, cat) {
     po = po || {};
+    // BRACKET_MODE (global, opcional por página): { oro:'semis' } -> árbol sin cuartos
+    const mode = (typeof BRACKET_MODE !== 'undefined' && BRACKET_MODE && BRACKET_MODE[cat]) ? BRACKET_MODE[cat] : 'cuartos';
     const cuartos = padRound(po.cuartos, 4);
     const semis   = padRound(po.semifinais, 2);
 
@@ -249,7 +267,9 @@ function renderBracket(po, cat) {
         <div class="bk-cell">${tieHtml(po.final, { label: 'Final', final: true })}</div>
     </div>`;
 
-    const tree = `<div class="bk">${colCuartos}${lines1}${colSemis}${lines2}${colFinal}</div>`;
+    const tree = (mode === 'semis')
+        ? `<div class="bk">${colSemis}${lines2}${colFinal}</div>`
+        : `<div class="bk">${colCuartos}${lines1}${colSemis}${lines2}${colFinal}</div>`;
     const third = `<div class="sub-label" style="margin-top:14px;">3º y 4º puesto</div>
         <div class="third-box">${tieHtml(po.tercer, { label: '3º y 4º puesto', bronze: true })}</div>`;
 
