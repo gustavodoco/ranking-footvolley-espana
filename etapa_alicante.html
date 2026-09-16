@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etapa 5 · Alicante · Liga Nacional de Footvolley España</title>
-    <meta name="description" content="Resultados en directo de Alicante — Etapa 5 2026 (19-20/09). Grupos, eliminatorias y clasificación de la Liga Nacional de Footvolley España.">
+    <title>Etapa 5 · Alicante · Final de España · Liga Nacional de Footvolley España</title>
+    <meta name="description" content="Resultados en directo de Alicante — Etapa 5 y Final de España 2026 (19-20/09). Final de España, Qualifying, Oro B, Plata y Bronce y clasificación de la Liga Nacional de Footvolley España.">
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Liga Nacional de Footvolley España">
-    <meta property="og:title" content="Etapa 5 · Alicante · Footvolley España 2026">
+    <meta property="og:title" content="Final de España · Alicante · Footvolley España 2026">
     <meta property="og:description" content="Grupos, eliminatorias y resultados en directo — Etapa 5 2026.">
     <meta property="og:url" content="https://ranking-footvolley-espana.vercel.app/etapa_alicante.html">
     <meta property="og:image" content="https://ranking-footvolley-espana.vercel.app/logo.png">
@@ -27,6 +27,43 @@
           background: rgba(255,255,255,0.07); border: 1px solid var(--line);
           border-radius: 5px; padding: 1px 6px; color: var(--muted); font-weight: 600;
       }
+      /* ---------- ORO · Final de España / Qualifying / Oro B ---------- */
+      .oro-subnav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+      .oro-subnav a {
+          text-decoration: none; font-size: 12px; font-weight: 700; color: var(--muted);
+          background: var(--card-2); border: 1px solid var(--line); border-radius: 30px; padding: 7px 14px;
+      }
+      .oro-subnav a:hover { color: var(--gold); border-color: rgba(248,195,42,0.4); }
+      .oro-block { scroll-margin-top: 16px; }
+      .oro-block + .oro-block { margin-top: 38px; }
+      .tie-row .seed {
+          flex: 0 0 auto; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 5px;
+          display: inline-flex; align-items: center; justify-content: center; font-style: normal;
+          font-size: 10px; font-weight: 800; background: rgba(248,195,42,0.16); color: var(--gold);
+      }
+      .tie-foot {
+          padding: 5px 11px; font-size: 9.5px; color: var(--faint); border-top: 1px solid var(--line-2);
+          letter-spacing: .3px;
+      }
+      .de-row { margin-bottom: 20px; }
+      .de-row-title { font-size: 11px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; }
+      .de-row-title.w { color: var(--green); } .de-row-title.l { color: var(--bronze); }
+      .de { display: flex; gap: 14px; overflow-x: auto; padding: 4px 2px 14px; align-items: stretch; }
+      .de-col { flex: 1 0 165px; min-width: 165px; display: flex; flex-direction: column; }
+      .de-col-title {
+          height: 22px; flex: 0 0 22px; text-align: center; font-size: 10px; font-weight: 800;
+          letter-spacing: 1.4px; text-transform: uppercase; color: var(--faint);
+      }
+      .de-cells { flex: 1; display: flex; flex-direction: column; justify-content: space-around; gap: 10px; }
+      .de-q {
+          flex: 0 0 132px; min-width: 132px; align-self: center; text-align: center;
+          border: 1px dashed rgba(29,158,117,0.6); background: rgba(29,158,117,0.10);
+          border-radius: 12px; padding: 14px 10px;
+      }
+      .de-q .lbl { font-size: 9.5px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: #8fe3c6; }
+      .de-q .nm { margin-top: 6px; font-size: 13px; font-weight: 800; color: #fff; }
+      .de-q .nm.tbd { color: var(--faint); font-style: italic; font-weight: 600; }
+      @media (max-width: 640px) { .de-col { flex-basis: 160px; min-width: 160px; } }
     </style>
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WWQS95ZVC"></script>
@@ -57,7 +94,7 @@
     </div>
 
     <div class="hero">
-        <span class="eyebrow">Etapa 5 · 2026 · 19-20 sep</span>
+        <span class="eyebrow">Etapa 5 · Final de España 👑 · 19-20 sep</span>
         <h1>🏖 <span class="accent">Alicante</span></h1>
         <p class="sub">Liga Nacional de Footvolley España</p>
         <div id="status-badge" class="status-badge soon"><span>Cargando…</span></div>
@@ -88,13 +125,19 @@
         <span><span class="qdot n"></span> Eliminado</span>
     </div>
     <div><b>Desempate en grupos:</b> 1) victorias · 2) saldo de puntos solo en los partidos entre las parejas empatadas · 3) saldo general.</div>
-    Actualización automática desde Google Sheets · Etapa 5 2026
+    Actualización automática desde Google Sheets · Etapa 5 · Final de España 2026
 </footer>
 
 <script src="liga.js"></script>
 <script>
-// Etapa 5 Alicante — uma só aba por categoria (grupos + playoffs juntos).
+// Etapa 5 Alicante · FINAL DE ESPAÑA — uma só aba por categoria (grupos + playoffs juntos).
 // Colunas da aba: fase, local, visitante, pontos_local, pontos_visit
+//
+// ABA ORO — valores da coluna "fase":
+//   Oro B (sem prefixo) ... Grupo A / Grupo B / QF1..QF4 / SF1..SF2 / 3lugar / Final
+//   Final de España ....... FE-QF1..FE-QF4 / FE-SF1..FE-SF2 / FE-3lugar / FE-Final
+//   Qualifying ............ QUAL-G1 .. QUAL-G17   (ver QUAL_BASE abaixo)
+// ABAS PLATA / BRONCE: igual às etapas anteriores.
 const DATA_URLS = {
     oro:    '',   // TODO: pegar gid da aba ORO Alicante
     plata:  '',   // TODO: pegar gid da aba PLATA Alicante
@@ -104,23 +147,128 @@ const LOCAL_FILE = 'etapa_alicante_data.json';
 const CALENDARIO_URL = '';   // TODO: gid da aba de horarios/pistas
 
 const FORMATO = {
-    oro:    'Formato por definir — se publica tras el cierre de inscripciones.',
-    plata:  'Formato por definir — se publica tras el cierre de inscripciones.',
-    bronce: 'Formato por definir — se publica tras el cierre de inscripciones.'
+    final:  '<b>Final de España desde cuartos</b> (sábado). <b>8 parejas:</b> 6 preclasificadas + 2 del Qualifying. Cruces: <b>1º-8º · 4º-5º · 3º-6º · 2º-7º</b>. Los perdedores de cuartos pasan a los <b>cuartos del Oro B</b>.',
+    qual:   '<b>Doble eliminación · 10 parejas.</b> Con una derrota pasas al cuadro de perdedores; con dos, quedas eliminado. <b>Clasifican 2 parejas</b> a la Final de España: la ganadora del cuadro de ganadores y la ganadora del cuadro de perdedores. <b>No se disputa final:</b> su puesto en la Final lo determina el <b>Ranking Nacional 2026</b>.',
+    orob:   '<b>2 grupos</b> (uno de 4 y uno de 5). Los <b>1º y 2º</b> de cada grupo pasan a <b>cuartos</b> y se enfrentan a los <b>4 perdedores de cuartos de la Final de España</b>.',
+    plata:  '<b>3 grupos</b> (dos de 4 y uno de 5). Los <b>1º y 2º</b> de cada grupo pasan a <b>cuartos</b> (domingo) — 6 parejas. Los <b>3 terceros</b> disputan un <b>triangular de octavos</b> (sábado) — pasan <b>2 parejas</b>. Total: <b>8 parejas</b> a cuartos. <b>Los cruces se definen por sorteo.</b>',
+    bronce: '<b>4 grupos</b> (dos de 4 y dos de 5). El <b>1º de cada grupo</b> pasa directo a <b>cuartos</b> (domingo). Los <b>2º y 3º</b> (8 parejas) juegan <b>octavos</b> (sábado · 1 set de 21) — clasifican 4. Total: <b>8 parejas</b> a cuartos. <b>Los cruces se definen por sorteo.</b>'
 };
 
 // Marcadores de clasificación por categoría (lidos por liga.js)
+// bronce sem regra -> liga.js usa o padrão antigo: 1º directo, 2º y 3º octavos.
 const CLASIF_RULES = {
-    oro:    { directo: 2, repesca: 3, tituloDirecto: 'Clasifica directo a cuartos', tituloRepesca: 'Juega el triangular' },
-    plata:  { directo: 2, repesca: 3, tituloDirecto: 'Clasifica directo a cuartos', tituloRepesca: 'Juega el triangular' },
-    bronce: { directo: 2, repesca: 3, tituloDirecto: 'Clasifica directo a cuartos', tituloRepesca: 'Juega el triangular' }
+    oro:   { directo: 2, tituloDirecto: 'Clasifica a cuartos Oro B' },
+    plata: { directo: 2, repesca: 3, tituloDirecto: 'Clasifica directo a cuartos', tituloRepesca: 'Juega el triangular' }
 };
 
 // Formato do bracket por categoria: 'semis' = árbol sin cuartos
 const BRACKET_MODE = { oro: 'cuartos', plata: 'cuartos', bronce: 'cuartos' };
 
+// Cabezas de serie da Final de España (ordem das chaves: C1..C4)
+const FE_SEEDS = [[1, 8], [4, 5], [3, 6], [2, 7]];
+
+/* ---------- Qualifying · doble eliminación (10 parejas, 17 partidos) ---------- */
+const QUAL_BASE = [
+    // cuadro de ganadores
+    { id: 'G1',  a: 'Pareja 8',    b: 'Pareja 9' },
+    { id: 'G2',  a: 'Pareja 7',    b: 'Pareja 10' },
+    { id: 'G3',  a: 'Pareja 1',    b: 'Ganador G1' },
+    { id: 'G4',  a: 'Pareja 4',    b: 'Pareja 5' },
+    { id: 'G5',  a: 'Pareja 3',    b: 'Pareja 6' },
+    { id: 'G6',  a: 'Pareja 2',    b: 'Ganador G2' },
+    { id: 'G7',  a: 'Ganador G3',  b: 'Ganador G4' },
+    { id: 'G8',  a: 'Ganador G5',  b: 'Ganador G6' },
+    { id: 'G9',  a: 'Ganador G7',  b: 'Ganador G8' },
+    // cuadro de perdedores
+    { id: 'G10', a: 'Perdedor G1', b: 'Perdedor G5' },
+    { id: 'G11', a: 'Perdedor G2', b: 'Perdedor G4' },
+    { id: 'G12', a: 'Ganador G10', b: 'Perdedor G6' },
+    { id: 'G13', a: 'Ganador G11', b: 'Perdedor G3' },
+    { id: 'G14', a: 'Ganador G12', b: 'Perdedor G7' },
+    { id: 'G15', a: 'Ganador G13', b: 'Perdedor G8' },
+    { id: 'G16', a: 'Ganador G14', b: 'Ganador G15' },
+    { id: 'G17', a: 'Ganador G16', b: 'Perdedor G9' }
+];
+const QUAL_COLS = {
+    wb: [ { t: 'Previa', ids: ['G1','G2'] }, { t: 'Cuartos', ids: ['G3','G4','G5','G6'] },
+          { t: 'Semifinales', ids: ['G7','G8'] }, { t: 'Final cuadro', ids: ['G9'] } ],
+    lb: [ { t: 'Ronda 1', ids: ['G10','G11'] }, { t: 'Ronda 2', ids: ['G12','G13'] },
+          { t: 'Ronda 3', ids: ['G14','G15'] }, { t: 'Ronda 4', ids: ['G16'] }, { t: 'Final cuadro', ids: ['G17'] } ]
+};
+const QUAL_LOSER_TO = { G1:'G10', G2:'G11', G3:'G13', G4:'G11', G5:'G10', G6:'G12', G7:'G14', G8:'G15', G9:'G17' };
+
 let etapaData = {};
 let currentCat = 'oro';
+
+/* ---------- merges não destrutivos (CSV sobre JSON local) ---------- */
+function mergeTieArr(base, patch) {
+    const b = base || [], p = patch || [];
+    const n = Math.max(b.length, p.length), out = [];
+    for (let i = 0; i < n; i++) out.push(p[i] || b[i] || null);
+    return out;
+}
+function mergePo(base, patch) {
+    if (!patch) return base || null;
+    const out = Object.assign({}, base || {});
+    Object.keys(patch).forEach(k => {
+        const v = patch[k];
+        if (Array.isArray(v)) { if (v.length) out[k] = mergeTieArr(out[k], v); }
+        else if (v != null) out[k] = v;
+    });
+    return out;
+}
+function mergeQual(base, patchList) {
+    const map = {};
+    ((base && base.partidas) || []).forEach(m => map[m.id] = m);
+    (patchList || []).forEach(m => map[m.id] = Object.assign({}, map[m.id], m));
+    return { partidas: Object.values(map) };
+}
+
+/* ---------- CSV: normaliza fase e separa a aba ORO ---------- */
+function csvCell(s) { s = s == null ? '' : String(s); return /[",]/.test(s) ? '"' + s.replace(/"/g, '') + '"' : s; }
+function rowsToCSV(rows) { return rows.map(r => r.map(csvCell).join(',')).join('\n'); }
+function normFase(f) {
+    const s = (f || '').trim();
+    if (/^(tri|repesca|tr\s*\d)/i.test(s)) return 'Triangular';
+    return s;
+}
+function parseCatCSV(text) {
+    const rows = text.trim().split('\n').map(splitLine);
+    if (rows.length < 2) return { grupos: [], playoffs: null };
+    const iF = rows[0].map(x => x.toLowerCase()).indexOf('fase');
+    if (iF >= 0) rows.slice(1).forEach(r => { r[iF] = normFase(r[iF]); });
+    return parseUnifiedCSV(rowsToCSV(rows));
+}
+function parseOroCSV(text) {
+    const rows = text.trim().split('\n').map(splitLine);
+    const out = { orob: { grupos: [], playoffs: null }, final: null, qual: [] };
+    if (rows.length < 2) return out;
+    const h = rows[0].map(x => x.toLowerCase());
+    const iF = h.indexOf('fase'), iL = h.indexOf('local'), iV = h.indexOf('visitante'),
+          iPL = h.indexOf('pontos_local'), iPV = h.indexOf('pontos_visit');
+    const get = (r, i) => (i >= 0 && r[i] != null ? r[i].trim() : '');
+    const num = v => (v !== '' && !isNaN(parseInt(v))) ? parseInt(v) : null;
+    const obRows = [rows[0]], feRows = [rows[0]];
+    for (let i = 1; i < rows.length; i++) {
+        const r = rows[i].slice(), fase = get(r, iF);
+        if (!fase) continue;
+        const q = fase.match(/^(qual\w*|qlf)[\s\-_:·.]*g?\s*(\d{1,2})$/i);
+        if (q) {
+            if (!get(r, iL)) continue;
+            out.qual.push({ id: 'G' + parseInt(q[2]), a: get(r, iL), b: get(r, iV), p_a: num(get(r, iPL)), p_b: num(get(r, iPV)) });
+            continue;
+        }
+        if (/^(fe|final\s*(de\s*)?espa\w*)[\s\-_:·.]+/i.test(fase)) {
+            r[iF] = normFase(fase.replace(/^(fe|final\s*(de\s*)?espa\w*)[\s\-_:·.]+/i, ''));
+            feRows.push(r); continue;
+        }
+        r[iF] = normFase(fase);
+        obRows.push(r);
+    }
+    out.orob = parseUnifiedCSV(rowsToCSV(obRows));
+    if (feRows.length > 1) out.final = parseUnifiedCSV(rowsToCSV(feRows)).playoffs;
+    return out;
+}
 
 async function loadAllData() {
     document.getElementById('last-update').textContent = 'Actualizando…';
@@ -130,22 +278,30 @@ async function loadAllData() {
         const resp = await fetch(LOCAL_FILE);
         if (resp.ok) {
             const local = await resp.json();
-            ['oro','plata','bronce'].forEach(c => { if (local[c]) etapaData[c] = Object.assign({}, etapaData[c], local[c]); });
+            ['oro','plata','bronce'].forEach(c => { if (local[c]) etapaData[c] = Object.assign({}, local[c]); });
         }
     } catch (e) { console.warn('Arquivo local indisponível'); }
     refreshStatus(); renderCat(currentCat);
 
-    // 2) Google Sheets — uma aba por categoria (grupos + playoffs juntos)
+    // 2) Google Sheets — uma aba por categoria
     const tasks = [];
     ['oro','plata','bronce'].forEach(cat => {
         if (DATA_URLS[cat]) tasks.push((async () => {
             try {
                 const t = await fetchCSV(DATA_URLS[cat]);
-                const d = parseUnifiedCSV(t);
-                const patch = {};
-                if (d.grupos && d.grupos.length) patch.grupos = d.grupos;
-                if (d.playoffs) patch.playoffs = d.playoffs;
-                if (Object.keys(patch).length) etapaData[cat] = Object.assign({}, etapaData[cat], patch);
+                const cur = Object.assign({}, etapaData[cat]);
+                if (cat === 'oro') {
+                    const d = parseOroCSV(t);
+                    if (d.orob.grupos && d.orob.grupos.length) cur.grupos = d.orob.grupos;
+                    if (d.orob.playoffs) cur.playoffs = mergePo(cur.playoffs, d.orob.playoffs);
+                    if (d.final) cur.final = mergePo(cur.final, d.final);
+                    if (d.qual.length) cur.qualifying = mergeQual(cur.qualifying, d.qual);
+                } else {
+                    const d = parseCatCSV(t);
+                    if (d.grupos && d.grupos.length) cur.grupos = d.grupos;
+                    if (d.playoffs) cur.playoffs = mergePo(cur.playoffs, d.playoffs);
+                }
+                etapaData[cat] = cur;
             } catch (e) { console.warn('Datos ' + cat + ' indisponível'); }
         })());
     });
@@ -212,7 +368,9 @@ async function fetchCSV(url) {
 }
 
 function refreshStatus() {
-    const s = computeStatus(etapaData);
+    const shim = Object.assign({}, etapaData);
+    if (etapaData.oro && etapaData.oro.final) shim._fe = { grupos: [], playoffs: etapaData.oro.final };
+    const s = computeStatus(shim);
     const el = document.getElementById('status-badge');
     el.className = 'status-badge ' + s.cls;
     el.innerHTML = (s.dot ? '<span class="live-dot"></span>' : '') + '<span>' + s.text + '</span>';
@@ -224,9 +382,137 @@ function showCat(cat, btn) {
     currentCat = cat; renderCat(cat);
 }
 
+/* ---------- chaves com "pistas" de origem (Final de España / Oro B / Qualifying) ---------- */
+function isSlot(n) {
+    const s = String(n == null ? '' : n).trim();
+    return isPlaceholderTeam(s) || /preclasif|clasificad|qualifying|^pareja\s*\d+$/i.test(s);
+}
+function slotText(n) {
+    const s = String(n == null ? '' : n).trim();
+    return (!s || /^(por definir|tbd|a definir|-|–)$/i.test(s)) ? 'Por definir' : s;
+}
+function slotTie(m, opts = {}) {
+    m = m || {};
+    const aS = isSlot(m.a), bS = isSlot(m.b);
+    const has = !aS && !bS && m.p_a != null && m.p_b != null;
+    const aw = has && m.p_a > m.p_b, bw = has && m.p_b > m.p_a;
+    const cls = ['tie']; if (opts.final) cls.push('final'); if (opts.bronze) cls.push('bronze-tie');
+    const seed = i => (opts.seeds && opts.seeds[i] != null) ? `<span class="seed">${opts.seeds[i]}</span>` : '';
+    const row = (name, slot, win, sc, i) => `<div class="tie-row ${win ? 'win' : ''} ${slot ? 'tbd' : ''}">
+            ${seed(i)}<span class="t">${slot ? slotText(name) : name}</span><span class="s">${has ? sc : ''}</span>
+        </div>`;
+    return `<div class="${cls.join(' ')}">
+        <div class="tie-label">${opts.label || m.label || ''}</div>
+        ${row(m.a, aS, aw, m.p_a, 0)}
+        ${row(m.b, bS, bw, m.p_b, 1)}
+        ${opts.foot ? `<div class="tie-foot">${opts.foot}</div>` : ''}
+    </div>`;
+}
+function slotBracket(po, seeds) {
+    po = po || {};
+    const cuartos = padRound(po.cuartos, 4), semis = padRound(po.semifinais, 2);
+    const colC = `<div class="bk-col matches"><div class="bk-round-title">Cuartos</div>
+        ${cuartos.map((m, i) => `<div class="bk-cell">${slotTie(m, { label: 'Cuartos ' + (i+1), seeds: seeds ? seeds[i] : null })}</div>`).join('')}</div>`;
+    const l1 = `<div class="bk-col lines"><div class="bk-round-title"></div><div class="bk-merge"></div><div class="bk-merge"></div></div>`;
+    const colS = `<div class="bk-col matches"><div class="bk-round-title">Semifinales</div>
+        ${semis.map((m, i) => `<div class="bk-cell">${slotTie(m, { label: 'Semifinal ' + (i+1) })}</div>`).join('')}</div>`;
+    const l2 = `<div class="bk-col lines"><div class="bk-round-title"></div><div class="bk-merge"></div></div>`;
+    const colF = `<div class="bk-col matches last"><div class="bk-round-title">Final</div>
+        <div class="bk-cell">${slotTie(po.final, { label: 'Final', final: true })}</div></div>`;
+    return `<div class="bk">${colC}${l1}${colS}${l2}${colF}</div>
+        <div class="sub-label" style="margin-top:14px;">3º y 4º puesto</div>
+        <div class="third-box">${slotTie(po.tercer, { label: '3º y 4º puesto', bronze: true })}</div>`;
+}
+
+/* resolve "Ganador Gx" / "Perdedor Gx" automaticamente quando Gx já tem resultado */
+function winnerOf(m) {
+    if (!m || isSlot(m.a) || isSlot(m.b) || m.p_a == null || m.p_b == null || m.p_a === m.p_b) return null;
+    return m.p_a > m.p_b ? { w: m.a, l: m.b } : { w: m.b, l: m.a };
+}
+function resolveQual(q) {
+    const byId = {};
+    QUAL_BASE.forEach(m => byId[m.id] = Object.assign({}, m, { p_a: null, p_b: null }));
+    ((q && q.partidas) || []).forEach(m => { if (byId[m.id]) Object.assign(byId[m.id], m); });
+    const sub = v => {
+        const r = String(v || '').trim().match(/^(ganador|perdedor)\s*g(\d+)$/i);
+        if (!r) return v;
+        const res = winnerOf(byId['G' + r[2]]);
+        return res ? (r[1].toLowerCase() === 'ganador' ? res.w : res.l) : v;
+    };
+    QUAL_BASE.forEach(({ id }) => { const m = byId[id]; m.a = sub(m.a); m.b = sub(m.b); });
+    return byId;
+}
+function renderQualifying(q) {
+    const byId = resolveQual(q);
+    const col = c => `<div class="de-col">
+        <div class="de-col-title">${c.t}</div>
+        <div class="de-cells">${c.ids.map(id => slotTie(byId[id], {
+            label: id + ' · ' + c.t,
+            final: id === 'G9' || id === 'G17',
+            foot: QUAL_LOSER_TO[id] ? 'Perdedor → ' + QUAL_LOSER_TO[id] : ''
+        })).join('')}</div>
+    </div>`;
+    const qbox = (lbl, id) => {
+        const res = winnerOf(byId[id]);
+        return `<div class="de-q"><div class="lbl">✅ ${lbl}</div>
+            <div class="nm ${res ? '' : 'tbd'}">${res ? res.w : 'Ganador ' + id}</div></div>`;
+    };
+    return `<div class="de-row">
+            <div class="de-row-title w">Cuadro de ganadores</div>
+            <div class="de">${QUAL_COLS.wb.map(col).join('')}${qbox('Clasificada 1', 'G9')}</div>
+        </div>
+        <div class="de-row">
+            <div class="de-row-title l">Cuadro de perdedores</div>
+            <div class="de">${QUAL_COLS.lb.map(col).join('')}${qbox('Clasificada 2', 'G17')}</div>
+        </div>`;
+}
+
+function podiumTitled(po, title) {
+    const html = renderPodium(po);
+    return html ? html.replace('<div class="section-title">Pódio</div>', '<div class="section-title">' + title + '</div>') : '';
+}
+
+function renderOro(data) {
+    data = data || {};
+    const grupos = (data.grupos || []).map(g => renderGrupo(g, 'oro')).join('');
+    return `<div class="oro-subnav">
+            <a href="#oro-final">👑 Final de España</a>
+            <a href="#oro-qual">🆙 Qualifying</a>
+            <a href="#oro-b">🥇 Oro B</a>
+        </div>
+
+        <div class="oro-block" id="oro-final">
+            <div class="section-title">👑 Final de España</div>
+            <div class="format-note">${FORMATO.final}</div>
+            ${slotBracket(data.final, FE_SEEDS)}
+            ${podiumTitled(data.final, 'Pódio · Final de España')}
+        </div>
+
+        <div class="oro-block" id="oro-qual">
+            <div class="section-title">🆙 Qualifying</div>
+            <div class="format-note">${FORMATO.qual}</div>
+            ${renderQualifying(data.qualifying)}
+        </div>
+
+        <div class="oro-block" id="oro-b">
+            <div class="section-title">🥇 Oro B · Fase de grupos</div>
+            <div class="format-note">${FORMATO.orob}</div>
+            ${grupos ? '<div class="groups-grid">' + grupos + '</div>' : '<div class="empty-note">Grupos del Oro B aún no disponibles.</div>'}
+            <div class="section-title" style="margin-top:28px;">🥇 Oro B · Eliminatorias</div>
+            ${slotBracket(data.playoffs, null)}
+            ${podiumTitled(data.playoffs, 'Pódio · Oro B')}
+        </div>`;
+}
+
 function renderCat(cat) {
     const el = document.getElementById('cat-content');
     const data = etapaData[cat];
+    if (cat === 'oro') {
+        if (!data) { el.innerHTML = '<div class="empty-note">Datos de ORO aún no disponibles.</div>'; return; }
+        el.innerHTML = renderOro(data);
+        annotateMatches();
+        return;
+    }
     if (!data || !data.grupos || !data.grupos.length) {
         el.innerHTML = '<div class="empty-note">Datos de ' + cat.toUpperCase() + ' aún no disponibles.<br><span style="font-size:12px;">Se mostrarán tras el sorteo.</span></div>';
         return;
