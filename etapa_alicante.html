@@ -54,7 +54,12 @@
           height: 22px; flex: 0 0 22px; text-align: center; font-size: 10px; font-weight: 800;
           letter-spacing: 1.4px; text-transform: uppercase; color: var(--faint);
       }
-      .de-cells { flex: 1; display: flex; flex-direction: column; justify-content: space-around; gap: 10px; }
+      .de-cells { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+      .de-cell { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+      .de-col.q { flex: 0 0 140px; min-width: 140px; }
+      .de-col.q .de-q { align-self: stretch; flex: 0 0 auto; min-width: 0; }
+      .tie-foot.split { display: flex; justify-content: space-between; gap: 8px; }
+      .tie-foot .gw { color: var(--gold); font-weight: 700; }
       .de-q {
           flex: 0 0 132px; min-width: 132px; align-self: center; text-align: center;
           border: 1px dashed rgba(29,158,117,0.6); background: rgba(29,158,117,0.10);
@@ -136,19 +141,19 @@
 // ABA ORO — valores da coluna "fase":
 //   Oro B (sem prefixo) ... Grupo A / Grupo B / QF1..QF4 / SF1..SF2 / 3lugar / Final
 //   Final de España ....... FE-QF1..FE-QF4 / FE-SF1..FE-SF2 / FE-3lugar / FE-Final
-//   Qualifying ............ QUAL-G1 .. QUAL-G17   (ver QUAL_BASE abaixo)
+//   Qualifying ............ QUAL-G1 .. QUAL-G16   (ver QUAL_BASE abaixo)
 // ABAS PLATA / BRONCE: igual às etapas anteriores.
 const DATA_URLS = {
-    oro:    '',   // TODO: pegar gid da aba ORO Alicante
-    plata:  '',   // TODO: pegar gid da aba PLATA Alicante
-    bronce: ''    // TODO: pegar gid da aba BRONCE Alicante
+    oro:    'https://docs.google.com/spreadsheets/d/e/2PACX-1vStmqJht-743OL0GW5XnC4yONpKE1o1BOfr2r-bG9ewj-oeNM75R-0RhTOi_WXaxa1fkZcvuxt5aWH4/pub?gid=1612129011&single=true&output=csv',
+    plata:  'https://docs.google.com/spreadsheets/d/e/2PACX-1vStmqJht-743OL0GW5XnC4yONpKE1o1BOfr2r-bG9ewj-oeNM75R-0RhTOi_WXaxa1fkZcvuxt5aWH4/pub?gid=1995818906&single=true&output=csv',
+    bronce: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vStmqJht-743OL0GW5XnC4yONpKE1o1BOfr2r-bG9ewj-oeNM75R-0RhTOi_WXaxa1fkZcvuxt5aWH4/pub?gid=2115082108&single=true&output=csv'
 };
 const LOCAL_FILE = 'etapa_alicante_data.json';
-const CALENDARIO_URL = '';   // TODO: gid da aba de horarios/pistas
+const CALENDARIO_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vStmqJht-743OL0GW5XnC4yONpKE1o1BOfr2r-bG9ewj-oeNM75R-0RhTOi_WXaxa1fkZcvuxt5aWH4/pub?gid=1839950023&single=true&output=csv';   // horarios/pistas sábado
 
 const FORMATO = {
     final:  '<b>Final de España desde cuartos</b> (sábado). <b>8 parejas:</b> 6 preclasificadas + 2 del Qualifying. Cruces: <b>1º-8º · 4º-5º · 3º-6º · 2º-7º</b>. Los perdedores de cuartos pasan a los <b>cuartos del Oro B</b>.',
-    qual:   '<b>Doble eliminación · 10 parejas.</b> Con una derrota pasas al cuadro de perdedores; con dos, quedas eliminado. <b>Clasifican 2 parejas</b> a la Final de España: la ganadora del cuadro de ganadores y la ganadora del cuadro de perdedores. <b>No se disputa final:</b> su puesto en la Final lo determina el <b>Ranking Nacional 2026</b>.',
+    qual:   '<b>Doble eliminación · 10 parejas.</b> Con una derrota pasas al cuadro de perdedores; con dos, quedas eliminado. <b>2 partidos de clasificación:</b> cada ganadora de semifinales se enfrenta a una ganadora de la ronda 3 del cuadro de perdedores (<b>G15</b> y <b>G16</b>). En estos partidos, quien pierde queda eliminada. <b>Clasifican a la Final de España las ganadoras de G15 y G16.</b> <b>No se disputa final:</b> su puesto en la Final lo determina el <b>Ranking Nacional 2026</b>.',
     orob:   '<b>2 grupos</b> (uno de 4 y uno de 5). Los <b>1º y 2º</b> de cada grupo pasan a <b>cuartos</b> y se enfrentan a los <b>4 perdedores de cuartos de la Final de España</b>.',
     plata:  '<b>3 grupos</b> (dos de 4 y uno de 5). Los <b>1º y 2º</b> de cada grupo pasan a <b>cuartos</b> (domingo) — 6 parejas. Los <b>3 terceros</b> disputan un <b>triangular de octavos</b> (sábado) — pasan <b>2 parejas</b>. Total: <b>8 parejas</b> a cuartos. <b>Los cruces se definen por sorteo.</b>',
     bronce: '<b>4 grupos</b> (dos de 4 y dos de 5). El <b>1º de cada grupo</b> pasa directo a <b>cuartos</b> (domingo). Los <b>2º y 3º</b> (8 parejas) juegan <b>octavos</b> (sábado · 1 set de 21) — clasifican 4. Total: <b>8 parejas</b> a cuartos. <b>Los cruces se definen por sorteo.</b>'
@@ -167,7 +172,7 @@ const BRACKET_MODE = { oro: 'cuartos', plata: 'cuartos', bronce: 'cuartos' };
 // Cabezas de serie da Final de España (ordem das chaves: C1..C4)
 const FE_SEEDS = [[1, 8], [4, 5], [3, 6], [2, 7]];
 
-/* ---------- Qualifying · doble eliminación (10 parejas, 17 partidos) ---------- */
+/* ---------- Qualifying · doble eliminación · Formato A (10 parejas, 16 partidos) ---------- */
 const QUAL_BASE = [
     // cuadro de ganadores
     { id: 'G1',  a: 'Pareja 8',    b: 'Pareja 9' },
@@ -178,24 +183,26 @@ const QUAL_BASE = [
     { id: 'G6',  a: 'Pareja 2',    b: 'Ganador G2' },
     { id: 'G7',  a: 'Ganador G3',  b: 'Ganador G4' },
     { id: 'G8',  a: 'Ganador G5',  b: 'Ganador G6' },
-    { id: 'G9',  a: 'Ganador G7',  b: 'Ganador G8' },
     // cuadro de perdedores
-    { id: 'G10', a: 'Perdedor G1', b: 'Perdedor G5' },
-    { id: 'G11', a: 'Perdedor G2', b: 'Perdedor G4' },
-    { id: 'G12', a: 'Ganador G10', b: 'Perdedor G6' },
-    { id: 'G13', a: 'Ganador G11', b: 'Perdedor G3' },
-    { id: 'G14', a: 'Ganador G12', b: 'Perdedor G7' },
-    { id: 'G15', a: 'Ganador G13', b: 'Perdedor G8' },
-    { id: 'G16', a: 'Ganador G14', b: 'Ganador G15' },
-    { id: 'G17', a: 'Ganador G16', b: 'Perdedor G9' }
+    { id: 'G9',  a: 'Perdedor G1', b: 'Perdedor G5' },
+    { id: 'G10', a: 'Perdedor G2', b: 'Perdedor G4' },
+    { id: 'G11', a: 'Ganador G9',  b: 'Perdedor G6' },
+    { id: 'G12', a: 'Ganador G10', b: 'Perdedor G3' },
+    { id: 'G13', a: 'Ganador G11', b: 'Perdedor G7' },
+    { id: 'G14', a: 'Ganador G12', b: 'Perdedor G8' },
+    // partidos de clasificación
+    { id: 'G15', a: 'Ganador G7',  b: 'Ganador G14' },
+    { id: 'G16', a: 'Ganador G8',  b: 'Ganador G13' }
 ];
 const QUAL_COLS = {
     wb: [ { t: 'Previa', ids: ['G1','G2'] }, { t: 'Cuartos', ids: ['G3','G4','G5','G6'] },
-          { t: 'Semifinales', ids: ['G7','G8'] }, { t: 'Final cuadro', ids: ['G9'] } ],
-    lb: [ { t: 'Ronda 1', ids: ['G10','G11'] }, { t: 'Ronda 2', ids: ['G12','G13'] },
-          { t: 'Ronda 3', ids: ['G14','G15'] }, { t: 'Ronda 4', ids: ['G16'] }, { t: 'Final cuadro', ids: ['G17'] } ]
+          { t: 'Semifinales', ids: ['G7','G8'] }, { t: 'Clasificación', ids: ['G15','G16'] } ],
+    lb: [ { t: 'Ronda 1', ids: ['G9','G10'] }, { t: 'Ronda 2', ids: ['G11','G12'] },
+          { t: 'Ronda 3', ids: ['G13','G14'] } ]
 };
-const QUAL_LOSER_TO = { G1:'G10', G2:'G11', G3:'G13', G4:'G11', G5:'G10', G6:'G12', G7:'G14', G8:'G15', G9:'G17' };
+const QUAL_LOSER_TO  = { G1:'G9', G2:'G10', G3:'G12', G4:'G10', G5:'G9', G6:'G11', G7:'G13', G8:'G14' };
+const QUAL_WINNER_TO = { G7:'G15', G8:'G16', G13:'G16', G14:'G15' };
+const QUAL_CLASIF    = ['G15', 'G16'];
 
 let etapaData = {};
 let currentCat = 'oro';
@@ -444,26 +451,36 @@ function resolveQual(q) {
 }
 function renderQualifying(q) {
     const byId = resolveQual(q);
+    const foot = id => {
+        const w = QUAL_WINNER_TO[id], l = QUAL_LOSER_TO[id];
+        if (w && l) return `<span class="gw">Ganador → ${w}</span><span>Perdedor → ${l}</span>`;
+        if (w) return `<span class="gw">Ganador → ${w}</span>`;
+        if (l) return `Perdedor → ${l}`;
+        return '';
+    };
     const col = c => `<div class="de-col">
         <div class="de-col-title">${c.t}</div>
-        <div class="de-cells">${c.ids.map(id => slotTie(byId[id], {
-            label: id + ' · ' + c.t,
-            final: id === 'G9' || id === 'G17',
-            foot: QUAL_LOSER_TO[id] ? 'Perdedor → ' + QUAL_LOSER_TO[id] : ''
-        })).join('')}</div>
+        <div class="de-cells">${c.ids.map(id => {
+            const f = foot(id);
+            let html = slotTie(byId[id], { label: id + ' · ' + c.t, final: QUAL_CLASIF.includes(id), foot: f });
+            if (QUAL_WINNER_TO[id] && QUAL_LOSER_TO[id]) html = html.replace('class="tie-foot"', 'class="tie-foot split"');
+            return `<div class="de-cell">${html}</div>`;
+        }).join('')}</div>
     </div>`;
-    const qbox = (lbl, id) => {
+    const qbox = id => {
         const res = winnerOf(byId[id]);
-        return `<div class="de-q"><div class="lbl">✅ ${lbl}</div>
-            <div class="nm ${res ? '' : 'tbd'}">${res ? res.w : 'Ganador ' + id}</div></div>`;
+        return `<div class="de-cell"><div class="de-q"><div class="lbl">✅ Clasificada</div>
+            <div class="nm ${res ? '' : 'tbd'}">${res ? res.w : 'Ganador ' + id}</div></div></div>`;
     };
+    const qcol = `<div class="de-col q"><div class="de-col-title"></div>
+        <div class="de-cells">${QUAL_CLASIF.map(qbox).join('')}</div></div>`;
     return `<div class="de-row">
             <div class="de-row-title w">Cuadro de ganadores</div>
-            <div class="de">${QUAL_COLS.wb.map(col).join('')}${qbox('Clasificada 1', 'G9')}</div>
+            <div class="de">${QUAL_COLS.wb.map(col).join('')}${qcol}</div>
         </div>
         <div class="de-row">
             <div class="de-row-title l">Cuadro de perdedores</div>
-            <div class="de">${QUAL_COLS.lb.map(col).join('')}${qbox('Clasificada 2', 'G17')}</div>
+            <div class="de">${QUAL_COLS.lb.map(col).join('')}<div class="de-col" aria-hidden="true"></div><div class="de-col q" aria-hidden="true"></div></div>
         </div>`;
 }
 
