@@ -30,8 +30,8 @@
             "p_visit": null
           },
           {
-            "local": 1,
-            "visit": 3,
+            "local": 3,
+            "visit": 1,
             "p_local": null,
             "p_visit": null
           },
@@ -55,34 +55,9 @@
           "Dupla B1",
           "Dupla B2",
           "Dupla B3",
-          "Dupla B4",
-          "Dupla B5"
+          "Dupla B4"
         ],
         "partidas": [
-          {
-            "local": 1,
-            "visit": 4,
-            "p_local": null,
-            "p_visit": null
-          },
-          {
-            "local": 2,
-            "visit": 3,
-            "p_local": null,
-            "p_visit": null
-          },
-          {
-            "local": 4,
-            "visit": 0,
-            "p_local": null,
-            "p_visit": null
-          },
-          {
-            "local": 2,
-            "visit": 1,
-            "p_local": null,
-            "p_visit": null
-          },
           {
             "local": 0,
             "visit": 3,
@@ -90,7 +65,7 @@
             "p_visit": null
           },
           {
-            "local": 4,
+            "local": 1,
             "visit": 2,
             "p_local": null,
             "p_visit": null
@@ -102,8 +77,8 @@
             "p_visit": null
           },
           {
-            "local": 1,
-            "visit": 3,
+            "local": 3,
+            "visit": 1,
             "p_local": null,
             "p_visit": null
           },
@@ -114,8 +89,8 @@
             "p_visit": null
           },
           {
-            "local": 3,
-            "visit": 4,
+            "local": 2,
+            "visit": 3,
             "p_local": null,
             "p_visit": null
           }
@@ -183,7 +158,7 @@
         "p_a": null,
         "p_b": null
       },
-      "_nota": "1º y 2º de cada grupo (4) vs 4 perdedores de cuartos de la Final de España."
+      "_nota": "Oro B: 8 parejas en 2 grupos de 4 (1 directa + 7 eliminadas del Qualifying). 1º y 2º de cada grupo + 4 perdedores de cuartos de la Final de España."
     },
     "final": {
       "cuartos": [
@@ -249,7 +224,7 @@
       "_nota": "6 preclasificadas + 2 del Qualifying. Cruces 1-8, 4-5, 3-6, 2-7. Perdedores de cuartos -> cuartos Oro B."
     },
     "qualifying": {
-      "_nota": "Doble eliminación · Formato A · 10 parejas, 16 partidos. Clasificación: G15 (Ganador G7 vs Ganador G14) y G16 (Ganador G8 vs Ganador G13). Clasifican ganadoras de G15 y G16. Sin final.",
+      "_nota": "Doble eliminación · 9 parejas, 14 partidos, sin final. Clasificación: G13 (Ganador G6 vs Ganador G11) y G14 (Ganador G7 vs Ganador G12). Eliminadas pasan al Oro B.",
       "partidas": [
         {
           "id": "G1",
@@ -260,22 +235,22 @@
         },
         {
           "id": "G2",
-          "a": "Pareja 7",
-          "b": "Pareja 10",
-          "p_a": null,
-          "p_b": null
-        },
-        {
-          "id": "G3",
           "a": "Pareja 1",
           "b": "Ganador G1",
           "p_a": null,
           "p_b": null
         },
         {
-          "id": "G4",
+          "id": "G3",
           "a": "Pareja 4",
           "b": "Pareja 5",
+          "p_a": null,
+          "p_b": null
+        },
+        {
+          "id": "G4",
+          "a": "Pareja 2",
+          "b": "Pareja 7",
           "p_a": null,
           "p_b": null
         },
@@ -288,29 +263,29 @@
         },
         {
           "id": "G6",
-          "a": "Pareja 2",
-          "b": "Ganador G2",
+          "a": "Ganador G2",
+          "b": "Ganador G3",
           "p_a": null,
           "p_b": null
         },
         {
           "id": "G7",
-          "a": "Ganador G3",
-          "b": "Ganador G4",
+          "a": "Ganador G4",
+          "b": "Ganador G5",
           "p_a": null,
           "p_b": null
         },
         {
           "id": "G8",
-          "a": "Ganador G5",
-          "b": "Ganador G6",
+          "a": "Perdedor G1",
+          "b": "Perdedor G5",
           "p_a": null,
           "p_b": null
         },
         {
           "id": "G9",
-          "a": "Perdedor G1",
-          "b": "Perdedor G5",
+          "a": "Ganador G8",
+          "b": "Perdedor G3",
           "p_a": null,
           "p_b": null
         },
@@ -324,42 +299,28 @@
         {
           "id": "G11",
           "a": "Ganador G9",
-          "b": "Perdedor G6",
+          "b": "Perdedor G7",
           "p_a": null,
           "p_b": null
         },
         {
           "id": "G12",
           "a": "Ganador G10",
-          "b": "Perdedor G3",
+          "b": "Perdedor G6",
           "p_a": null,
           "p_b": null
         },
         {
           "id": "G13",
-          "a": "Ganador G11",
-          "b": "Perdedor G7",
+          "a": "Ganador G6",
+          "b": "Ganador G11",
           "p_a": null,
           "p_b": null
         },
         {
           "id": "G14",
-          "a": "Ganador G12",
-          "b": "Perdedor G8",
-          "p_a": null,
-          "p_b": null
-        },
-        {
-          "id": "G15",
           "a": "Ganador G7",
-          "b": "Ganador G14",
-          "p_a": null,
-          "p_b": null
-        },
-        {
-          "id": "G16",
-          "a": "Ganador G8",
-          "b": "Ganador G13",
+          "b": "Ganador G12",
           "p_a": null,
           "p_b": null
         }
